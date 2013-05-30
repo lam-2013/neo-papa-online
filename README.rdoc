@@ -1,4 +1,4 @@
-progetto giovedì
+progetto giovedì pomeriggio
 
 == Welcome to Rails
 
