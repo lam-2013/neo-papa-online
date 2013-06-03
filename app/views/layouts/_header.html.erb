@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "New Dad", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%=link_to "Home",    root_path%></li>
+          <% if signed_in? %>
+            <li><%= link_to 'Users', '#' %></li>
+            <li>
+               <a href="#">Account</a>
+              <ul>
+                <li><%= link_to 'Profilo', current_user%></li>
+                <li><%= link_to 'Impostazioni', '#' %></li>
+                <li><%= link to 'Sign out', signout_path, method: 'delete' %></li>
+              </ul>
+            </li>
+          <% else %>
+            <li><%= link_to 'Sign in', signin_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
