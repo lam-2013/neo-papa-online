@@ -7,11 +7,11 @@ Newdad::Application.routes.draw do
 
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+ #match '/signin', to: 'sessions#new'
+  #match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+ # resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
