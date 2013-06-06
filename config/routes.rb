@@ -3,11 +3,12 @@ Newdad::Application.routes.draw do
 
   #get "users/new"
 
-  root :to => 'users#new'
+  root :to => 'pages#intro'
 
   match '/about', to: 'pages#about'
   match '/contact', to: 'pages#contact'
- #match '/signin', to: 'sessions#new'
+  match '/signup', to: 'users#new'
+  #match '/signin', to: 'sessions#new'
   #match '/signout', to: 'sessions#destroy', via: :delete
 
   resources :users
