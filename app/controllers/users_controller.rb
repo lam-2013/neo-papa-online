@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:success] = 'Benvenuto in New Dad'
+      sign_in @user
       redirect_to @user
     else
       render 'new'

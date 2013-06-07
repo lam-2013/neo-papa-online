@@ -4,38 +4,26 @@
   <h1>Benvenuto in New Dad</h1>
 </div>
 
-<%= link_to "Registrati ora!", signup_path, class: "btn btn-large btn-primary" %>
 
-<% if signed_in? %>
-    <li><%= link_to "Users", users_path %></li>
-    <li id="fat-menu" class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Profile", current_user %></li>
-        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-        <li class="divider"></li>
-        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
-      </ul>
-    </li>
-<% else %>
-    <li>
+
       <div class="row">
-      <div class="span6 offset3">
-        <%= form_for(:session, url: sessions_path) do |f| %>
+          <div class="span6 offset3">
+            <%= form_for(:session, url: sessions_path) do |f| %>
 
-            <%= f.label :email %>
-            <%= f.text_field :email %>
+                <%= f.label :email %>
+                <%= f.text_field :email %>
 
-            <%= f.label :password %>
-            <%= f.password_field :password %>
+                <%= f.label :password %>
+                <%= f.password_field :password %>
 
-            <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
+                <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
+
+            <% end %>
             <p>Nuovo utente? <%= link_to 'Registrati ora!', signup_path %></p>
-        <% end %>
+          </div>
       </div>
-        </div>
-    </li>
-<% end %>
+
+
 
 
 

@@ -1,8 +1,6 @@
 Newdad::Application.routes.draw do
 
 
-  #get "users/new"
-
   root :to => 'sessions#new'
 
   match '/about', to: 'pages#about'
