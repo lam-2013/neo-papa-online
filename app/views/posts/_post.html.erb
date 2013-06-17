@@ -1,6 +1,7 @@
 <li>
   <span><%= post.content %></span>
-  <span>Postato <%= time_ago_in_words(post.created_at) minuti fa%></span>
+  <span>Postato <%= time_ago_in_words(post.created_at)%>minuti fa</span>
   <% if current_user?(post.user) %>
     <%= link_to 'delete', post, method: :delete, data: {confirm: 'Sei sicuro?'}, title: post.content %>
+  <% end %>
 </li>

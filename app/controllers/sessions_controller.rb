@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    @post = current_user.posts.build if signed_in?
   end
 
   def create

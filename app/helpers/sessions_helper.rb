@@ -26,4 +26,8 @@ module SessionsHelper
     user == current_user
   end
 
+  def signed_in_user
+    redirect_to signin_url, notice: 'Per cortesia loggati' unless signed_in?
+  end
+
 end

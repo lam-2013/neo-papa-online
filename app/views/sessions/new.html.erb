@@ -1,7 +1,20 @@
 <% provide :title, 'Intro' %>
 
+
+<% if signed_in? %>
+
 <div class="row">
   <div class="span6 offset3">
+    <section>
+      <%= render 'shared/user_info' %>
+    </section>
+  </div>
+  <div>
+    <%= render 'shared/post_form' %>
+  </div>
+</div>
+
+<% else %>
     <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.label :email %>
@@ -14,12 +27,12 @@
 
     <% end %>
     <p>Nuovo utente? <%= link_to 'Registrati ora!', signup_path %></p>
-  </div>
-</div>
 
-<div class="center hero-unit">
-  <h1>Benvenuto in New Dad</h1>
-</div>
+
+    <div class="center hero-unit">
+      <h1>Benvenuto in New Dad</h1>
+    </div>
+<% end %>
 
 
 

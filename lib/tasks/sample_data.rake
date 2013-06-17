@@ -26,5 +26,11 @@ namespace :db do
                    n_children: children)
 
     end
+
+    users = User.all(limit: 10)
+    50.times do
+      post_content = Faker::Lorem.sentence(8)
+      users.each { |user| user.posts.create!(content: post_content)}
+    end
   end
 end
