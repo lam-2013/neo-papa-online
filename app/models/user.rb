@@ -5,6 +5,14 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+  #un utente segue molti utenti attraverso la tabella 'relationship'
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+
+  #un utente è seguito da molti utenti tramite la tabella 'reverse relationship'
+  has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
+  has_many :followers, through: :reverse_relationships
+
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
@@ -14,6 +22,22 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   validates :n_children, presence:  true
+
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def feed
+    Post.from_users_followed_by(self)
+  end
 
   private
 

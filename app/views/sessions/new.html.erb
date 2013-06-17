@@ -1,16 +1,17 @@
 <% provide :title, 'Intro' %>
 
-
 <% if signed_in? %>
 
-<div class="row">
-  <div class="span6 offset3">
+<div class="row" xmlns="http://www.w3.org/1999/html">
+  <aside class="span3">
     <section>
       <%= render 'shared/user_info' %>
     </section>
-  </div>
-  <div>
+  </aside>
+
+  <div class="span9">
     <%= render 'shared/post_form' %>
+    <h3>Wall</h3>
   </div>
 </div>
 
@@ -26,11 +27,12 @@
         <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
 
     <% end %>
-    <p>Nuovo utente? <%= link_to 'Registrati ora!', signup_path %></p>
+
 
 
     <div class="center hero-unit">
       <h1>Benvenuto in New Dad</h1>
+      <p>Nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-large btn-primary' %></p>
     </div>
 <% end %>
 

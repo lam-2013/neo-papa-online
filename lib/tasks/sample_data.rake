@@ -4,10 +4,10 @@ namespace :db do
 
   task populate: :environment do
 
-    admin = User.create!(name: "Giulia Liberti",
-                         email: "giulia.liberti@studenti.polito.it",
-                         password: "newdad2013",
-                         password_confirmation: "newdad2013",
+    admin = User.create!(name: "giulia",
+                         email: "giulia@email.it",
+                         password: "giulia89",
+                         password_confirmation: "giulia89",
                          n_children: "2")
 
     admin.toggle!(:admin)
