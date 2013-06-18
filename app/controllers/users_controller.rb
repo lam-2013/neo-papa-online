@@ -11,10 +11,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
   end
 
   def create
-
     @user = User.new(params[:user])
 
     if @user.save
@@ -53,6 +53,29 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = 'Utente cancellato!'
     redirect_to users_url
+  end
+
+  def following
+    @title = 'Following'
+    @user = User.find(params[:id])
+    @users = @user.followed_users.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def followers
+    @title = 'Followers'
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
+
+  def search
+    @users = User.search(params[:search]).paginate(page: params[:page])
+  end
+
+  def messages
+    @user = User.find(params[:id])
+    @messages = @user.received_messages.paginate(page: params[:page])
   end
 
   private

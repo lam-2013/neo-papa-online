@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
+
   attr_accessible :email, :name, :password, :password_confirmation, :n_children
 
   has_secure_password
+
+  has_private_messages
 
   has_many :posts, dependent: :destroy
 
@@ -37,6 +40,14 @@ class User < ActiveRecord::Base
 
   def feed
     Post.from_users_followed_by(self)
+  end
+
+  def self.search(user_name)
+    if user_name
+      where('name LIKE ?', "%#{user_name}%")
+    else
+      scoped # return an empty result set
+    end
   end
 
   private

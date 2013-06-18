@@ -2,7 +2,9 @@ class SessionsController < ApplicationController
 
   def new
     @post = current_user.posts.build if signed_in?
+    @feed_items = current_user.feed.paginate(page: params[:page])
   end
+
 
   def create
 

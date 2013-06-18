@@ -3,34 +3,71 @@ namespace :db do
   desc "Fill database with sample data"
 
   task populate: :environment do
+    make_users
+    make_posts
+    make_relationships
+    make_private_messages
+  end
+end
 
-    admin = User.create!(name: "giulia",
-                         email: "giulia@email.it",
-                         password: "giulia89",
-                         password_confirmation: "giulia89",
-                         n_children: "2")
+def  make_users
 
-    admin.toggle!(:admin)
+  admin = User.create!(name: "giulia",
+                       email: "giulia@email.it",
+                       password: "giulia89",
+                       password_confirmation: "giulia89",
+                       n_children: "2")
 
-    20.times do |n|
+  admin.toggle!(:admin)
 
-      name  = Faker::Name.name
-      email = "example-#{n+1}@newdad.it"
-      password  = "password"
-      children = rand(5)
+  20.times do |n|
 
-      User.create!(name: name,
-                   email: email,
-                   password: password,
-                   password_confirmation: password,
-                   n_children: children)
+    name  = Faker::Name.name
+    email = "example-#{n+1}@newdad.it"
+    password  = "password"
+    children = rand(5)
 
-    end
+    User.create!(name: name,
+                 email: email,
+                 password: password,
+                 password_confirmation: password,
+                 n_children: children)
 
-    users = User.all(limit: 10)
-    50.times do
-      post_content = Faker::Lorem.sentence(8)
-      users.each { |user| user.posts.create!(content: post_content)}
-    end
+  end
+end
+
+def make_posts
+
+  users = User.all(limit: 10)
+  50.times do
+    post_content = Faker::Lorem.sentence(8)
+    users.each { |user| user.posts.create!(content: post_content)}
+  end
+end
+
+def make_relationships
+
+  users = User.all
+  user = users.first
+  followed_users = users[2..15]
+  followers = users[3..20]
+  followed_users.each { |followed| user.follow!(followed) }
+  followers.each { |follower| follower.follow!(user) }
+
+end
+
+def make_private_messages
+  first_user = User.first
+  users = User.all
+  message_from_users = users[3..12]
+  message_from_users.each do |user|
+    msg_body = Faker::Lorem.sentence(8)
+    msg_subject = Faker::Lorem.sentence(3)
+    message = Message.new
+    message.sender = user
+    message.recipient = first_user
+    message.subject = msg_subject
+    message.body = msg_body
+    message.save!
   end
 end

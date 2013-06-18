@@ -11,6 +11,7 @@ class PostsController < ApplicationController
       flash[:success] = 'Post creato!'
         redirect_to root_url
     else
+      @feed_item = []
       render 'sessions/new'
     end
 

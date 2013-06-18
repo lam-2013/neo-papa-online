@@ -1,0 +1,11 @@
+<% provide :title, 'Messaggi privati' %>
+
+<h1>Messaggi ricevuti</h1>
+
+<%= will_paginate @messages %>
+
+<ul class="messages">
+  <%= render @messages %>
+</ul>
+
+<%= will_paginate @messages %>
