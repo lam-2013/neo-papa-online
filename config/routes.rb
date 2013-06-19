@@ -9,7 +9,7 @@ Newdad::Application.routes.draw do
 
   resources :users do
     member do
-      get :following, :followers, :messages
+      get :following, :followers, :messages, :amici
     end
 
     collection do

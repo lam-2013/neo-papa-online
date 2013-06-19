@@ -1,5 +1,7 @@
 <% provide :title, @user.name %>
 
+<%=  render 'users/menu_profilo' %>
+
 <div class="row">
   <aside class="span4">
     <section>
@@ -10,7 +12,7 @@
     </section>
 
     <section>
-      <% render 'shared/stats' %>
+      <%= render 'shared/stats' %>
     </section>
     <% if current_user.following?(@user) %>
         <section>
