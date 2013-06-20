@@ -7,6 +7,7 @@ namespace :db do
     make_posts
     make_relationships
     make_private_messages
+    make_childrens
   end
 end
 
@@ -25,7 +26,7 @@ def  make_users
     name  = Faker::Name.name
     email = "example-#{n+1}@newdad.it"
     password  = "password"
-    children = rand(5)
+    children = 2
 
     User.create!(name: name,
                  email: email,
@@ -70,4 +71,15 @@ def make_private_messages
     message.body = msg_body
     message.save!
   end
+end
+
+def make_childrens
+  users = User.all
+
+ 2.times do
+
+  users.each { |user| user.childrens.create!(year: rand(1980..2013),
+                                              month: rand(1..12),
+                                              day: rand(1..31))}
+   end
 end

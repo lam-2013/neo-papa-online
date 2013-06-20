@@ -23,6 +23,18 @@
         <%= f.label :n_children, 'Numero di figli'%>
         <%= f.text_field :n_children %>
 
+        <%= f.label :city, 'Dove abiti'%>
+        <%= f.text_field :city %>
+
+        <%= f.label :description, 'Breve descrizione personale'%>
+        <%= f.text_field :description %>
+
+        <%= f.label :em_situation,'Situazione sentimentale'%>
+        <%= f.text_field :em_situation %>
+
+        <%= f.label :employment, 'Lavoro'%>
+        <%= f.text_field :employment %>
+
         <%= f.submit 'Salva le modifiche', class: 'btn btn-large btn-primary' %>
 
     <% end %>

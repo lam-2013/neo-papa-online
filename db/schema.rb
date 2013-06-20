@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618090033) do
+ActiveRecord::Schema.define(:version => 20130620100432) do
+
+  create_table "children", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "year"
+    t.integer  "month"
+    t.integer  "day"
+    t.string   "name"
+    t.string   "city"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "messages", :force => true do |t|
     t.integer  "sender_id"
@@ -54,6 +65,10 @@ ActiveRecord::Schema.define(:version => 20130618090033) do
     t.string   "remember_token"
     t.integer  "n_children"
     t.boolean  "admin",           :default => false
+    t.string   "city"
+    t.string   "description"
+    t.string   "em_situation"
+    t.string   "employment"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

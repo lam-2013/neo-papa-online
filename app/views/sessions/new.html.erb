@@ -1,28 +1,31 @@
 <% provide :title, 'Intro' %>
 
 <% if signed_in? %>
-  <div class="row">
+    <div class="row">
 
-    <aside class="span3">
+      <aside class="span3">
 
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
+        <section>
+          <%= render 'shared/user_info' %>
+        </section>
 
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
 
-    </aside>
+      </aside>
 
-    <div class="span9">
-      <%= render 'shared/post_form' %>
-      <h3>Wall</h3>
-      <%=  render 'shared/feed' %>
+      <div class="span9">
+        <%= render 'shared/post_form' %>
+        <h3>Wall</h3>
+        <%=  render 'shared/feed' %>
+      </div>
     </div>
-  </div>
 
-<% else %>
+<%else%>
+
+
+
 
     <%= form_for(:session, url: sessions_path) do |f| %>
 
@@ -34,7 +37,6 @@
 
         <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
 
-    <% end %>
 
     <div class="center hero-unit">
       <h1>Benvenuto in New Dad</h1>
@@ -42,6 +44,4 @@
     </div>
 <% end %>
 
-
-
-
+<% end %>

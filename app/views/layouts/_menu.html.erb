@@ -1,6 +1,23 @@
+<%# author:Giulia %>
+
 <% if signed_in?%>
 
-    <ul class='menu'>
-      <li><%= link_to 'messaggi', about_path %></li>
-    </ul>
+    <div class="navbar-inner-fixed-top navbar-inverse">
+      <div class="navbar-inner">
+        <div class="container">
+          <ul class="nav pull">
+
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Profilo', @user %></li>
+            <li><%= link_to 'Messaggi', '#' %></li>
+            <li><%= link_to 'Muro dello Sfogo', '#' %></li>
+            <li><%= link_to 'Consigli', '#' %></li>
+            <li><%= link_to 'Eventi', eventi_path %></li>
+
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
 <% end %>

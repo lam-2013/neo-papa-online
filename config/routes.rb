@@ -7,6 +7,8 @@ Newdad::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete
 
+  match '/eventi', to: 'pages#eventi'
+
   resources :users do
     member do
       get :following, :followers, :messages, :amici
