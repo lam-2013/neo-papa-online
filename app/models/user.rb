@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment
+  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :year, :month, :day
 
   has_secure_password
   has_private_messages
@@ -27,10 +27,14 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   validates :n_children, presence:  true
+
   validates :city, length: { maximum: 50 }
   validates :description, length: { maximum: 450}
   validates :em_situation, length:{ maximum: 50 }
   validates :employment, length:{ maximum: 50}
+  validates :year, length: {maximum: 4}
+  validates :month, length: {maximum: 2}
+  validates :day, length: {maximum: 2}
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)

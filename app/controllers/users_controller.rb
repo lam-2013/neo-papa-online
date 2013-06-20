@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
       sign_in @user
 
-      redirect_to @user
+      render 'pages/informazioni_profilo'
     else
 
       render 'edit'

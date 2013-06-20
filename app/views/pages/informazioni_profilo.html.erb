@@ -1,0 +1,33 @@
+<% provide :title, 'Informazioni profilo' %>
+
+<%=  render 'users/menu_profilo' %>
+
+<div class="row">
+  <aside class="span4">
+    <%= render 'shared/user_info_small'%>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+
+  <div class="span8">
+    <h3>Informazioni di <%= current_user.name %></h3>
+
+    <div>
+      <p>Nickname: <%= current_user.name %></p>
+      <p>Email: <%= current_user.email %></p>
+
+      <p>Data di nascita: <%= current_user.day %>/<%= current_user.month %>/<%= current_user.year %></p>
+      <p>Abiti a: <%= current_user.city %></p>
+      <p>Descrizione: <%= current_user.description %></p>
+      <p>Situazione sentimentale: <%= current_user.em_situation %></p>
+      <p>Lavoro: <%= current_user.employment %></p>
+
+      <p>Numero di figli: <%= current_user.n_children %></p>
+
+
+
+    </div>
+
+  </div>
+</div>

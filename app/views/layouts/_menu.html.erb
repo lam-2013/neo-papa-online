@@ -8,16 +8,15 @@
           <ul class="nav pull">
 
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'Profilo', @user %></li>
-            <li><%= link_to 'Messaggi', '#' %></li>
+            <li><%= link_to 'Profilo', current_user %></li>
+            <li><%= link_to 'Messaggi', messages_user_path(current_user) %></li>
             <li><%= link_to 'Muro dello Sfogo', '#' %></li>
             <li><%= link_to 'Consigli', '#' %></li>
             <li><%= link_to 'Eventi', eventi_path %></li>
 
           </ul>
-
+          <%= render 'users/search_form' %>
         </div>
       </div>
     </div>
-
 <% end %>
