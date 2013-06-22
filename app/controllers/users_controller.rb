@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts= @user.posts.paginate(page: params[:page])
+    @post = current_user.posts.build if signed_in?
   end
 
   def new
@@ -20,7 +21,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Benvenuto in New Dad'
       sign_in @user
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
@@ -76,6 +77,7 @@ class UsersController < ApplicationController
     @users2 = @user.followed_users.paginate(page: params[:page])
     render 'amici'
   end
+
 
   def search
     @users = User.search(params[:search]).paginate(page: params[:page])

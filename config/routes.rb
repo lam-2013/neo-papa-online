@@ -8,7 +8,6 @@ Newdad::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
 
   match '/eventi', to: 'pages#eventi'
-
   match '/info_utente', to: 'pages#informazioni_profilo'
 
   resources :users do

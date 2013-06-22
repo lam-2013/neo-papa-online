@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   has_secure_password
   has_private_messages
 
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
+
   has_many :posts, dependent: :destroy
   has_many :childrens
 

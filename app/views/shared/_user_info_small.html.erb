@@ -4,3 +4,7 @@
   <span><%= link_to 'Modifica Profilo', edit_user_path(current_user) %></span>
   <span><b>Posts:</b> <%= current_user.posts.count %></span>
 </section>
+
+<section>
+  <%= render 'shared/stats' %>
+</section>

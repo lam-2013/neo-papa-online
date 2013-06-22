@@ -7,7 +7,12 @@ namespace :db do
     make_posts
     make_relationships
     make_private_messages
-    make_childrens
+    make_children
+    make_tags
+    make_categories
+    make_questions
+    make_answers
+    make_question_tag_relationship
   end
 end
 
@@ -73,7 +78,7 @@ def make_private_messages
   end
 end
 
-def make_childrens
+def make_children
   users = User.all
 
  2.times do
@@ -82,4 +87,83 @@ def make_childrens
                                               month: rand(1..12),
                                               day: rand(1..31))}
    end
+end
+
+
+
+def make_tags
+  Tag.create!(title: 'allergie')
+  Tag.create!(title: 'cartoni animati')
+  Tag.create!(title: 'denti')
+  Tag.create!(title: 'film')
+  Tag.create!(title: 'libri')
+  Tag.create!(title: 'mare')
+  Tag.create!(title: 'montagna')
+  Tag.create!(title: 'pappe')
+  Tag.create!(title: 'pannolini')
+  Tag.create!(title: 'raffreddore')
+  Tag.create!(title: 'scuola')
+  Tag.create!(title: 'tosse')
+end
+
+def make_categories
+
+  Category.create!(title: "consigli")
+  Category.create!(title: 'educazione')
+  Category.create!(title: 'giochi')
+  Category.create!(title: 'ristoranti')
+  Category.create!(title: 'salute')
+  Category.create!(title: 'vacanze')
+
+end
+
+def make_questions
+
+  users = User.all(limit: 16)
+
+  30.times do
+    question_title = Faker::Lorem.sentence(6)
+    question_content = Faker::Lorem.sentence(6)
+
+    users.each { |user| user.questions.create!(title: question_title,
+                                           category_id: rand(7),
+                                           age: '4 mesi',
+                                           content: question_content)}
+  end
+
+end
+
+def make_answers
+
+  users = User.all(limit: 13)
+
+  10.times do
+
+    questions = Question.all.count
+
+    answer_content = Faker::Lorem.sentence(6)
+
+    users.each{ |user| user.answers.create!(question_id: rand(questions+1),
+                                            content: answer_content)}
+
+  end
+
+end
+
+def make_question_tag_relationship
+
+   questions = Question.all
+   tags = Tag.all.count
+
+   questions.each {|question| question.create!(tag_id: rand(tags+1))}
+   tag
+
+   users = User.all
+   user = users.first
+   followed_users = users[2..15]
+   followers = users[3..20]
+   followed_users.each { |followed| user.follow!(followed) }
+   followers.each { |follower| follower.follow!(user) }
+
+
 end

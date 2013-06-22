@@ -1,4 +1,4 @@
-<% provide :title, 'Intro' %>
+<% provide :title %>
 
 <% if signed_in? %>
     <div class="row">
@@ -24,9 +24,6 @@
 
 <%else%>
 
-
-
-
     <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.label :email %>
@@ -42,6 +39,12 @@
       <h1>Benvenuto in New Dad</h1>
       <div>Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-large btn-primary' %></div>
     </div>
+
+        <video id="video1" width="320" height="240" controls>
+          <source src="video/Intermission-Walk-in.ogv" type="video/ogg">
+          <source src="video/Intermission-Walk-in_512kb.mp4" type="video/mp4">
+        </video>
+
 <% end %>
 
 <% end %>

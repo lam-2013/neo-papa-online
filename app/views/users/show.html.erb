@@ -1,36 +1,69 @@
 <% provide :title, @user.name %>
 
-<%=  render 'users/menu_profilo' %>
+<% #Controllo se l'utente è quello di cui è aperta la sessione o no %>
+<% if @user.id == current_user.id %>
 
-<div class="row">
-  <aside class="span4">
+    <% #L'utente è la persona loggata%>
+    <%=  render 'users/menu_profilo' %>
 
-    <section>
-      <%= gravatar_for @user %>
-      <h1><%= @user.name %></h1>
-      <span><%= link_to 'Profilo', @user %></span>
-      <span><b>Posts:</b> <%= @user.posts.count %></span>
-    </section>
+    <div class="row">
+      <aside class="span4">
+        <%= render 'shared/user_info_small' %>
+      </aside>
 
-    <section>
-      <%= render 'shared/stats' %>
-    </section>
-    <% if current_user.following?(@user) %>
+      <div class="span8">
+
+        <%= render 'shared/post_form' %>
+
+        <% if current_user.posts.any? %>
+            <h3>Post (<%= @user.posts.count %>)</h3>
+            <ol class="posts">
+              <%= render @posts %>
+            </ol>
+            <% will_paginate @posts %>
+        <% end %>
+      </div>
+    </div>
+
+    <% else %>
+
+    <% #L'utente NON è la persona loggata, può essere un utente del sito, un suo follower o following --> possibilità di cambiare formattazione %>
+    <% #No possibilità di: modificare il profilo, vedere il menù amici-informazioni-azioni %>
+    <div class="row">
+      <aside class="span4">
+
         <section>
-          <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
-          <div class="message"></div>
+          <%= gravatar_for @user %>
+          <h1><%= @user.name %></h1>
+          <span><%= link_to 'Profilo', @user %></span>
+          <span><b>Posts:</b> <%= @user.posts.count %></span>
         </section>
-    <% end %>
-  </aside>
 
-  <div class="span8">
-    <%=  render 'follow_form' if signed_in? %>
-    <% if @user.posts.any? %>
-      <h3>Post (<%= @user.posts.count %>)</h3>
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <% will_paginate @posts %>
+        <section>
+          <%= render 'shared/stats' %>
+        </section>
+        <% if current_user.following?(@user) %>
+            <section>
+              <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+              <div class="message"></div>
+            </section>
+        <% end %>
+      </aside>
+
+      <div class="span8">
+        <%=  render 'follow_form' if signed_in? %>
+
+        <% if @user.posts.any? %>
+            <h3>Post (<%= @user.posts.count %>)</h3>
+            <ol class="posts">
+              <%= render @posts %>
+            </ol>
+            <% will_paginate @posts %>
+        <% end %>
+      </div>
+    </div>
     <% end %>
-  </div>
-</div>
+
+
+
+
