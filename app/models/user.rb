@@ -19,8 +19,6 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :reverse_relationships
 
-  has_many :amici
-
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
@@ -53,6 +51,10 @@ class User < ActiveRecord::Base
 
   def feed
     Post.from_users_followed_by(self)
+  end
+
+  def query
+    Question.question_from_users_followed_by(self)
   end
 
   def self.search(user_name)

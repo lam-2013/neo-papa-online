@@ -1,0 +1,8 @@
+
+<% if @query_items.any? %>
+
+    <ol>
+      <%= render partial: 'shared/query_item', collection: @query_items %>
+    </ol>
+<% end %>
+

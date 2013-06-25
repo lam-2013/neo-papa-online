@@ -12,7 +12,7 @@ namespace :db do
     make_categories
     make_questions
     make_answers
-    make_question_tag_relationship
+   # make_question_tag_relationship
   end
 end
 
@@ -136,10 +136,9 @@ end
 def make_answers
 
   users = User.all(limit: 13)
+  questions = Question.all.count
 
   10.times do
-
-    questions = Question.all.count
 
     answer_content = Faker::Lorem.sentence(6)
 
@@ -152,18 +151,15 @@ end
 
 def make_question_tag_relationship
 
-   questions = Question.all
-   tags = Tag.all.count
+  questions = Question.all
+  tags = Tag.all
+  question = questions.first
 
-   questions.each {|question| question.create!(tag_id: rand(tags+1))}
-   tag
 
-   users = User.all
-   user = users.first
-   followed_users = users[2..15]
-   followers = users[3..20]
-   followed_users.each { |followed| user.follow!(followed) }
-   followers.each { |follower| follower.follow!(user) }
+  questions.each{ |tag| question.has_tag!(tag)}
+
+
 
 
 end
+

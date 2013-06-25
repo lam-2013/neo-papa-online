@@ -35,9 +35,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
 
       flash[:success] = 'Profilo aggiornato'
-
       sign_in @user
-
       render 'pages/informazioni_profilo'
     else
 
@@ -50,7 +48,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
     User.find(params[:id]).destroy
     flash[:success] = 'Utente cancellato!'
     redirect_to users_url
@@ -70,14 +67,13 @@ class UsersController < ApplicationController
     render 'show_follow'
   end
 
-  def amici
+  def friends
     @title = 'Amici'
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     @users2 = @user.followed_users.paginate(page: params[:page])
-    render 'amici'
+    render 'friends'
   end
-
 
   def search
     @users = User.search(params[:search]).paginate(page: params[:page])

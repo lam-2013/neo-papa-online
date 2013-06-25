@@ -10,9 +10,11 @@ Newdad::Application.routes.draw do
   match '/eventi', to: 'pages#eventi'
   match '/info_utente', to: 'pages#informazioni_profilo'
 
+  match '/domande', to: 'questions#new'
+
   resources :users do
     member do
-      get :following, :followers, :messages, :amici
+      get :following, :followers, :messages, :friends
     end
 
     collection do
@@ -24,6 +26,7 @@ Newdad::Application.routes.draw do
   resources :posts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:new, :create, :destroy]
+  resources :questions, only: [:new, :create, :destroy, :index]
 
 
   # The priority is based upon order of creation:

@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   def new
     @post = current_user.posts.build if signed_in?
     @feed_items = current_user.feed.paginate(page: params[:page]) if signed_in?
+    @query_items = current_user.query.paginate(page: params[:page]) if signed_in?
   end
 
 
