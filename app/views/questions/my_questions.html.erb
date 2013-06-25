@@ -1,0 +1,19 @@
+<% provide :title %>
+
+    <div class="row">
+
+      <%= render 'list_category' %>
+
+
+      <div class="span8">
+
+        <% if @user.questions.any? %>
+            <h3>Mie domande (<%= @user.questions.count %>)</h3>
+            <ol class="questions">
+              <%= render @questions %>
+            </ol>
+            <% will_paginate @questions %>
+        <% end %>
+      </div>
+
+    </div>

@@ -1,0 +1,20 @@
+<% provide :title %>
+
+<% if signed_in? %>
+
+    <p>Oggi è: <%= Date.current %></p>
+
+
+    <div class="row">
+
+      <%= render 'list_category' %>
+
+      <div class="span9">
+
+        <h3>Domande</h3>
+        <%=  render 'shared/query' %>
+      </div>
+    </div>
+
+
+<% end %>

@@ -1,23 +1,29 @@
-<% provide :title %>
+<% provide :title, 'Nuova domanda' %>
 
-<% if signed_in? %>
-    <div class="row">
+<h1>Nuova domanda</h1>
 
-      <aside class="span3">
-        <section>
-          <%= render 'shared/user_info' %>
-        </section>
-        <section>
-          <%= render 'shared/stats' %>
-        </section>
-      </aside>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@question) do |f| %>
 
-      <div class="span9">
+        <%= render 'shared/error_messages', object:f.object %>
 
-        <h3>Domande</h3>
-        <%=  render 'shared/query' %>
-      </div>
-    </div>
+        <%=  %>
 
+        <%= f.label :title, 'Titolo *' %>
+        <%= f.text_field :title %>
 
-<% end %>
+        <%= f.label :category_id, 'Numero categoria *'%>
+        <%= f.text_field :category_id %>
+
+        <%= f.label :age, 'Fascia d\'età *' %>
+        <%= f.text_field :age %>
+
+        <%= f.text_area :content %>
+
+        <div>I campi contrassegnati dall'astrisco (*) sono obbligatori</div>
+        <%= f.submit 'Crea nuova domanda', class: 'btn btn-large btn-primary' %>
+
+    <% end %>
+  </div>
+</div>

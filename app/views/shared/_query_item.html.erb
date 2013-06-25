@@ -1,17 +1,28 @@
 
-<li id="<%= query_item.id %>">
-  <%= link_to gravatar_for(query_item.user), query_item.user %>
 
-  <span class="user">
-    <%= link_to query_item.user.name, query_item.user %>
-  </span>
-  <span class="content">
-    <p><%= query_item.title %></p>
-    <p><%= query_item.category_id %></p>
-    <p><%= query_item.age %></p>
-    <p><%= query_item.content %></p>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(query_item.created_at) %> ago
-  </span>
-  </span>
+
+
+<li id="<%= query_item.id %>">
+
+  <% if query_item.created_at.strftime("%Y-%m-%d") == Date.current.strftime("%Y-%m-%d") %>
+    <%# Vengono inseriti solo i post di oggi %>
+
+    <%= link_to gravatar_for(query_item.user), query_item.user %>
+
+    <span class="user">
+      <%= link_to query_item.user.name, query_item.user %>
+    </span>
+
+    <span class="content">
+      <p><%= query_item.title %></p>
+      <p><%= today(query_item) %></p>
+      <p><%= category_name(query_item) %></p>
+      <p><%= query_item.age %></p>
+      <p><%= query_item.content %></p>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(query_item.created_at) %> ago
+      </span>
+    </span>
+
+  <% end %>
 </li>

@@ -4,29 +4,29 @@ class QuestionsController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   def new
-
-    @query_items = current_user.query.paginate(page: params[:page]) if signed_in?
-
+    @question = Question.new
   end
 
   def show
+    @query_items = current_user.query.paginate(page: params[:page]) if signed_in?
+    @category = Category.paginate(page: params[:page])
+    @question = current_user.questions.build if signed_in?
+
   end
 
   def create
 
-    @question = Question.new
-    @question.user_id = current_user
-    @question.title = params[:question][:title]
-    @question.category_id = params[:question][:category_id]
-    @question.age = params[:question][:age]
-    @question.content = params[:question][:content]
+    @question = current_user.questions.build(params[:question])
 
     if @question.save
-      flash[:success] = 'Domanda salvata!'
-      redirect_to root_url
+      flash[:success] = 'Domanda inserita con successo'
+      redirect_to questions_path
     else
-      render 'sessions/new'
+      @query_items = []
+      render 'new'
     end
+
+
 
   end
 
@@ -42,7 +42,11 @@ class QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.paginate(page: params[:page])
+  end
+
+  def my_questions
+    @user = User.find(params[:id])
+    @questions = @user.questions.paginate(page: params[:page])
   end
 
 

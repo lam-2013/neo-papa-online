@@ -126,7 +126,7 @@ def make_questions
     question_content = Faker::Lorem.sentence(6)
 
     users.each { |user| user.questions.create!(title: question_title,
-                                           category_id: rand(7),
+                                           category_id: rand(1..6),
                                            age: '4 mesi',
                                            content: question_content)}
   end
