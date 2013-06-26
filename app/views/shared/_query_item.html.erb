@@ -1,11 +1,5 @@
 
-
-
-
 <li id="<%= query_item.id %>">
-
-  <% if query_item.created_at.strftime("%Y-%m-%d") == Date.current.strftime("%Y-%m-%d") %>
-    <%# Vengono inseriti solo i post di oggi %>
 
     <%= link_to gravatar_for(query_item.user), query_item.user %>
 
@@ -15,7 +9,6 @@
 
     <span class="content">
       <p><%= query_item.title %></p>
-      <p><%= today(query_item) %></p>
       <p><%= category_name(query_item) %></p>
       <p><%= query_item.age %></p>
       <p><%= query_item.content %></p>
@@ -24,5 +17,4 @@
       </span>
     </span>
 
-  <% end %>
 </li>

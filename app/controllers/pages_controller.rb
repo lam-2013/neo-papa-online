@@ -15,8 +15,6 @@ class PagesController < ApplicationController
 
   def wall_outburst
     @post = current_user.posts.build if signed_in?
-    @feed_items = Post.paginate(page: params[:page])
+    @sfogo_items = Post.todays_post.paginate(page: params[:page])
   end
-
-
 end

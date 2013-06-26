@@ -12,5 +12,9 @@ class Post < ActiveRecord::Base
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
   end
 
+  def self.todays_post
+    post_today_ids = 'select id from posts where created_at >=  date(\'now\')'
+    where("id IN (#{post_today_ids})")
+  end
 
 end

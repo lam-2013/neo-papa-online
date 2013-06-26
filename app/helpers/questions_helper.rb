@@ -6,16 +6,5 @@ module QuestionsHelper
     @category_name = category.title
   end
 
-  def today(question)
-    date_q = question.created_at
-    d = date_q.strftime("%Y-%m-%d")
-
-    if d == Date.current.strftime("%Y-%m-%d")
-      @ok = 'ok'
-    else
-      @no = 'no'
-    end
-
-  end
 
 end
