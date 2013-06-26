@@ -7,7 +7,7 @@ class Question < ActiveRecord::Base
 
   has_many :answers, dependent: :destroy
 
-  has_many :question_tags, dependent: :destroy, foreign_key: 'tag_id'
+  has_many :question_tags, dependent: :destroy, foreign_key: 'question_id'
   has_many :tags, through: :question_tags #, source: :tag
 
   validates :user_id, presence: true
@@ -16,8 +16,8 @@ class Question < ActiveRecord::Base
   validates :age, presence: true
   validates :content, presence:true, length: {maximum: 800}
 
-  def has_tag!(tags)
-    question_tags.create!(tag_id: tags.object_id)
+  def tag!(tags )
+    question_tags.create!(tag_id: tags.id)
   end
 
   def self.question_from_users_followed_by(user)

@@ -9,10 +9,10 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post creato!'
-        redirect_to root_url
+        redirect_to muro_sfogo_url
     else
       @feed_item = []
-      render 'sessions/new'
+      render 'pages/wall_outburst'
     end
 
   end

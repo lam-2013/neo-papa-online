@@ -1,0 +1,14 @@
+<% provide :title, 'Domande' %>
+
+<h1>Tutti le domande</h1>
+
+<%= render 'list_category' %>
+
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @questions %>
+</ul>
+
+<%= will_paginate @questions%>

@@ -5,13 +5,15 @@
     <div class="container">
       <%= link_to 'Nuova Domanda', new_question_path, role: 'button', class: 'btn btn-info' %>
 
-      <% if @category.any? %>
+
         <ul class="nav pull">
-          <li><%= link_to 'Tutte le domande', '#' %></li>
+          <li><%= link_to 'Tutte le domande', questions_path %></li>
           <li><%= link_to 'Mie domande', "#" %></li>
-          <li> <%= render partial: 'category', collection: @category %></li>
+          <% if @category.any? %>
+            <li><%= render partial: 'category', collection: @category %></li>
+          <% end %>
         </ul>
-      <% end %>
+
     </div>
   </div>
 </div>

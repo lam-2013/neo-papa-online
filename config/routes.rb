@@ -12,7 +12,7 @@ Newdad::Application.routes.draw do
 
   match '/muro_sfogo', to: 'pages#wall_outburst'
 
-  match '/questions', to: 'questions#show'
+
 
   resources :users do
     member do
@@ -28,7 +28,7 @@ Newdad::Application.routes.draw do
   resources :posts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:new, :create, :destroy]
-  resources :questions, only: [:new, :create, :destroy]
+  resources :questions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -8,10 +8,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @query_items = current_user.query.paginate(page: params[:page]) if signed_in?
-    @category = Category.paginate(page: params[:page])
-    @question = current_user.questions.build if signed_in?
-
+    @question = Question.find_by_id(params[:id])
   end
 
   def create
@@ -25,9 +22,6 @@ class QuestionsController < ApplicationController
       @query_items = []
       render 'new'
     end
-
-
-
   end
 
   def destroy
@@ -42,6 +36,8 @@ class QuestionsController < ApplicationController
   end
 
   def index
+    @questions = Question.paginate(page: params[:page])
+    @category = Category.paginate(page: params[:page])
   end
 
   def my_questions

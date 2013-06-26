@@ -14,12 +14,13 @@
         <ul class="users">
           <h3>Followers</h3>
           <%= render @users %>
+          <%= will_paginate @users%>
         </ul>
         <ul class="users">
           <h3>Following</h3>
           <%= render @users2 %>
         </ul>
-        <%= will_paginate %>
+        <%= will_paginate @users2%>
     <% end %>
   </div>
 </div>

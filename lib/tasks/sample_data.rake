@@ -12,7 +12,7 @@ namespace :db do
     make_categories
     make_questions
     make_answers
-   # make_question_tag_relationship
+    make_question_tag_relationship
   end
 end
 
@@ -153,10 +153,9 @@ def make_question_tag_relationship
 
   questions = Question.all
   tags = Tag.all
-  question = questions.first
 
 
-  questions.each{ |tag| question.has_tag!(tag)}
+  questions.each{ |question| question.tag!(tags.first)}
 
 
 
