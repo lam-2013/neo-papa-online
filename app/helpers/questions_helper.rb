@@ -5,8 +5,4 @@ module QuestionsHelper
     category = Category.find_by_id(category_id)
     @category_name = category.title
   end
-
-
-
-
 end

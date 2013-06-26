@@ -2,15 +2,32 @@
 
 <% if signed_in? %>
 
-    <div class="row">
+  <div class="row">
 
-      <%= render 'list_category' %>
+    <%= render 'list_category' %>
 
-      <div class="span9">
+    <div class="span9">
 
-        <h3>Domande</h3>
-        <%=  render 'shared/query' %>
-      </div>
+      <h3>Domanda</h3>
+
+      <%= link_to gravatar_for (@question.user), @question.user %>
+      <%= link_to @question.user.name, @question.user %>  <br>
+
+      <span class="content">
+        <p><%= @question.title %></p>
+        <p><%= category_name(@question) %></p>
+        <p><%= @question.age %></p>
+        <p><%= @question.content %></p>
+        <span class="timestamp">
+          Posted <%= time_ago_in_words(@question.created_at) %> ago
+        </span>
+
+        <% if @question.user == current_user %>
+          <%# link_to 'delete', @question, method: :delete, data: {confirm: 'Sei sicuro?'}%>
+            bu
+         <% end %>
+
+      </span>
     </div>
-
+  </div>
 <% end %>

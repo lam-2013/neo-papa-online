@@ -8,9 +8,9 @@
 
         <ul class="nav pull">
           <li><%= link_to 'Tutte le domande', questions_path %></li>
-          <li><%= link_to 'Mie domande', "#" %></li>
+          <li><%= link_to 'Mie domande', my_questions_user_path(current_user) %></li>
           <% if @category.any? %>
-            <li><%= render partial: 'category', collection: @category %></li>
+            <li><%= render partial: 'questions/category', collection: @category %></li>
           <% end %>
         </ul>
 

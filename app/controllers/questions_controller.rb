@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by_id(params[:id])
+    @category = Category.paginate(page: params[:page])
   end
 
   def create
@@ -39,12 +40,6 @@ class QuestionsController < ApplicationController
     @questions = Question.paginate(page: params[:page])
     @category = Category.paginate(page: params[:page])
   end
-
-  def my_questions
-    @user = User.find(params[:id])
-    @questions = @user.questions.paginate(page: params[:page])
-  end
-
 
   private
 

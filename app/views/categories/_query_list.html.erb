@@ -1,0 +1,17 @@
+
+<div class="navbar-inner-fixed-top navbar-inverse">
+
+  <div class="navbar-inner">
+    <div class="container">
+
+      <ul class="nav pull">
+
+        <% if @query.any? %>
+            <li><%= render partial: 'categories/query', collection: @query %></li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>
+

@@ -82,6 +82,13 @@ class UsersController < ApplicationController
     @messages = @user.received_messages.paginate(page: params[:page])
   end
 
+  def my_questions
+    @user = User.find(params[:id])
+    @questions = @user.questions.paginate(page: params[:page])
+    @category = Category.paginate(page: params[:page])
+  end
+
+
   private
 
   def correct_user
