@@ -1,0 +1,12 @@
+
+<%= form_for(@answer) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="row">
+      <div class="field span7">
+        <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
+      </div>
+      <div class="span2">
+        <%= f.submit 'Rispondi', class: 'btn btn-primary' %>
+      </div>
+    </div>
+<% end %>

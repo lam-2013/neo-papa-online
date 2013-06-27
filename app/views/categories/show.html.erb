@@ -1,12 +1,13 @@
 <% provide :title, 'Domande' %>
 
-<h1>Tutti le domande</h1>
+
 
 <%= render 'questions/list_category' %>
 
-
+<h1>Tutti le domande dell'ambito: <%= @cat_current.title %></h1>
 <div class="span9">
   <h3>Wall</h3>
-  <%= @cat %>
-  <%#  render 'categories/query_list' %>
+  <%= will_paginate @questions%>
+  <%= render @questions %>
+  <%= will_paginate @questions%>
 </div>

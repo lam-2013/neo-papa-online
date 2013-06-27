@@ -10,6 +10,10 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find_by_id(params[:id])
     @category = Category.paginate(page: params[:page])
+
+    @answer = current_user.answers.build if signed_in?
+    @answers = Answer.paginate(page: params[:page])
+
   end
 
   def create

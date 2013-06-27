@@ -1,9 +1,14 @@
 class Question < ActiveRecord::Base
 
+  #variabili accessibili dall'utente
   attr_accessible :age, :content, :title, :category_id
 
-  default_scope order:'questions.created_at DESC'
+  #una domanda appartiene ad un utente e ad una categoria
   belongs_to :user
+  belongs_to :category
+
+  #TO_DO: da mettere in ordine alfabetico
+  default_scope order:'questions.created_at DESC'
 
   has_many :answers, dependent: :destroy
 

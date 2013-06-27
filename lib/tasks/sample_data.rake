@@ -154,7 +154,6 @@ def make_question_tag_relationship
   questions = Question.all
   tags = Tag.all
 
-
   questions.each{ |question| question.tag!(tags.first)}
 
 
