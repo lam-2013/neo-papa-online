@@ -5,13 +5,13 @@ class AnswersController < ApplicationController
 
   def create
 
-    @answer = current_user.answers.build(params[:answer])
+    @answer = Answer.create(:user_id => current_user.id, :question_id => '3', :content => 'fff')
 
     if @answer.save
       flash[:success] = 'Risposta creata!'
-      redirect_to question_path
+      redirect_to :back
     else
-      render 'questions/show'
+      redirect_to root_url
     end
 
   end
@@ -27,7 +27,5 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.find_by_id(params[:id])
     redirect_to root_url if @answer.nil?
   end
-
-
 
 end
