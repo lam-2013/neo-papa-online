@@ -2,12 +2,15 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :year, :month, :day
 
+  before_save { |user| user.email = email.downcase }
+  before_save :create_remember_token
+
   has_secure_password
   has_private_messages
 
+  # un utente scrive molte domande, molte risposte, molti post e ha molti figli; può eliminare post, domande e risposte
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
-
   has_many :posts, dependent: :destroy
   has_many :childrens
 
@@ -19,16 +22,14 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :reverse_relationships
 
-  before_save { |user| user.email = email.downcase }
-  before_save :create_remember_token
-
+  #campi obbligatori --> validazioni
   validates :name, presence:true, length: {maximum: 50}
   validates :email, presence:true, uniqueness: { case_sensitive: false }, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => :create }
-
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
   validates :n_children, presence:  true
 
+  #campi non obbligatori --> validazioni
   validates :city, length: { maximum: 50 }
   validates :description, length: { maximum: 450}
   validates :em_situation, length:{ maximum: 50 }
@@ -49,14 +50,22 @@ class User < ActiveRecord::Base
     relationships.find_by_followed_id(other_user.id).destroy
   end
 
+  #metodo: prende i post con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
   def feed
     Post.from_users_followed_by(self)
   end
 
+  #metodo: prende le domande con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
   def query
-    Question.question_from_users_followed_by(self)
+    Question.from_users_followed_by(self)
   end
 
+  #metodo: prende le risposte con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
+  def answer
+    Answer.from_users_followed_by(self)
+  end
+
+  #metodo per la ricerca tramite il nome degli utenti (ricerca in alto)
   def self.search(user_name)
     if user_name
       where('name LIKE ?', "%#{user_name}%")
@@ -65,8 +74,11 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  #metodi privati
   private
 
+  #creazione remeber_token per la sessione
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
   end

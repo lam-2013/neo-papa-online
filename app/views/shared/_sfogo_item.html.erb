@@ -1,6 +1,5 @@
 
 <li id="<%= sfogo_item.id %>">
-  <% if sfogo_item.created_at.strftime("%Y-%m-%d") == Date.current.strftime("%Y-%m-%d") %>
   <%= link_to gravatar_for(sfogo_item.user), sfogo_item.user %>
   <span class="user">
     <%= link_to sfogo_item.user.name, sfogo_item.user %>
@@ -9,5 +8,4 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(sfogo_item.created_at) %> ago
   </span>
-  <% end %>
 </li>
