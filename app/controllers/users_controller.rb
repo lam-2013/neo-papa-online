@@ -87,6 +87,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @questions = @user.questions.paginate(page: params[:page])
     @category = Category.all
+    @age_group = AgeGroup.all
   end
 
 

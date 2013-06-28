@@ -7,4 +7,11 @@ module QuestionsHelper
     category = Category.find_by_id(category_id)
     @category_name = category.title
   end
+
+  def age_groups_name(question)
+    age_group_id = question.id_age_group
+    age_group = AgeGroup.find_by_id(age_group_id)
+    @age_group_name = age_group.name
+  end
+
 end

@@ -27,6 +27,7 @@ Newdad::Application.routes.draw do
   resources :questions
   resources :categories, only: [:show]
   resources :answers, only: [:create, :destroy]
+  resources :age_groups, only: [:show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

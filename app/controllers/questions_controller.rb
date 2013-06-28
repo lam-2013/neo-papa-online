@@ -10,9 +10,10 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find_by_id(params[:id])
     @category = Category.all
+    @age_group = AgeGroup.all
 
     @answer = current_user.answers.build if signed_in?
-    @answers = Answer.paginate(page: params[:page])
+    @answers = @question.answers.paginate(page: params[:page])
 
   end
 
@@ -32,7 +33,7 @@ class QuestionsController < ApplicationController
   #TO DO: da controllare non funziona
   def destroy
     @question.destroy
-    redirect_to current_user
+    redirect_to question_path
   end
 
 
@@ -47,6 +48,7 @@ class QuestionsController < ApplicationController
   def index
     @questions = Question.paginate(page: params[:page])
     @category = Category.all
+    @age_group = AgeGroup.all
   end
 
   private

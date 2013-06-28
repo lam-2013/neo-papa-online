@@ -1,11 +1,12 @@
 class Question < ActiveRecord::Base
 
   #variabili accessibili dall'utente
-  attr_accessible :age, :content, :title, :category_id
+  attr_accessible :id_age_group, :content, :title, :category_id
 
-  #una domanda appartiene ad un utente e ad una categoria
+  #una domanda appartiene ad un utente, ad una categoria e ad uns fascia d'età
   belongs_to :user
   belongs_to :category
+  belongs_to :age_group
 
   #TO_DO: da mettere in ordine alfabetico
   #ordinamento di default in base alla data di creazione
@@ -22,7 +23,7 @@ class Question < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100}
   validates :category_id, presence: true
-  validates :age, presence: true
+  validates :id_age_group, presence: true
   validates :content, presence:true, length: {maximum: 800}
 
 

@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
   attr_accessible :content, :user_id, :question_id
 
-  default_scope order:'answer.created_at DESC'
+  default_scope order:'answers.created_at DESC'
 
   #una risposta appartiene a un utente e ad una domanda
   belongs_to :user

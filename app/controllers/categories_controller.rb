@@ -8,5 +8,7 @@ class CategoriesController < ApplicationController
 
     #carica tutte le categorie
     @category = Category.all
+
+    @age_group = AgeGroup.all
   end
 end

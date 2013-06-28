@@ -10,6 +10,7 @@ namespace :db do
     make_children
     make_tags
     make_categories
+    make_age_groups
     make_questions
     make_answers
     make_question_tag_relationship
@@ -117,6 +118,20 @@ def make_categories
 
 end
 
+def make_age_groups
+  AgeGroup.create!(name: '0-3 mesi')
+  AgeGroup.create!(name: '3-6 mesi')
+  AgeGroup.create!(name: '6-9 mesi')
+  AgeGroup.create!(name: '9-12 mesi')
+  AgeGroup.create!(name: '12-18 mesi')
+  AgeGroup.create!(name: '18-24 mesi')
+  AgeGroup.create!(name: '3-6 anni')
+  AgeGroup.create!(name: '6-11 anni')
+  AgeGroup.create!(name: '11-14 anni')
+  AgeGroup.create!(name: '14-20 anni')
+  AgeGroup.create!(name: '>20 anni')
+end
+
 def make_questions
 
   users = User.all(limit: 16)
@@ -127,7 +142,7 @@ def make_questions
 
     users.each { |user| user.questions.create!(title: question_title,
                                            category_id: rand(1..6),
-                                           age: '4 mesi',
+                                           id_age_group: rand(1..11),
                                            content: question_content)}
   end
 
