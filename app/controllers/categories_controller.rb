@@ -7,6 +7,6 @@ class CategoriesController < ApplicationController
     @questions = @cat_current.questions.paginate(page: params[:page])
 
     #carica tutte le categorie
-    @category = Category.paginate(page: params[:page])
+    @category = Category.all
   end
 end

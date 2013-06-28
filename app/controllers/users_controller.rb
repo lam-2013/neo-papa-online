@@ -86,7 +86,7 @@ class UsersController < ApplicationController
   def my_questions
     @user = User.find(params[:id])
     @questions = @user.questions.paginate(page: params[:page])
-    @category = Category.paginate(page: params[:page])
+    @category = Category.all
   end
 
 

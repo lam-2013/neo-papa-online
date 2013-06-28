@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find_by_id(params[:id])
-    @category = Category.paginate(page: params[:page])
+    @category = Category.all
 
     @answer = current_user.answers.build if signed_in?
     @answers = Answer.paginate(page: params[:page])
@@ -46,7 +46,7 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.paginate(page: params[:page])
-    @category = Category.paginate(page: params[:page])
+    @category = Category.all
   end
 
   private

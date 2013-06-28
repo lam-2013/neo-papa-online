@@ -6,7 +6,9 @@ class AnswersController < ApplicationController
   #TO DO:capire come passargli correttamente i parametri question_id e content
   def create
 
-    @answer = Answer.create(:user_id => current_user.id, :question_id => '3', :content => 'ffff')
+    #@answer = Answer.create(:user_id => current_user.id, :question_id => '3', :content => 'ffff')
+    @answer = current_user.answers.build(params[:answer])
+
 
     if @answer.save
       flash[:success] = 'Risposta creata!'
