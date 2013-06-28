@@ -2,10 +2,11 @@
 
 <% if signed_in?%>
 
-    <div class="navbar-inner-fixed-top navbar-inverse">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container">
-          <ul class="nav pull">
+
+          <ul class="nav nav-pills">
 
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Profilo', current_user %></li>

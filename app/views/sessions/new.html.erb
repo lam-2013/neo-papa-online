@@ -22,27 +22,40 @@
     </div>
 
 <%else%>
+    <div class="container">
+      <div class="row">
+        <div class="span5" >
 
     <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.label :email %>
         <%= f.text_field :email %>
+              </div>
+              <div class="span5" >
 
         <%= f.label :password %>
         <%= f.password_field :password %>
+              </div>
+              <!--    <div class="span3">
+             <label class="checkbox">
+               <input type="checkbox"> Remember me </input>
+             </label> </div>  -->
+              <div class="span2" >
 
         <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
-
+              </div>
+              </div>
+              </div>
 
     <div class="center hero-unit">
       <h1>Benvenuto in New Dad</h1>
       <div>Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-large btn-primary' %></div>
     </div>
 
-        <video id="video1" width="320" height="240" controls>
+       <!-- <video id="video1" width="320" height="240" controls>
           <source src="video/Intermission-Walk-in.ogv" type="video/ogg">
           <source src="video/Intermission-Walk-in_512kb.mp4" type="video/mp4">
-        </video>
+        </video>  --!>
 
 <% end %>
 

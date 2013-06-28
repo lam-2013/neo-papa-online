@@ -3,8 +3,12 @@
 <% #Controllo se l'utente è quello di cui è aperta la sessione o no %>
 <% if @user.id == current_user.id %>
 
+    <div class="row">
+      <div class="span3">
+
     <% #L'utente è la persona loggata%>
     <%=  render 'users/menu_profilo' %>
+    </div>
 
     <div class="row">
       <aside class="span4">
@@ -23,6 +27,7 @@
             <% will_paginate @posts %>
         <% end %>
       </div>
+    </div>
     </div>
 
     <% else %>
