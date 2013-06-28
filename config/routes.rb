@@ -30,6 +30,7 @@ Newdad::Application.routes.draw do
   resources :messages, only: [:new, :create, :destroy]
   resources :questions
   resources :categories, only: [:show]
+  resources :answers
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

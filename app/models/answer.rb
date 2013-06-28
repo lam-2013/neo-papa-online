@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-  attr_accessible :content
+  attr_accessible :content, :user_id, :question_id
 
   default_scope order:'answer.created_at DESC'
 

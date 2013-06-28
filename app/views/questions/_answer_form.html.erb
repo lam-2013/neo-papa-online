@@ -6,7 +6,7 @@
         <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
       </div>
       <div class="span2">
-        <%= f.submit 'Rispondi', class: 'btn btn-primary' %>
+        <%= f.submit 'Rispondi',params: @question.id, class: 'btn btn-primary' %>
       </div>
     </div>
 <% end %>
