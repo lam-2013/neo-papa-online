@@ -6,17 +6,13 @@ Newdad::Application.routes.draw do
   match '/contact', to: 'pages#contact'
   match '/signup', to: 'users#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-
   match '/eventi', to: 'pages#eventi'
-  match '/info_utente', to: 'pages#informazioni_profilo'
-
   match '/muro_sfogo', to: 'pages#wall_outburst'
-
 
 
   resources :users do
     member do
-      get :following, :followers, :messages, :friends, :my_questions
+      get :following, :followers, :messages, :friends, :my_questions, :informazioni_profilo
     end
 
     collection do
@@ -30,7 +26,7 @@ Newdad::Application.routes.draw do
   resources :messages, only: [:new, :create, :destroy]
   resources :questions
   resources :categories, only: [:show]
-  resources :answers
+  resources :answers, only: [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

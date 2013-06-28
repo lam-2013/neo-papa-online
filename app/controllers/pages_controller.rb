@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 
-
   def about
   end
 
@@ -8,9 +7,6 @@ class PagesController < ApplicationController
   end
 
   def eventi
-  end
-
-  def informazioni_profilo
   end
 
   def wall_outburst

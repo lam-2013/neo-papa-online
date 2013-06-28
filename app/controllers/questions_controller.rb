@@ -29,14 +29,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  #TO DO: da controllare non funziona
   def destroy
     @question.destroy
     redirect_to current_user
   end
 
+
+  #TO DO
   def edit
   end
 
+  #TO DO
   def update
   end
 

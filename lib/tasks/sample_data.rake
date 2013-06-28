@@ -108,12 +108,12 @@ end
 
 def make_categories
 
-  Category.create!(title: "consigli")
-  Category.create!(title: 'educazione')
-  Category.create!(title: 'giochi')
-  Category.create!(title: 'ristoranti')
-  Category.create!(title: 'salute')
-  Category.create!(title: 'vacanze')
+  Category.create!(title: "Consigli")
+  Category.create!(title: 'Educazione')
+  Category.create!(title: 'Giochi')
+  Category.create!(title: 'Ristoranti')
+  Category.create!(title: 'Salute')
+  Category.create!(title: 'Vacanze')
 
 end
 
@@ -155,9 +155,5 @@ def make_question_tag_relationship
   tags = Tag.all
 
   questions.each{ |question| question.tag!(tags.first)}
-
-
-
-
 end
 
