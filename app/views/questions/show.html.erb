@@ -24,7 +24,10 @@
         </span>
 
         <% if @question.user == current_user %>
-          <%= link_to 'delete', @question, method: :delete, data: {confirm: 'Sei sicuro?'}%>
+
+          <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
+
+          <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
             bu
          <% end %>
 
