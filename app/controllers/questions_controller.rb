@@ -32,8 +32,17 @@ class QuestionsController < ApplicationController
 
   #TO DO: da controllare non funziona
   def destroy
+
+    @question = Question.find(params[:id])
+    @answers = @question.answers.all
+
+    @answers.each { @question.answers.destroy}
     @question.destroy
-    redirect_to question_path
+
+    flash[:success] = 'Domanda e relative risposte cancellate!'
+
+    redirect_to questions_url
+
   end
 
 

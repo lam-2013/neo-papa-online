@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
 
   #variabili accessibili dall'utente
-  attr_accessible :id_age_group, :content, :title, :category_id
+  attr_accessible :age_group_id, :content, :title, :category_id
 
   #una domanda appartiene ad un utente, ad una categoria e ad uns fascia d'età
   belongs_to :user
@@ -23,7 +23,7 @@ class Question < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100}
   validates :category_id, presence: true
-  validates :id_age_group, presence: true
+  validates :age_group_id, presence: true
   validates :content, presence:true, length: {maximum: 800}
 
 

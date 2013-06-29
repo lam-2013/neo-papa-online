@@ -24,7 +24,7 @@
         </span>
 
         <% if @question.user == current_user %>
-          <%#= link_to 'delete', @question, method: :delete, data: {confirm: 'Sei sicuro?'}%>
+          <%= link_to 'delete', @question, method: :delete, data: {confirm: 'Sei sicuro?'}%>
             bu
          <% end %>
 
