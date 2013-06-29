@@ -1,13 +1,19 @@
 <% provide :title, 'Modifica profilo' %>
-
-<%=  render 'users/menu_profilo' %>
-<aside class="span3">
-  <%= render 'shared/user_info_small' %>
-</aside>
-<h1>Modifica il tuo profilo</h1>
-
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span4">
+    <aside>
+      <%= render 'shared/user_info_small' %>
+    </aside>
+    <br />
+
+    <%=  render 'users/menu_profilo' %>
+  </div>
+
+
+  <div class="span8">
+    <h1>Modifica il tuo profilo</h1>
+
+
     <%= form_for(@user) do |f| %>
 
         <%= render 'shared/error_messages', object:f.object %>

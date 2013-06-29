@@ -4,18 +4,22 @@
 <% if @user.id == current_user.id %>
 
     <div class="row">
-      <div class="span3">
+      <div class="span4">
 
-    <% #L'utente è la persona loggata%>
-    <%=  render 'users/menu_profilo' %>
-    </div>
+        <aside>
+          <%= render 'shared/user_info_small' %>
+        </aside>
 
-    <div class="row">
-      <aside class="span4">
-        <%= render 'shared/user_info_small' %>
-      </aside>
+        <br />
+        <% #L'utente è la persona loggata%>
+        <%=  render 'users/menu_profilo' %>
+      </div>
 
-      <div class="span8 offset3">
+
+
+      <div class="span8">
+
+
 
         <% if current_user.posts.any? %>
             <h3>Post (<%= @user.posts.count %>)</h3>
@@ -28,7 +32,7 @@
     </div>
     </div>
 
-    <% else %>
+<% else %>
 
     <% #L'utente NON è la persona loggata, può essere un utente del sito, un suo follower o following --> possibilità di cambiare formattazione %>
     <% #No possibilità di: modificare il profilo, vedere il menù friends-informazioni-azioni %>
@@ -43,6 +47,7 @@
         </section>
 
         <section>
+
           <%= render 'shared/stats' %>
         </section>
         <% if current_user.following?(@user) %>
@@ -65,8 +70,4 @@
         <% end %>
       </div>
     </div>
-    <% end %>
-
-
-
-
+<% end %>

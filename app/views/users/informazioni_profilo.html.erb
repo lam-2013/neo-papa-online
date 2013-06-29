@@ -1,16 +1,17 @@
 <% provide :title, 'Informazioni profilo' %>
 
 <div class="row">
-  <div class="span3">
-<%=  render 'users/menu_profilo' %>
-  </div>
-<div class="row">
-  <aside class="span4">
-    <%= render 'shared/user_info_small'%>
-  </aside>
+  <div class="span4">
+    <aside>
+      <%= render 'shared/user_info_small' %>
+    </aside>
+    <br />
 
-  <div class="span8 offset3">
-    <h3>Informazioni di <%= current_user.name %></h3>
+    <%=  render 'users/menu_profilo' %>
+  </div>
+
+  <div class="span8">
+    <h1>Informazioni di <%= current_user.name %></h1>
 
     <div>
       <p>Nickname: <%= current_user.name %></p>
