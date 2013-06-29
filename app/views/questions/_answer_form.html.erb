@@ -5,8 +5,8 @@
     <div class="row">
       <div class="field span7">
         <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
-        <%= f.label :question_id, @question.id%>
-        <%= f.text_area :question_id%>
+        <%= f.hidden_field :question_id, :value => @question.id  %>
+
       </div>
       <div class="span2">
         <%= f.submit 'Rispondi', class: 'btn btn-primary' %>

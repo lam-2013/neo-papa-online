@@ -9,7 +9,7 @@ module QuestionsHelper
   end
 
   def age_groups_name(question)
-    age_group_id = question.id_age_group
+    age_group_id = question.age_group_id
     age_group = AgeGroup.find_by_id(age_group_id)
     @age_group_name = age_group.name
   end
