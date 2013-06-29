@@ -142,7 +142,7 @@ def make_questions
 
     users.each { |user| user.questions.create!(title: question_title,
                                            category_id: rand(1..6),
-                                           id_age_group: rand(1..11),
+                                           age_group_id: rand(1..11),
                                            content: question_content)}
   end
 

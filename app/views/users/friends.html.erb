@@ -1,18 +1,17 @@
 <% provide(:title, @title) %>
 
 <div class="row">
-  <div class="span3">
-<%= render 'users/menu_profilo' %>
-    </div>
+  <div class="span4">
+    <aside>
+      <%= render 'shared/user_info_small' %>
+    </aside>
+    <br />
 
-<div class="row">
-  <aside class="span4">
-    <%= render 'shared/user_info_small'%>
+    <%=  render 'users/menu_profilo' %>
+  </div>
 
-  </aside>
-
-  <div class="span8 offset3">
-    <h3><%= @title %></h3>
+  <div class="span8">
+    <h1><%= @title %></h1>
     <% if @users.any? %>
         <ul class="users">
           <h3>Followers</h3>
