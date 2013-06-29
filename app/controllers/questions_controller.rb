@@ -46,12 +46,18 @@ class QuestionsController < ApplicationController
   end
 
 
-  #TO DO
   def edit
   end
 
-  #TO DO
   def update
+
+    if @question.update_attributes(params[:question])
+      flash[:success] = 'Domanda aggiornata'
+      redirect_to question_path
+    else
+      render 'edit'
+    end
+
   end
 
   def index
@@ -66,5 +72,4 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.find_by_id(params[:id])
     redirect_to root_url if @question.nil?
   end
-
 end

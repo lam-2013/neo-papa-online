@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
       flash[:success] = 'Profilo aggiornato'
       sign_in @user
-      render 'pages/informazioni_profilo'
+      redirect_to informazioni_profilo_user_path(current_user)
     else
 
       render 'edit'
