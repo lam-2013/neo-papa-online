@@ -32,15 +32,18 @@
          <% end %>
 
 
-        <%= render 'questions/answer_form'%>
+
 
         <% if @question.answers.any? %>
-            <h3>Risposte (<%= @question.answers.count %>)</h3>
+            <h3>Risposte: <%= @question.answers.count %></h3>
             <ol class="posts">
               <%= render @answers %>
             </ol>
             <%= will_paginate @answers %>
         <% end %>
+
+
+        <%= render 'questions/answer_form'%>
 
 
 

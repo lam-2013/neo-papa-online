@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       flash[:success] = "Messaggio mandato a #{recipient.name}!"
-      redirect_to root_url
+      redirect_to :back
     else
       render 'sessions/new'
     end

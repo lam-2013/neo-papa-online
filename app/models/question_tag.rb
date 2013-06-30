@@ -1,7 +1,7 @@
 class QuestionTag < ActiveRecord::Base
   attr_accessible :tag_id, :question_id
 
-  #questioin_tag appartiene alle domande e ai tag
+  #question_tag appartiene alle domande e ai tag
   belongs_to :tag, foreign_key: 'tag_id'
   belongs_to :question, foreign_key: 'question_id'
 

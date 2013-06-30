@@ -9,7 +9,7 @@
       <div class="span8">
 
         <% if @user.questions.any? %>
-            <h3>Mie domande (<%= @user.questions.count %>)</h3>
+            <h3>Mie domande: <%= @user.questions.count %></h3>
             <ol class="questions">
               <%= render @questions %>
             </ol>
