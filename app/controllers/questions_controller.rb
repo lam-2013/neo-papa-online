@@ -53,10 +53,11 @@ class QuestionsController < ApplicationController
 
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def update
-
+    @question = Question.find(params[:id])
     if @question.update_attributes(params[:question])
       flash[:success] = 'Domanda aggiornata'
       redirect_to question_path
