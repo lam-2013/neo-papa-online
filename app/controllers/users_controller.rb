@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts= @user.posts.paginate(page: params[:page])
     @questions = @user.questions.paginate(page: params[:page])
+    @answers = @user.answers.paginate(page: params[:page])
   end
 
   def new

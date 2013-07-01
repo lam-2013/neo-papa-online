@@ -21,15 +21,7 @@
         <%= f.password_field :password_confirmation %>
 
         <%= f.label :n_children, 'N° figli *' %>
-        <%= f.text_field :n_children %>
-
-          <div class="input-append date" id="dp3" data-date-format="dd-mm-yyyy">
-            <input class="span2" size="16" type="text" value="12-02-2012">
-            <span class="add-on"><i class="icon-th"></i></span>
-          </div>
-          <script type="text/javascript">
-              $('.datepicker').datepicker()
-          </script>
+        <%= f.select :n_children, ['0', '1', '2', '3', '4', '5'] %>
 
         <div>I campi contrassegnati dall'astrisco (*) sono obbligatori</div>
           <br />

@@ -1,0 +1,11 @@
+
+<li id="<%= answer_item.id %>">
+  <%= link_to gravatar_for(answer_item.user), answer_item.user %>
+  <span class="user">
+    <%= link_to answer_item.user.name, answer_item.user %>
+  </span>
+  <span class="content"><%= answer_item.content %></span>
+  <span class="timestamp">
+    Risposta creata <%= time_ago_in_words(answer_item.created_at) %> fa
+  </span>
+</li>

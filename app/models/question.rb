@@ -19,6 +19,10 @@ class Question < ActiveRecord::Base
   has_many :question_tags, dependent: :destroy, foreign_key: 'question_id'
   has_many :tags, through: :question_tags #, source: :tag
 
+  #una domanda può avere molti utenti a cui piace
+  has_many :like_questions, foreign_key: 'question_id'
+  has_many :users_like, through: :reverse_like_questions
+
   #validazioni dei campi: tutti sono obbligatori
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100}

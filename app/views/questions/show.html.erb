@@ -20,7 +20,7 @@
         <p><%= age_groups_name(@question) %></p>
         <p><%= @question.content %></p>
         <span class="timestamp">
-          Posted <%= time_ago_in_words(@question.created_at) %> ago
+          Domanda creata <%= time_ago_in_words(@question.created_at) %> fa
         </span>
 
         <% if @question.user == current_user %>
@@ -28,8 +28,15 @@
           <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
 
           <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
-            bu
-         <% end %>
+
+        <% else %>
+
+          <%=  render 'questions/like_question_form' if signed_in? %>
+
+
+        <% end %>
+
+
 
 
 

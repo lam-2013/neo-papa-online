@@ -1,6 +1,7 @@
 <% provide :title %>
 
 <% if signed_in? %>
+    <%# utente loggato %>
     <div class="row">
 
       <aside class="span4">
@@ -16,12 +17,23 @@
       </aside>
 
       <div class="span8">
-        <h3>Wall</h3>
+        <h3>Sfoghi</h3>
         <%=  render 'shared/feed' %>
+      </div>
+
+      <div class="span8">
+        <h3>Domande</h3>
+        <%= render 'shared/query' %>
+      </div>
+
+      <div class="span8">
+        <h3>Risposte</h3>
+        <%= render 'shared/answer' %>
       </div>
     </div>
 
 <%else%>
+    <%# utente disconnesso %>
     <div class="container">
       <div class="row">
         <div class="span5" >
@@ -36,10 +48,6 @@
         <%= f.label :password %>
         <%= f.password_field :password %>
               </div>
-              <!--    <div class="span3">
-             <label class="checkbox">
-               <input type="checkbox"> Remember me </input>
-             </label> </div>  -->
               <div class="span2" >
 
         <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>

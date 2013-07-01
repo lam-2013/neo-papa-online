@@ -3,6 +3,8 @@
 <% #Controllo se l'utente è quello di cui è aperta la sessione o no %>
 <% if @user.id == current_user.id %>
 
+    <%#l'utente di cui sto guardando il profilo è quello che ha effettuato il login %>
+
     <div class="row">
       <div class="span4">
 
@@ -19,15 +21,30 @@
 
       <div class="span8">
 
-
-
         <% if current_user.posts.any? %>
-            <h3>Post (<%= @user.posts.count %>)</h3>
+            <h3>Mie sfoghi (<%= @user.posts.count %>)</h3>
             <ol class="posts">
               <%= render @posts %>
             </ol>
             <%= will_paginate @posts %>
         <% end %>
+
+        <% if current_user.questions.any? %>
+            <h3>Mie domande (<%= @user.questions.count %>)</h3>
+            <ol class="posts">
+              <%= render @questions %>
+            </ol>
+            <%= will_paginate @questions %>
+        <% end %>
+
+        <% if current_user.answers.any? %>
+            <h3>Miei risposte (<%= @user.answers.count %>)</h3>
+            <ol class="posts">
+              <%= render @answers %>
+            </ol>
+            <%= will_paginate @answers %>
+        <% end %>
+
       </div>
     </div>
     </div>
