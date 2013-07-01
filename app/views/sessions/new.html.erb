@@ -2,7 +2,6 @@
 
 <% if signed_in? %>
     <div class="row">
-
       <aside class="span4">
 
         <section>
@@ -15,17 +14,22 @@
 
       </aside>
 
-      <div class="span8">
+      <div class="span6">
         <h3>Wall</h3>
         <%=  render 'shared/feed' %>
       </div>
     </div>
 
 <%else%>
+    <div class="row">
+      <div class="span2">
+        <%= image_tag("social_v2.png") %>
+      </div>
+      <div class="span10">
+
     <div class="container">
       <div class="row">
         <div class="span5" >
-
     <%= form_for(:session, url: sessions_path) do |f| %>
 
         <%= f.label :email %>
@@ -42,20 +46,18 @@
              </label> </div>  -->
               <div class="span2" >
 
-        <%= f.submit 'Login', class: 'btn btn-large btn-primary' %>
+        <%= f.submit 'Login', class: 'btn btn-success' %>
               </div>
+      </div>
               </div>
-              </div>
-
-    <div class="center hero-unit">
-      <h1>Benvenuto in New Dad</h1>
-      <div>Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-large btn-primary' %></div>
     </div>
 
-       <!-- <video id="video1" width="320" height="240" controls>
-          <source src="video/Intermission-Walk-in.ogv" type="video/ogg">
-          <source src="video/Intermission-Walk-in_512kb.mp4" type="video/mp4">
-        </video>  --!>
+    <div class="offset4">
+      <%= image_tag("benvenuti.png") %>
+      <div class="offset1">Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-success' %></div>
+    </div>
+
+</div>
 
 <% end %>
 

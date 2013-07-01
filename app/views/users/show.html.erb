@@ -11,6 +11,7 @@
         </aside>
 
         <br />
+
         <% #L'utente è la persona loggata%>
         <%=  render 'users/menu_profilo' %>
       </div>
@@ -52,7 +53,7 @@
         </section>
         <% if current_user.following?(@user) %>
             <section>
-              <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
+              <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-success', remote: true %>
               <div class="message"></div>
             </section>
         <% end %>

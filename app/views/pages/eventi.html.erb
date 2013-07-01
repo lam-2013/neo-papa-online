@@ -1,4 +1,61 @@
 <% provide :title, 'Eventi' %>
 
-<h1>Pages#eventi</h1>
-<p>Find me in app/views/pages/about.html.erb</p>
+<div class="row">
+  <div class="span3">
+          <button type="submit" class="btn-success btn-large">Nuovo evento</button>
+  </div>
+  <div class=span3>
+        <p>Tipo di evento</p>
+        <select>
+          <option>Teatro</option>
+          <option>Cinema</option>
+          <option>Gioco</option>
+          <option>Musica</option>
+          <option>Festa</option>
+        </select>
+  </div>
+  <div class=span3>
+    <p>Fascia età</p>
+    <select>
+      <option>0-3 mesi</option>
+      <option>3-6 mesi</option>
+      <option>6-9 mesi</option>
+      <option>9-12 mesi</option>
+      <option>12-18 mesi</option>
+      <option>18-24 mesi</option>
+      <option>3-6 anni</option>
+      <option>6-11 anni</option>
+      <option>11-14 anni</option>
+      <option>14-20 anni</option>
+      <option>>20 anni</option>
+    </select>
+  </div>
+  <div class=span3>
+    <p>Luogo</p>
+    <input type="text" placeholder="Inserisci luogo">
+  </div>
+</div>
+
+<div class="row">
+  <div class="span3">
+  </div>
+  <div class="span3 offset3">
+    <p>Parola chiave</p>
+    <input type="text" placeholder="Parola chiave">
+  </div>
+  <div class="span3">
+    <p>Data evento</p>
+  <div class="input-append date" id="dp3" data-date-format="dd-mm-yyyy">
+
+      <input class="span2" size="16" type="text" value="12-02-2012">
+      <span class="add-on"><i class="icon-th"></i></span>
+    </div>
+  </div>
+  <div class="span3 offset10">
+    <button type="submit" class="btn-success btn-large">Cerca</button>
+  </div>
+</div>
+
+     <div class="offset3">
+         <h3>Eventi</h3>
+     </div>

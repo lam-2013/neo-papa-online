@@ -27,14 +27,11 @@
             <input class="span2" size="16" type="text" value="12-02-2012">
             <span class="add-on"><i class="icon-th"></i></span>
           </div>
-          <script type="text/javascript">
-              $('.datepicker').datepicker()
-          </script>
 
         <div>I campi contrassegnati dall'astrisco (*) sono obbligatori</div>
           <br />
-        <%= link_to 'Annulla', root_path, role: 'button', class: 'btn btn-large btn-primary'  %>
-        <%= f.submit 'Crea il mio account', class: 'btn btn-large btn-primary' %>
+       <div class="offset1"> <%= link_to 'Annulla', root_path, role: 'button', class: 'btn btn-success'  %>
+        <%= f.submit 'Crea il mio account', class: 'btn btn-success' %>  </div>
 
     <% end %>
   </div>

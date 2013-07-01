@@ -1,5 +1,8 @@
 <% provide :title, 'Modifica profilo' %>
 <div class="row">
+  <div class="span10">
+
+<div class="row">
   <div class="span4">
     <aside>
       <%= render 'shared/user_info_small' %>
@@ -10,7 +13,7 @@
   </div>
 
 
-  <div class="span8">
+  <div class="span6">
     <h1>Modifica il tuo profilo</h1>
 
 
@@ -59,12 +62,14 @@
         <h3>Figli</h3>
 
 
-        <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-large btn-primary'  %>
-        <%= f.submit 'Salva le modifiche', class: 'btn btn-large btn-primary' %>
+        <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-success'  %>
+        <%= f.submit 'Salva le modifiche', class: 'btn btn-success' %>
 
     <% end %>
 
     <%= gravatar_for @user %>
     <a href="http://gravatar.com/emails">Cambia la tua immagine</a>
+  </div>
+</div>
   </div>
 </div>
