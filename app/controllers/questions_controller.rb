@@ -26,12 +26,13 @@ class QuestionsController < ApplicationController
 
     @question = current_user.questions.build(params[:question])
 
-    if @question.save
-      flash[:success] = 'Domanda inserita con successo'
-      redirect_to questions_path
-    else
+    if params[:preview_button] || !@question.save
       @query_items = []
       render 'new'
+
+    else
+      flash[:success] = 'Domanda inserita con successo'
+      redirect_to questions_path
     end
   end
 
@@ -53,10 +54,11 @@ class QuestionsController < ApplicationController
 
 
   def edit
+    @question = Question.find(params[:id])
   end
 
   def update
-
+    @question = Question.find(params[:id])
     if @question.update_attributes(params[:question])
       flash[:success] = 'Domanda aggiornata'
       redirect_to question_path

@@ -1,0 +1,3 @@
+<%= form_for(current_user.like_questions.find_by_question_id(@question), html: {method: :delete}, remote: true) do |f|%>
+    <%= f.submit 'Non mi piace più', class: 'btn btn-large' %>
+<% end %>

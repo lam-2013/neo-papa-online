@@ -5,6 +5,16 @@
 
 <%= form_for @question do |f| %>
 
+    <% if params[:preview_button]%>
+        <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
+        <div id="preview">
+          <p><%= @question.title %></p>
+          <p>Categoria: <%= category_name(@question) %></p>
+          <p>Fascia d'età: <%= age_groups_name(@question) %></p>
+          <p><%= @question.content %></p>
+        </div>
+    <% end %>
+
     <%= render 'shared/error_messages', object:f.object %>
       Titolo: <%=  f.text_field :title %>
 
@@ -18,7 +28,8 @@
 
 
     <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-large btn-primary' %>
-    <%= f.submit('Crea nuova domanda') %>
+    <%= f.submit 'Crea nuova domanda' %>
+    <%= f.submit 'Anteprima', :name => 'preview_button' %>
 
 <% end %>
 

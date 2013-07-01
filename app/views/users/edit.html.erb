@@ -36,6 +36,9 @@
         <%= f.label :n_children, 'Numero di figli'%>
         <%= f.text_field :n_children %>
 
+        <%= f.label :birthday, 'Compleanno' %>
+        <%= f.date_select :birthday, :include_blank => true %>
+
         <%= f.label :city, 'Dove abiti'%>
         <%= f.text_field :city %>
 
@@ -43,7 +46,7 @@
         <%= f.text_field :description %>
 
         <%= f.label :em_situation,'Situazione sentimentale'%>
-        <%= f.text_field :em_situation %>
+        <%= f.select :em_situation, ['Single', 'Sposato', 'Separato', 'Divorziato', 'Convivente'], :include_blank => true %>
 
         <%= f.label :employment, 'Lavoro'%>
         <%= f.text_field :employment %>

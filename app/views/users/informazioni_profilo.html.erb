@@ -17,11 +17,29 @@
       <p>Nickname: <%= current_user.name %></p>
       <p>Email: <%= current_user.email %></p>
 
-      <p>Data di nascita: <%= current_user.day %>/<%= current_user.month %>/<%= current_user.year %></p>
-      <p>Abiti a: <%= current_user.city %></p>
-      <p>Descrizione: <%= current_user.description %></p>
-      <p>Situazione sentimentale: <%= current_user.em_situation %></p>
-      <p>Lavoro: <%= current_user.employment %></p>
+      <% if !current_user.birthday.nil? %>
+          <p>Compleanno: <%= current_user.birthday.strftime('%d - %m - %Y') %></p>
+      <% end %>
+
+      <% if !current_user.city.empty? %>
+          <p>Abiti a: <%= current_user.city %></p>
+      <% end %>
+
+
+      <% if !current_user.description.empty? %>
+          <p>Descrizione: <%= current_user.description %></p>
+      <% end %>
+
+
+      <% if !current_user.em_situation.empty? %>
+          <p>Situazione sentimentale: <%= current_user.em_situation %></p>
+      <% end %>
+
+
+      <% if !current_user.employment.empty? %>
+          <p>Lavoro: <%= current_user.employment %></p>
+      <% end %>
+
 
       <p>Numero di figli: <%= current_user.n_children %></p>
 

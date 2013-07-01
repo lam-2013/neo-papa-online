@@ -18,6 +18,9 @@
           <%= render @users %>
           <%= will_paginate @users%>
         </ul>
+        <% end %>
+
+        <% if @users2.any? %>
         <ul class="users">
           <h3>Following</h3>
           <%= render @users2 %>

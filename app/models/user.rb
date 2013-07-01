@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :year, :month, :day
+  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :year, :month, :day, :birthday
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   #un utente è seguito da molti utenti tramite la tabella 'reverse relationship'
   has_many :reverse_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :followers, through: :reverse_relationships
+
+  #ad un utente piace una domanda tramite la tabella like_questions
+  has_many :like_questions, foreign_key: 'user_id', dependent: :destroy
+  has_many :like_q, through: :like_questions, source: :question
 
   #campi obbligatori --> validazioni
   validates :name, presence:true, length: {maximum: 50}
@@ -50,6 +54,24 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
   end
+
+
+
+
+  def like_questions?(question)
+    like_questions.find_by_question_id(question.id)
+  end
+
+  def like_questions!(question)
+    like_questions.create!(question_id: question.id)
+  end
+
+  def dont_like_questions!(question)
+    like_questions.find_by_question_id(question.id).destroy
+  end
+
+
+
 
   #metodo: prende i post con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
   def feed
