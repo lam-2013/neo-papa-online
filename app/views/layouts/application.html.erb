@@ -15,7 +15,11 @@
 
 
     <div class="container">
-      <br />
+      <% if signed_in? %>
+      <div class="center">
+      <%= image_tag("social.png") %>
+      </div>
+          <%end %>
       <%=  render 'layouts/menu' %>
 
       <% flash.each do |key, value| %>

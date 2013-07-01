@@ -20,6 +20,12 @@ html {
 
 body {
   padding-top: 60px;
+  font-family: Monaco, Verdana, sans-serif;
+  font-size: 13px;
+  background-image: url("social_sfondo.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
 }
 
 section {
@@ -70,13 +76,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: lightgreen;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: green;
     text-decoration: none;
   }
 }
@@ -91,7 +97,7 @@ footer {
   a {
     color: $gray;
     &:hover {
-      color: $grayDarker;
+      color: green;
     }
   }
   small {
@@ -135,6 +141,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  margin-top: 10px;
 }
 
 .stats {
@@ -150,7 +157,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: $blue;
+      color: green;
     }
   }
   strong {
@@ -225,7 +232,7 @@ input {
   display: block;
 }
 .timestamp {
-  color: $grayLight;
+  color: green;
 }
 .gravatar {
   float: left;
@@ -247,4 +254,27 @@ input {
   width: 100%;
   margin-top: 45px;
   @include box_sizing;
+}
+
+.immagine{
+  background-image: url("social.png");
+  background-repeat: no-repeat;
+
+}
+
+@font-face {
+  font-family: 'Monaco';
+  src: url('Monaco.dfont') format('truetype');;
+}
+
+.bambini {
+  background-repeat: repeat;
+}
+
+.home{
+  color: lightgreen;
+  &:hover {
+    color: green;
+    text-decoration: none;
+  }
 }
