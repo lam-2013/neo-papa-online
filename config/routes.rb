@@ -9,7 +9,6 @@ Newdad::Application.routes.draw do
   match '/eventi', to: 'pages#eventi'
   match '/muro_sfogo', to: 'pages#wall_outburst'
 
-
   resources :users do
     member do
       get :following, :followers, :messages, :friends, :my_questions, :informazioni_profilo
@@ -24,7 +23,13 @@ Newdad::Application.routes.draw do
   resources :posts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :messages, only: [:new, :create, :destroy]
-  resources :questions
+
+  resources :questions do
+    collection do
+      get :home
+    end
+  end
+
   resources :categories, only: [:show]
   resources :answers, only: [:create, :destroy]
   resources :age_groups, only: [:show]

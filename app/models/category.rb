@@ -3,4 +3,5 @@ class Category < ActiveRecord::Base
 
   #ha molte domande
   has_many :questions
+
 end

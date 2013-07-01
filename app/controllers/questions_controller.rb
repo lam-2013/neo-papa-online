@@ -5,9 +5,14 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+
+    @categories = Category.all
+    @age_groups = AgeGroup.all
+
   end
 
   def show
+
     @question = Question.find_by_id(params[:id])
     @category = Category.all
     @age_group = AgeGroup.all
@@ -30,7 +35,8 @@ class QuestionsController < ApplicationController
     end
   end
 
-  #TO DO: da controllare non funziona
+ #seleziono la domanda corrente e le risposte di quella domanda
+  #cancello prima tutte le risposte e poi la domanda
   def destroy
 
     @question = Question.find(params[:id])
@@ -62,6 +68,12 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.paginate(page: params[:page])
+    @category = Category.all
+    @age_group = AgeGroup.all
+  end
+
+  def home
+    @questions = Question.all(limit: 10)
     @category = Category.all
     @age_group = AgeGroup.all
   end

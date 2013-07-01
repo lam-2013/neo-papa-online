@@ -115,7 +115,6 @@ def make_categories
   Category.create!(title: 'Ristoranti')
   Category.create!(title: 'Salute')
   Category.create!(title: 'Vacanze')
-
 end
 
 def make_age_groups

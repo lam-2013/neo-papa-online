@@ -24,20 +24,26 @@
         </span>
 
         <% if @question.user == current_user %>
-          <%= link_to 'delete', @question, method: :delete, data: {confirm: 'Sei sicuro?'}%>
+
+          <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
+
+          <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
             bu
          <% end %>
 
 
-        <%= render 'questions/answer_form'%>
+
 
         <% if @question.answers.any? %>
-            <h3>Risposte (<%= @question.answers.count %>)</h3>
+            <h3>Risposte: <%= @question.answers.count %></h3>
             <ol class="posts">
               <%= render @answers %>
             </ol>
             <%= will_paginate @answers %>
         <% end %>
+
+
+        <%= render 'questions/answer_form'%>
 
 
 

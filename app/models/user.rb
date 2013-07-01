@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   validates :city, length: { maximum: 50 }
   validates :description, length: { maximum: 450}
   validates :em_situation, length:{ maximum: 50 }
+  EM_SITUATION = ['Single','Sposato', 'Separato', 'Divorziato', 'Convivente']
   validates :employment, length:{ maximum: 50}
   validates :year, length: {maximum: 4}
   validates :month, length: {maximum: 2}
