@@ -34,44 +34,34 @@
         <%= f.password_field :password_confirmation %>
 
         <%= f.label :n_children, 'Numero di figli'%>
-        <%= f.text_field :n_children %>
+        <%= f.select :n_children, ['1', '2', '3', '4', '5'], :include_blank => true %>
+
 
         <%= f.label :birthday, 'Compleanno' %>
         <%= f.date_select :birthday, :include_blank => true %>
 
-        <%= f.label :city, 'Dove abiti'%>
-        <%= f.text_field :city %>
-
-        <%= f.label :description, 'Breve descrizione personale'%>
-        <%= f.text_field :description %>
-
         <%= f.label :em_situation,'Situazione sentimentale'%>
         <%= f.select :em_situation, ['Single', 'Sposato', 'Separato', 'Divorziato', 'Convivente'], :include_blank => true %>
+
+        <%= f.label :city, 'Dove abiti'%>
+        <%= f.text_field :city %>
 
         <%= f.label :employment, 'Lavoro'%>
         <%= f.text_field :employment %>
 
-        <div>Tua data di nascita</div>
 
-        <%= f.label :day, 'Giorno'%>
-        <%= f.text_field :day %>
-
-        <%= f.label :month, 'Mese'%>
-        <%= f.text_field :month %>
-
-        <%= f.label :year, 'Anno'%>
-        <%= f.text_field :year %>
-
-        <h3>Figli</h3>
+        <%= f.label :description, 'Breve descrizione personale'%>
+        <%= f.text_area :description %>
 
 
+         <div class="center">
         <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-success'  %>
         <%= f.submit 'Salva le modifiche', class: 'btn btn-success' %>
-
+         </div>
     <% end %>
 
     <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails">Cambia la tua immagine</a>
+    <br/><a href="http://gravatar.com/emails">Cambia la tua immagine</a>
   </div>
 </div>
   </div>

@@ -13,17 +13,13 @@
         </aside>
 
         <br />
-
         <% #L'utente è la persona loggata%>
         <%=  render 'users/menu_profilo' %>
       </div>
-
-
-
       <div class="span8">
 
         <% if current_user.posts.any? %>
-            <h3>Mie sfoghi (<%= @user.posts.count %>)</h3>
+            <h3>Miei sfoghi (<%= @user.posts.count %>)</h3>
             <ol class="posts">
               <%= render @posts %>
             </ol>
@@ -39,15 +35,13 @@
         <% end %>
 
         <% if current_user.answers.any? %>
-            <h3>Miei risposte (<%= @user.answers.count %>)</h3>
+            <h3>Mie risposte (<%= @user.answers.count %>)</h3>
             <ol class="posts">
               <%= render @answers %>
             </ol>
             <%= will_paginate @answers %>
         <% end %>
-
       </div>
-    </div>
     </div>
 
 <% else %>

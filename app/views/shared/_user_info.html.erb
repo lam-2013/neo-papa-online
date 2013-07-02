@@ -3,5 +3,5 @@
 </a>
 
 <h1><%= current_user.name %></h1>
-<span><%= link_to 'Modifica Profilo', edit_user_path(current_user) %></span>
+<span><h6 class="link_modifica"><%= link_to 'Modifica Profilo', edit_user_path(current_user) %></h6></span>
 <span><%= pluralize(current_user.posts.count, 'post') %></span>
