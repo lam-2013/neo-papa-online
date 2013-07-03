@@ -7,16 +7,16 @@
         <ul class="nav pull-right">
           <% if signed_in? %>
               <li>
-                  <aside class="span7">
+                  <aside class="span5">
                     <section>
-                      <h1>
-                       <h5 class="home">Ciao <%= link_to current_user.name, current_user %> </h5>
-                      </h1>
+
+                      <h5 class="link">Ciao <%= link_to current_user.name, current_user %> </h5>
+
                     </section>
                   </aside>
               </li>
 
-
+              <li><%= render 'users/search_form' %></li>
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Utenti", users_path %></li>
 

@@ -3,10 +3,9 @@
 <% if signed_in?%>
 
     <div class="navbar">
-      <div class="navbar-inner">
         <div class="container">
 
-          <ul class="nav nav-pills">
+          <ul class="fancyNav center">
 
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Profilo', current_user %></li>
@@ -16,8 +15,7 @@
             <li><%= link_to 'Eventi', eventi_path %></li>
 
           </ul>
-          <%= render 'users/search_form' %>
         </div>
       </div>
-    </div>
+
 <% end %>
