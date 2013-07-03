@@ -51,16 +51,24 @@
         <%= f.label :employment, 'Lavoro'%>
         <%= f.text_field :employment %>
 
+        <div>Tua data di nascita</div>
+
+        <%= f.label :day, 'Giorno'%>
+        <%= f.text_field :day %>
+
+        <%= f.label :month, 'Mese'%>
+        <%= f.text_field :month %>
+
+        <%= f.label :year, 'Anno'%>
+        <%= f.text_field :year %>
+
+        <h3>Figli</h3>
+
+
         <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-success'  %>
         <%= f.submit 'Salva le modifiche', class: 'btn btn-success' %>
 
     <% end %>
-
-
-
-
-
-
 
     <%= gravatar_for @user %>
     <a href="http://gravatar.com/emails">Cambia la tua immagine</a>
