@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
 
     if params[:preview_button] || !@question.save
       @query_items = []
-      render 'new'
+      render 'questions/new'
 
     else
       flash[:success] = 'Domanda inserita con successo'
@@ -79,6 +79,14 @@ class QuestionsController < ApplicationController
     @category = Category.all
     @age_group = AgeGroup.all
   end
+
+
+  def search
+    @questions = Question.search(params[:category_id], params[:age_group_id]).paginate(page: params[:page])
+
+  end
+
+
 
   private
 

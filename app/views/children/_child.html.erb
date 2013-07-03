@@ -1,0 +1,14 @@
+<div class="children">
+
+  <% if !child.name.to_s.empty? %>
+    <p>Nome: <%= child.name %></p>
+  <% end %>
+
+  <p>Compleanno: <%= child.birthday.strftime('%d - %m - %Y') %></p>
+
+  <% if !child.city.to_s.empty? %>
+    <p>Abita a: <%= child.city %></p>
+  <% end %>
+
+</div>
+

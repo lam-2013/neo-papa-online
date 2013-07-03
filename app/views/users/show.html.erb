@@ -23,7 +23,7 @@
       <div class="span8">
 
         <% if current_user.posts.any? %>
-            <h3>Mie sfoghi (<%= @user.posts.count %>)</h3>
+            <h3>Miei sfoghi (<%= @user.posts.count %>)</h3>
             <ol class="posts">
               <%= render @posts %>
             </ol>

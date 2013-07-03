@@ -25,8 +25,9 @@ Newdad::Application.routes.draw do
   resources :messages, only: [:new, :create, :destroy]
 
   resources :questions do
+
     collection do
-      get :home
+      get :home, :search
     end
   end
 

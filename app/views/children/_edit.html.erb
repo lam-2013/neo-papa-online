@@ -1,0 +1,12 @@
+<%= form_for(@children) do |f| %>
+
+    <%= f.label :name, 'Nome' %>
+    <%= f.text_field :name %>
+
+    <%= f.label :birthday, 'Compleanno' %>
+    <%= f.date_select :birthday, :include_blank => true %>
+
+    <%= f.label :city, 'Dove abita'%>
+    <%= f.text_field :city %>
+
+<% end %>

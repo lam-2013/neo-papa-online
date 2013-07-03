@@ -26,8 +26,8 @@ class Question < ActiveRecord::Base
   #validazioni dei campi: tutti sono obbligatori
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100}
-  validates :category_id, presence: true
-  validates :age_group_id, presence: true
+  validates :category_id, presence: true, :numericality => true
+  validates :age_group_id, presence: true, :numericality => true
   validates :content, presence:true, length: {maximum: 800}
 
 
@@ -40,6 +40,21 @@ class Question < ActiveRecord::Base
   def self.from_users_followed_by(user)
     followed_user_ids = 'SELECT followed_id FROM relationships WHERE follower_id = :user_id'
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
+  end
+
+  #metodo per la ricerca tramite la categora e/o la fascia d'età
+  def self.search(category_id, age_group_id)
+    if category_id && age_group_id
+      if category_id.blank?
+        where('age_group_id = ?', "#{age_group_id}")
+      elsif age_group_id.blank?
+        where('category_id = ?', "#{category_id}")
+      else
+        where(['category_id = ? and age_group_id = ?', "#{category_id}", "#{age_group_id}"])
+      end
+      else
+      scoped # return an empty result set
+    end
   end
 
 end

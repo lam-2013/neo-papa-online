@@ -1,0 +1,11 @@
+<% provide :title, 'Risultati ricerca' %>
+
+<h1><%= page_entries_info @questions %></h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @questions %>
+</ul>
+
+<%= will_paginate %>

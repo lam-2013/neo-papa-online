@@ -3,15 +3,18 @@
 <h1 >Nuova domanda</h1>
 
 
+
 <%= form_for @question do |f| %>
 
     <% if params[:preview_button]%>
         <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
+
+        <%= render 'shared/error_messages', object:f.object %>
         <div id="preview">
-          <p><%= @question.title %></p>
+          <p>Titolo: <%= @question.title %></p>
           <p>Categoria: <%= category_name(@question) %></p>
           <p>Fascia d'età: <%= age_groups_name(@question) %></p>
-          <p><%= @question.content %></p>
+          <p>Descrizione: <%= @question.content %></p>
         </div>
     <% end %>
 

@@ -1,0 +1,10 @@
+<% if signed_in?%>
+
+  <%= form_tag search_questions_path, method: 'get', class: 'navbar-search pull-left' do %>
+    <%= text_field_tag :category_id, params[:category_id], class: 'search-query', placeholder: 'Categoria' %>
+        <%#=  select_tag 'age_group', options_for_select(:age_group.name)%>
+    <%= text_field_tag :age_group_id, params[:age_group_id], class: 'search-query', placeholder: 'Fascia d\'età'  %>
+    <%= submit_tag 'Cerca', :name => nil  %>
+  <% end %>
+
+<% end %>
