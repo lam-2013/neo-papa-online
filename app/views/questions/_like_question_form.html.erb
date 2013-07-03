@@ -1,11 +1,9 @@
 
 <% unless current_user?(@user) %>
-    <div id="follow_form">
+    <div id="like_question_form">
       <% if current_user.like_questions?(@question) %>
           <%= render 'dont_like_question' %>
-          vuoto
       <% else %>
-          <%= current_user.name%>
           <%= render 'like_question' %>
       <% end %>
     </div>
