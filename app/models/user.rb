@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :year, :month, :day, :birthday
+  attr_accessible :email, :name, :password, :password_confirmation, :n_children, :city, :description, :em_situation, :employment, :birthday
 
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -31,17 +31,13 @@ class User < ActiveRecord::Base
   validates :email, presence:true, uniqueness: { case_sensitive: false }, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => :create }
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
-  validates :n_children, presence:  true
+  validates :n_children, presence: true, :numericality => true
 
   #campi non obbligatori --> validazioni
   validates :city, length: { maximum: 50 }
   validates :description, length: { maximum: 450}
   validates :em_situation, length:{ maximum: 50 }
-  EM_SITUATION = ['Single','Sposato', 'Separato', 'Divorziato', 'Convivente']
   validates :employment, length:{ maximum: 50}
-  validates :year, length: {maximum: 4}
-  validates :month, length: {maximum: 2}
-  validates :day, length: {maximum: 2}
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)

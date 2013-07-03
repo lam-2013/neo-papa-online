@@ -21,27 +21,29 @@
           <p>Compleanno: <%= current_user.birthday.strftime('%d - %m - %Y') %></p>
       <% end %>
 
-      <% if !current_user.city.empty? %>
+      <% if !current_user.city.to_s.empty? %>
           <p>Abiti a: <%= current_user.city %></p>
       <% end %>
 
 
-      <% if !current_user.description.empty? %>
+      <% if !current_user.description.to_s.empty? %>
           <p>Descrizione: <%= current_user.description %></p>
       <% end %>
 
 
-      <% if !current_user.em_situation.empty? %>
+      <% if !current_user.em_situation.to_s.empty? %>
           <p>Situazione sentimentale: <%= current_user.em_situation %></p>
       <% end %>
 
 
-      <% if !current_user.employment.empty? %>
+      <% if !current_user.employment.to_s.empty? %>
           <p>Lavoro: <%= current_user.employment %></p>
       <% end %>
 
 
       <p>Numero di figli: <%= current_user.n_children %></p>
+
+        <%= render 'children/children' %>
 
     </div>
        </div>

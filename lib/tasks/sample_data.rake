@@ -84,9 +84,7 @@ def make_children
 
  2.times do
 
-  users.each { |user| user.childrens.create!(year: rand(1980..2013),
-                                              month: rand(1..12),
-                                              day: rand(1..31))}
+  users.each { |user| user.childrens.create!(birthday: rand(20.years).ago)}
    end
 end
 

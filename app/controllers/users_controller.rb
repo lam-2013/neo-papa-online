@@ -91,6 +91,12 @@ class UsersController < ApplicationController
     @age_group = AgeGroup.all
   end
 
+  def informazioni_profilo
+    @user = User.find(params[:id])
+    @children = @user.childrens.all
+
+  end
+
 
   private
 
