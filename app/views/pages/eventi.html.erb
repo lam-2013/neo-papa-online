@@ -1,8 +1,8 @@
 <% provide :title, 'Eventi' %>
 
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
   <div class="span3">
-          <button type="submit" class="btn-success btn-large">Nuovo evento</button>
+          <button type="submit" class="btn-info btn-large">Nuovo evento</button>
   </div>
   <div class=span3>
         <p>Tipo di evento</p>
@@ -55,7 +55,7 @@
   </div>
   <div class="span3 offset3">
     <br/>
-    <button type="submit" class="btn-success btn-large">Cerca</button>
+    <button type="submit" class="btn-info btn-large">Cerca</button>
   </div>
 </div>
                <br/>
@@ -67,9 +67,9 @@
      <%= image_tag("profilo_eventi1.png") %>
   </div>
   <div class="span4">
-        <a href="#"> Mari</a>
-        <p>SPETTACOLO DI BURATTINI</p>
-        <p class="data_evento"> Evento creato 2 giorni fa</p>
+        <a href="#"class="nome"> Mari</a>
+        <p><a href="#">Spettacolo di burattini</a></p>
+        <p class="timestamp"> Evento creato 2 giorni fa</p>
  </div>
 </div>
 <br/>
@@ -78,8 +78,8 @@
     <%= image_tag("profilo_eventi2.png") %>
   </div>
   <div class="span4">
-    <a href="#"> Giulia</a>
-    <p>FESTA IN MASCHERA</p>
-    <p class="data_evento"> Evento creato 6 giorni fa</p>
+    <a href="#" class="nome"> Giulia</a>
+    <p><a href="#">Festa in maschera</a></p>
+    <p class="timestamp"> Evento creato 6 giorni fa</p>
   </div>
 </div>

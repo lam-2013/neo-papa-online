@@ -15,7 +15,10 @@
         </div>
     <% end %>
 
+    <div class="row">
+      <div class="span6 offset3">
     <%= render 'shared/error_messages', object:f.object %>
+
       Titolo: <%=  f.text_field :title %>
 
       <p>Categoria:</p>
@@ -25,12 +28,14 @@
     <%= f.collection_select(:age_group_id, AgeGroup.all, :id, :name) %>
 
       Descrizione: <%=  f.text_area :content %>
+      </div>
+    </div>
 
-
-    <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-large btn-primary' %>
-    <%= f.submit 'Crea nuova domanda' %>
-    <%= f.submit 'Anteprima', :name => 'preview_button' %>
-
+    <div class="center">
+    <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info' %>
+    <%= f.submit 'Crea nuova domanda',class: 'btn btn-info' %>
+    <%= f.submit 'Anteprima', :name => 'preview_button',class: 'btn btn-info' %>
+    </div>
 <% end %>
 
 

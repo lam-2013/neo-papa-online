@@ -23,12 +23,12 @@ body {
   font-family: Monaco, Verdana, sans-serif;
   font-size: 13px;
 
-  background: -moz-radial-gradient(center, ellipse cover,   #d7e8d0 0%, #ace89b 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #d7e8d0), color-stop(100%,#ace89b));
-  background: -webkit-radial-gradient(center, ellipse cover,   #d7e8d0 0%, #ace89b 100%);
-  background: -o-radial-gradient(center, ellipse cover,  #d7e8d0 0%, #ace89b 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #d7e8d0 0%, #ace89b 100%);
-  background: radial-gradient(center, ellipse cover,  #d7e8d0 0%, #ace89b 100%);
+  background: -moz-radial-gradient(center, ellipse cover,   #eefff8 0%, #abd0ff 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #eefff8), color-stop(100%, #abd0ff));
+  background: -webkit-radial-gradient(center, ellipse cover,   #eefff8 40%, #abd0ff 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #eefff8 0%, #abd0ff 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #eefff8 0%, #abd0ff 100%);
+  background: radial-gradient(center, ellipse cover,  #eefff8 0%, #abd0ff 100%);
 
 
 }
@@ -81,13 +81,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: lightgreen;
+  color: #abd0ff;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: green;
+    color: #53b8d6;
     text-decoration: none;
   }
 }
@@ -102,7 +102,7 @@ footer {
   a {
     color: $gray;
     &:hover {
-      color: green;
+      color: #53b8d6;
     }
   }
   small {
@@ -162,7 +162,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: green;
+      color: #98bbeb;
     }
   }
   strong {
@@ -237,7 +237,7 @@ input {
   display: block;
 }
 .timestamp {
-  color: green;
+  color: #98bbeb;
 }
 .gravatar {
   float: left;
@@ -269,49 +269,35 @@ input {
 
 /*Pagina iniziale "Benvenuti"*/
 .titolo{
-    color: #baee87;
+
+    color: #53b8d6;
     font-size: 80px;
-    text-shadow: 4px 4px 4px black;
+    text-shadow: 6px 6px 6px black;
 }
 
 /*Pagina iniziale "NewDad"*/
 .titolo2{
-  color: #baee87;
+  color: #53b8d6;
   font-size: 100px;
-  text-shadow: 4px 4px 4px black;
+  text-shadow: 6px 6px 6px black;
 }
 
 /*Link nome utente in header*/
 .link {
   a:link {
-    color:lightgreen;
+    color: lightgrey;
   }
   a:visited {
-    color: lightgreen;
+    color: lightgrey;
   }
   a:hover {
-    color: green;
+    color: #6590ff;
   }
   a:active {
-    color:green;
+    color: #53b8d6;
   }
 }
 
-/*Link "modifica profilo*/
-.link_modifica{
-  a:link {
-    color:green;
-  }
-  a:visited {
-    color:green;
-  }
-  a:hover {
-    color: #86c058;
-  }
-  a:active {
-    color: #43762f;
-  }
-}
 
 /*MENU (Home, Profilo, Messaggi, Muro sfogo, Domande, Eventi*/
 
@@ -444,4 +430,11 @@ input {
   z-index:2;
   text-decoration:none !important;
   white-space:nowrap;
+}
+
+/* nome dell'utente*/
+.nome{
+   text-transform: uppercase;
+   color:#5d5d5d;
+   font-weight: bold;
 }
