@@ -84,6 +84,8 @@ class QuestionsController < ApplicationController
   def search
     @questions = Question.search(params[:category_id], params[:age_group_id]).paginate(page: params[:page])
 
+    @category = Category.all
+    @age_group = AgeGroup.all
   end
 
 

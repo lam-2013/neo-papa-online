@@ -3,12 +3,7 @@
 
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to 'Nuova Domanda', new_question_path, role: 'button', class: 'btn btn-info' %>
 
-
-        <ul class="nav pull">
-          <li><%= link_to 'Tutte le domande', questions_path %></li>
-          <li><%= link_to 'Mie domande', my_questions_user_path(current_user) %></li>
           <% if @category.any? %>
             <li><%= render partial: 'questions/category', collection: @category %></li>
           <% end %>

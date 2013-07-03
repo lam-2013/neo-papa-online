@@ -3,8 +3,9 @@
 <% if signed_in?%>
   <h1>Le ultime dieci domande</h1>
 
-  <%= render 'list_category' %>
-  <%= render 'list_age_groups' %>
+  <%#= render 'list_category' %>
+  <%#= render 'list_age_groups' %>
+  <%= render 'questions/menu' %>
   <%= render 'questions/search_form' %>
 
   <ul class="users">
