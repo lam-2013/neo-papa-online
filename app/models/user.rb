@@ -26,9 +26,6 @@ class User < ActiveRecord::Base
   has_many :like_questions, foreign_key: 'user_id', dependent: :destroy
   has_many :like_q, through: :like_questions, source: :question
 
-  #ad un utente piace una risposta tramite la tabella like_answers
-  has_many :like_answers, foreign_key: 'user_id', dependent: :destroy
-  has_many :like_a, through: :like_answers, source: :answer
 
   #campi obbligatori --> validazioni
   validates :name, presence:true, length: {maximum: 50}
@@ -43,7 +40,7 @@ class User < ActiveRecord::Base
   validates :em_situation, length:{ maximum: 50 }
   validates :employment, length:{ maximum: 50}
 
-  # metodi per i followers e i floowed
+  # metodi per i followers e i followed
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)
   end
@@ -69,18 +66,7 @@ class User < ActiveRecord::Base
     like_questions.find_by_question_id(question.id).destroy
   end
 
-  #metodi per i "Mi piace/Non mi piace più" per le risposte
-  def like_answers?(answer)
-    like_answers.find_by_answer_id(answer.id)
-  end
 
-  def like_answers!(answer)
-    like_answers.create!(answer_id: answer.id)
-  end
-
-  def dont_like_answers!(answer)
-    like_answers.find_by_answer_id(answer.id).destroy
-  end
 
   #metodo: prende i post con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
   def feed

@@ -1,5 +1,0 @@
-
-<%= form_for(current_user.like_answers.build(answer_id: @answer.id), remote: true) do |f| %>
-    <div><%= f.hidden_field :answer_id %></div>
-    <%= f.submit 'Mi piace', class: 'btn btn-large btn-info' %>
-<% end %>

@@ -21,7 +21,7 @@ class Question < ActiveRecord::Base
 
   #una domanda può avere molti utenti a cui piace
   has_many :like_questions, foreign_key: 'question_id'
-  has_many :users_like, through: :reverse_like_questions
+  has_many :users_like, through: :like_questions
 
   #validazioni dei campi: tutti sono obbligatori
   validates :user_id, presence: true

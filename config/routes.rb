@@ -32,7 +32,6 @@ Newdad::Application.routes.draw do
   end
 
   resources :like_questions, only: [:create, :destroy]
-  resources :like_answers, only: [:create, :destroy]
   resources :categories, only: [:show]
   resources :answers, only: [:create, :destroy]
   resources :age_groups, only: [:show]

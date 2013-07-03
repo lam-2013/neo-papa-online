@@ -13,7 +13,7 @@ namespace :db do
     make_age_groups
     make_questions
     make_answers
-    make_question_tag_relationship
+    #make_question_tag_relationship
   end
 end
 
