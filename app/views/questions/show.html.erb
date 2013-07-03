@@ -17,6 +17,7 @@
       <%= link_to gravatar_for (@question.user), @question.user %>
       <%= link_to @question.user.name, @question.user %>  <br>
 
+      <%# visualizzazione della domanda %>
       <span class="content">
         <p><%= @question.title %></p>
         <p><%= category_name(@question) %>, <%= @question.category_id %> </p>
@@ -26,23 +27,17 @@
           Domanda creata <%= time_ago_in_words(@question.created_at) %> fa
         </span>
 
-        <% if @question.user == current_user %>
+        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è coui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
 
           <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
 
           <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
 
         <% else %>
-
-          <%=  render 'questions/like_question_form' if signed_in? %>
-
+          <%# se l'utente che sta visualizzando la domanda non è colui che l'ha postata ha la possibilità di mettere un "Mi piace" o toglierlo %>
+          <%= render 'questions/like_question_form'%>
 
         <% end %>
-
-
-
-
-
 
         <% if @question.answers.any? %>
             <h3>Risposte: <%= @question.answers.count %></h3>

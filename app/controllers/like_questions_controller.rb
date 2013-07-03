@@ -17,3 +17,5 @@ class LikeQuestionsController < ApplicationController
   end
 
 end
+
+
