@@ -7,6 +7,10 @@ class Answer < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
 
+  #una risposta può piacere a molti utenti
+  has_many :like_answers, foreign_key: 'answer_id'
+  has_many :user_like, through: :reverse_like_answers
+
   #validazioni campi
   validates :user_id, presence: true
   validates :question_id, presence: true

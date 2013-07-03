@@ -1,0 +1,11 @@
+
+<% unless current_user?(@user) %>
+    <div id="like_answer_form">
+      <% if current_user.like_answers?(@answer) %>
+          <%= render 'dont_like_answer' %>
+      <% else %>
+          <%= render 'like_answer' %>
+      <% end %>
+    </div>
+
+<% end %>
