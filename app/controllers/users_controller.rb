@@ -6,9 +6,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @category = Category.where("waiting = 't' and accepted = 'f'")
     @posts= @user.posts.paginate(page: params[:page])
     @questions = @user.questions.paginate(page: params[:page])
     @answers = @user.answers.paginate(page: params[:page])
+
   end
 
   def new
@@ -87,7 +89,7 @@ class UsersController < ApplicationController
   def my_questions
     @user = User.find(params[:id])
     @questions = @user.questions.paginate(page: params[:page])
-    @category = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
   end
 

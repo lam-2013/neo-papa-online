@@ -8,6 +8,14 @@
   <%= render 'questions/menu' %>
   <%= render 'questions/search_form' %>
 
+    <%# blocco per sapere quanti mi piace gli altri utenti hanno dato alle domande che ha scritto l'utente loggato %>
+    <p>Numero di "Mi piace": <%=  @like %></p>
+    <p>(Quando supererai i 2 "Mi piace" da parte degli altri utenti avrai la possibilità di aggiungere nuove catogorie)</p>
+
+    <% if current_user.admin? || @like > 2 %>
+        <%= link_to 'Nuova Categoria', new_category_path, role: 'button', class: 'btn btn-info' %>
+    <% end %>
+
   <ul class="users">
     <%= render @questions %>
   </ul>

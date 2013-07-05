@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
 
-    @categories = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_groups = AgeGroup.all
 
   end
@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def show
 
     @question = Question.find_by_id(params[:id])
-    @category = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
 
     @answer = current_user.answers.build if signed_in?
@@ -70,14 +70,14 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.paginate(page: params[:page])
-    @category = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
      @like = 0
 
     @questions2 = current_user.questions.all
     @q_like = LikeQuestion.all
 
-    @b = @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
+    @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                                   @like = @like+1
                                                                   end}}
   end
@@ -85,7 +85,7 @@ class QuestionsController < ApplicationController
 
   def home
     @questions = Question.all(limit: 10)
-    @category = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
   end
 
@@ -93,7 +93,7 @@ class QuestionsController < ApplicationController
   def search
     @questions = Question.search(params[:category_id], params[:age_group_id]).paginate(page: params[:page])
 
-    @category = Category.all
+    @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
   end
 

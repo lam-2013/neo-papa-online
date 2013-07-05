@@ -1,0 +1,26 @@
+<% provide :title, 'Modifica categoria' %>
+
+<h1>Modifica categoria</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@category) do |f| %>
+
+        <%= render 'shared/error_messages', object:f.object %>
+
+        <%#= f.hidden_field :user_id, :value => @category.user_id    %>
+        <%= f.label :title, 'Categoria: ' %>
+        <%= f.text_field :title %>
+
+        <div class="offset1"> <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info'  %>
+          <%= f.submit 'Accetta', class: 'btn btn-info' %>
+          <%= link_to 'Cancella', @category, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+

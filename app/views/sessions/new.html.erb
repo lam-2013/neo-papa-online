@@ -13,6 +13,9 @@
           <%= render 'shared/stats' %>
         </section>
 
+        <% if current_user.admin? && @category.nil?%> <%# L'utente è l'amministratore: visualizza le notifiche per le nuove categorie %>
+          <%= render 'shared/list_category_to_accept' %>
+        <% end %>
       </aside>
 
       <div class="span8">

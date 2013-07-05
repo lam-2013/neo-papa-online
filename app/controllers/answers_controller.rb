@@ -3,11 +3,9 @@ class AnswersController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_user, only: :destroy
 
-  #TO DO:capire come passargli correttamente i parametri question_id e content
-  def create
+ def create
 
-    #@answer = Answer.create(:user_id => current_user.id, :question_id => '3', :content => 'ffff')
-    @answer = current_user.answers.build(params[:answer])
+   @answer = current_user.answers.build(params[:answer])
 
 
     if @answer.save

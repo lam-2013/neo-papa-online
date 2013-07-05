@@ -1,0 +1,7 @@
+<li>
+  <p><%= category.user.name %> ha inserito la categoria: </p>
+  <p><%= category.title %></p>
+
+  <%= link_to 'Accetta', edit_category_path(category), role: 'button' %>
+  <%= link_to 'Cancella', category, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
+</li>

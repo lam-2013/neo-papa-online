@@ -1,0 +1,13 @@
+
+<div class="navbar-inner-fixed-top navbar-inverse">
+
+  <div class="navbar-inner">
+    <div class="container">
+
+      <% if @category.any? %>
+        <%= render partial: 'shared/category', collection: @category %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

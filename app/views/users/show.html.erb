@@ -15,9 +15,6 @@
         <br />
         <%=  render 'users/menu_profilo' %>
 
-        <% if @user.admin? %> <%# l'utente è l'amministratore: notifiche per le nuove categorie%>
-          <%= render 'users/notifications' %>
-        <% end %>
       </div>
       <div class="span8">
 

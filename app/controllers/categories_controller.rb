@@ -43,4 +43,31 @@ class CategoriesController < ApplicationController
 
   end
 
+  def edit
+    @category = Category.find(params[:id])
+  end
+
+  def update
+
+     @category = Category.find(params[:id])
+
+     @category.toggle!(:waiting)
+     @category.toggle!(:accepted)
+
+     if @category.update_attributes(params[:category])
+
+       flash[:success] = 'Categoria aggiornata e visibile a tutti'
+       redirect_to questions_url
+     else
+       render 'edit'
+     end
+  end
+
+  def destroy
+    Category.find(params[:id]).destroy
+    flash[:success] = 'Categoria cancellata!'
+    redirect_to root_path
+  end
+
+
 end
