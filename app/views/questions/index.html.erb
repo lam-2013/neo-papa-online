@@ -9,6 +9,15 @@
 <%= render 'questions/search_form' %>
 
 
+
+<p>Numero di "Mi piace": <%=  @like %></p>
+<p>(Quando supererai i 2 "Mi piace" da parte degli altri utenti avrai la possibilità di aggiungere nuove catogorie)</p>
+
+<% if current_user.admin? || @like > 2 %>
+    <%= link_to 'Nuova Categoria', new_category_path, role: 'button', class: 'btn btn-info' %>
+<% end %>
+
+
 <%= will_paginate %>
 
 <ul class="users">

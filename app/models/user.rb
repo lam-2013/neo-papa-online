@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :childrens
 
+  #un utente può aver aggiunto molte categorie
+  has_many :categories
+
   #un utente segue molti utenti attraverso la tabella 'relationship'
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed

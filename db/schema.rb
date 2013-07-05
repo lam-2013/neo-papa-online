@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703153739) do
+ActiveRecord::Schema.define(:version => 20130703205217) do
 
   create_table "age_groups", :force => true do |t|
     t.string   "name"
@@ -31,8 +31,11 @@ ActiveRecord::Schema.define(:version => 20130703153739) do
 
   create_table "categories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "user_id"
+    t.boolean  "waiting",    :default => true
+    t.boolean  "accepted",   :default => false
   end
 
   create_table "children", :force => true do |t|

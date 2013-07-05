@@ -107,12 +107,29 @@ end
 
 def make_categories
 
-  Category.create!(title: "Consigli")
-  Category.create!(title: 'Educazione')
-  Category.create!(title: 'Giochi')
-  Category.create!(title: 'Ristoranti')
-  Category.create!(title: 'Salute')
-  Category.create!(title: 'Vacanze')
+  consigli = Category.create!(user_id: 1, title: "Consigli")
+  consigli.toggle!(:waiting)
+  consigli.toggle!(:accepted)
+
+  educazione = Category.create!(user_id: 1,title: 'Educazione')
+  educazione.toggle!(:waiting)
+  educazione.toggle!(:accepted)
+
+  giochi = Category.create!(user_id: 1,title: 'Giochi')
+  giochi.toggle!(:waiting)
+  giochi.toggle!(:accepted)
+
+  ristoranti = Category.create!(user_id: 1,title: 'Ristoranti')
+  ristoranti.toggle!(:waiting)
+  ristoranti.toggle!(:accepted)
+
+  salute = Category.create!(user_id: 1,title: 'Salute')
+  salute.toggle!(:waiting)
+  salute.toggle!(:accepted)
+
+  vacanze = Category.create!(user_id: 1,title: 'Vacanze')
+  vacanze.toggle!(:waiting)
+  vacanze.toggle!(:accepted)
 end
 
 def make_age_groups
