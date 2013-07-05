@@ -1,9 +1,11 @@
 <% if signed_in?%>
-
+<div class="offset4">
   <%= form_tag search_questions_path, method: 'get', class: 'navbar-search pull-left' do %>
     <%=  select_tag(:category_id, options_for_select(@category.collect{|category| [category.title, category.id]}, params[:category_id]), :prompt => 'Tutte le categorie') %>
     <%=  select_tag(:age_group_id, options_for_select(@age_group.collect{|age_group| [age_group.name, age_group.id]}, params[:age_group_id]), :prompt => 'Tutte le fasce d\'età') %>
-    <%= submit_tag 'Cerca', :name => nil  %>
+   <div class="center">
+    <%= submit_tag 'Cerca', :name => nil, class: 'btn btn-info'  %>
+   </div>
   <% end %>
-
+</div>
 <% end %>

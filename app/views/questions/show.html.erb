@@ -2,13 +2,20 @@
 
 <% if signed_in? %>
 
-  <div class="row">
-
     <%#= render 'list_category' %>
     <%#= render 'list_age_groups' %>
 
-    <%= render 'questions/menu' %>
-    <%= render 'questions/search_form' %>
+    <div class="row">
+      <%= render 'questions/menu' %>
+    </div>
+    <div class="row">
+      <br/>
+      <%= render 'questions/search_form' %>
+    </div>
+
+    <br/>
+
+    <h3 class="center">Domanda</h3>
 
 
     <%# blocco per sapere quanti mi piace gli altri utenti hanno dato alle domande che ha scritto l'utente loggato %>
@@ -21,7 +28,7 @@
 
     <div class="span9">
 
-      <h3>Domanda</h3>
+
 
       <%= link_to gravatar_for (@question.user), @question.user %>
       <%= link_to @question.user.name, @question.user %>  <br>
@@ -49,7 +56,7 @@
         <% end %>
 
         <% if @question.answers.any? %>
-            <h3>Risposte: <%= @question.answers.count %></h3>
+            <h3 class="center">Risposte: <%= @question.answers.count %></h3>
             <ol class="posts">
               <%= render @answers %>
             </ol>

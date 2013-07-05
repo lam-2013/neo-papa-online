@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+      $(function() {
+          $( "#draggable" ).draggable();
+      });
+  </script>
+</head>
+<body>
+
+<div id="draggable">
+  <svg>
+    <rect width="200" height="200" fill="red"/>
+    <text font-size="40"y="80">prova</text>
+  </svg>
+</div>
+
+<table width="110%" height="100%">
+
+
+  <tr>
+    <td width="30%" id="holder" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+
+      <div id="postit_1" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
+      <div id="postit_2" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
+      <div id="postit_3" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
+      <div id="postit_4" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
+
+      <!--   <div ondragstart="dragIt(this, event)" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)">
+         <svg viewBox="0 0 100 100">
+           <rect fill="red" width="40" height="40" x="2" y="2" />
+           <text x="5" y="14"
+                 font-family="Verdana"
+                 font-size="5">prova</text>
+         </svg>
+         </div>  -->
+
+    </td>
+
+    <td width="60%" id="postitv" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+    </td>
+    <td width="20" id="bucket3" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)"><%= image_tag('trash.png') %>   </td>
+
+
+  </tr>
+
+</table>
+
+</body>
+</html>

@@ -1,13 +1,16 @@
 <% provide :title, 'Muro dello sfogo' %>
 
+<div class="row center">
+  <p>Oggi è: <%= Date.current.strftime('%d / %m / %Y') %></p>
+</div>
 
-    <div class="row">
-      <p>Oggi è: <%= Date.current.strftime('%d / %m / %Y') %></p>
-      <div class="span9">
-        <%= render 'shared/post_form' %>
-        <h3>Wall</h3>
-        <%=  render 'shared/sfogo' %>
-      </div>
-    </div>
+<div class="row">
+  <%= render 'shared/post_form' %>
+</div>
+<div class="row">
+  <h3>Wall</h3>
+  <%=  render 'shared/sfogo' %>
+</div>
+
 
 

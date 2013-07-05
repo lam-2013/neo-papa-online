@@ -1,7 +1,13 @@
 <% provide :title, 'Risultati ricerca' %>
 
-<%= render 'questions/menu' %>
-<%= render 'questions/search_form' %>
+<div class="row">
+  <%= render 'questions/menu' %>
+</div>
+<div class="row">
+  <br/>
+  <%= render 'questions/search_form' %>
+</div>
+
 
 <%# blocco per sapere quanti mi piace gli altri utenti hanno dato alle domande che ha scritto l'utente loggato %>
 <p>Numero di "Mi piace": <%=  @like %></p>
@@ -12,9 +18,6 @@
 <% end %>
 
 <h1><%= page_entries_info @questions %></h1>
-
-<%= will_paginate %>
-
 <ul class="users">
   <%= render @questions %>
 </ul>

@@ -270,9 +270,9 @@ input {
 /*Pagina iniziale "Benvenuti"*/
 .titolo{
 
-    color: #53b8d6;
-    font-size: 80px;
-    text-shadow: 6px 6px 6px black;
+  color: #53b8d6;
+  font-size: 80px;
+  text-shadow: 6px 6px 6px black;
 }
 
 /*Pagina iniziale "NewDad"*/
@@ -368,9 +368,7 @@ input {
   -o-transition:0.25s all;
   transition:0.25s all;
 }
-/*Adesso usiamo le pseudo classi :first-child e last-child per definire l’aspetto della prima e dell’ultima voce del menu’:
-
- Treating the first LI and li:after elements separately */
+/* Uso le pseudo classi :first-child e last-child per definire l’aspetto della prima e dell’ultima voce del menu’ */
 
 .fancyNav li:first-child{
   border-radius: 4px 0 0 4px;
@@ -389,7 +387,6 @@ input {
   border-radius: 0 4px 4px 0;
 }
 
-/* Treating the last LI and li:after elements separately */
 
 .fancyNav li:last-child:after,
 .fancyNav li.selected:last-child:after{
@@ -403,10 +400,9 @@ input {
 .fancyNav li:hover:after,
 .fancyNav li.selected:after,
 .fancyNav li:target:after{
-  /* This property triggers the CSS3 transition */
   opacity:1;
 }
-/*Adesso definiamo l’azione al passaggio del mouse:     */
+/* Definisco l’azione al passaggio del mouse     */
 
 .fancyNav:hover li.selected:after,
 .fancyNav:hover li:target:after{
@@ -418,7 +414,7 @@ input {
 .fancyNav li:target:hover:after{
   opacity:1 !important;
 }
-/* Styling the anchor elements */
+/* Stile del menù */
 
 .fancyNav li a{
   color: #5d5d5d;
@@ -434,7 +430,7 @@ input {
 
 /* nome dell'utente*/
 .nome{
-   text-transform: uppercase;
-   color:#5d5d5d;
-   font-weight: bold;
+  text-transform: uppercase;
+  color:#5d5d5d;
+  font-weight: bold;
 }
