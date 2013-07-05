@@ -91,6 +91,15 @@ class UsersController < ApplicationController
     @questions = @user.questions.paginate(page: params[:page])
     @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
+
+    @like = 0
+    @questions2 = current_user.questions.all
+    @q_like = LikeQuestion.all
+
+    @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
+                                                             @like = @like+1
+                                                           end}}
+
   end
 
   def informazioni_profilo

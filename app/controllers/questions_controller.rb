@@ -20,6 +20,13 @@ class QuestionsController < ApplicationController
     @answer = current_user.answers.build if signed_in?
     @answers = @question.answers.paginate(page: params[:page])
 
+    @like = 0
+    @questions2 = current_user.questions.all
+    @q_like = LikeQuestion.all
+
+    @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
+                                                             @like = @like+1
+                                                           end}}
   end
 
   def create
@@ -72,8 +79,8 @@ class QuestionsController < ApplicationController
     @questions = Question.paginate(page: params[:page])
     @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
-     @like = 0
 
+    @like = 0
     @questions2 = current_user.questions.all
     @q_like = LikeQuestion.all
 
@@ -87,6 +94,15 @@ class QuestionsController < ApplicationController
     @questions = Question.all(limit: 10)
     @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
+
+    @like = 0
+    @questions2 = current_user.questions.all
+    @q_like = LikeQuestion.all
+
+    @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
+                                                             @like = @like+1
+                                                           end}}
+
   end
 
 
@@ -95,6 +111,15 @@ class QuestionsController < ApplicationController
 
     @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
+
+    @like = 0
+    @questions2 = current_user.questions.all
+    @q_like = LikeQuestion.all
+
+    @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
+                                                             @like = @like+1
+                                                           end}}
+
   end
 
 

@@ -1,11 +1,11 @@
 
-<%= form_for(@answer) do |f| %>
+<%= form_for(current_user.answers.build(question_id: @question.id), remote: true) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="row">
       <div class="field span7">
         <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
-        <%= f.hidden_field :question_id, :value => @question.id  %>
+        <%= f.hidden_field :question_id %>
 
       </div>
       <div class="span2">
@@ -13,5 +13,11 @@
       </div>
     </div>
 <% end %>
+</div>
+
+
+
+
+
 
 
