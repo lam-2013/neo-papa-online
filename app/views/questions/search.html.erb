@@ -13,9 +13,6 @@
 <p>Numero di "Mi piace": <%=  @like %></p>
 <p>(Quando supererai i 2 "Mi piace" da parte degli altri utenti avrai la possibilità di aggiungere nuove catogorie)</p>
 
-<% if current_user.admin? || @like > 2 %>
-    <%= link_to 'Nuova Categoria', new_category_path, role: 'button', class: 'btn btn-info' %>
-<% end %>
 
 <h1><%= page_entries_info @questions %></h1>
 <ul class="users">

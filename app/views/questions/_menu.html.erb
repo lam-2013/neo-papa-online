@@ -11,6 +11,9 @@
     <%= link_to 'Nuova Domanda', new_question_path, role: 'button', class: 'btn btn-info' %>
   </div>
     <div class="span3">
+
+
+
   <% if current_user.admin? || @like > 2 %>
       <%= link_to 'Nuova Categoria', new_category_path, role: 'button', class: 'btn btn-info' %>
   <% end %>

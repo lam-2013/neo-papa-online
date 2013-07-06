@@ -12,12 +12,19 @@
           <%= render 'shared/stats' %>
         </section>
 
+        <% if current_user.admin? && !@category.empty? %>
+            <%= render 'shared/list_category_to_accept' %>
+        <% end %>
+
       </aside>
 
       <div class="span6">
         <h3>Wall</h3>
         <%=  render 'shared/feed' %>
+
+
       </div>
+
     </div>
 
 <%else%>
@@ -40,10 +47,10 @@
                     <%= f.label :password %>
                     <%= f.password_field :password %>
                   </div>
-                  <!--    <div class="span3">
+                 <div class="span3">
                  <label class="checkbox">
                    <input type="checkbox"> Remember me </input>
-                 </label> </div>  -->
+                 </label> </div>
                   <div class="span2" >
                     <br/>
                     <%= f.submit 'Login', class: 'btn btn-info' %>
