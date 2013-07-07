@@ -1,22 +1,43 @@
 
 <div class="navbar-inner-fixed-top navbar-inverse">
-  <div class="row offset2">
+
+  <div class="row offset1">
     <div class="span3 navbar-inner center">
       <ul class="nav nav-list">
         <li><%= link_to 'Tutte le domande', questions_path %></li>
         <li><%= link_to 'Mie domande', my_questions_user_path(current_user) %></li>
       </ul>
     </div>
+
   <div class="span2">
     <%= link_to 'Nuova Domanda', new_question_path, role: 'button', class: 'btn btn-info' %>
   </div>
-    <div class="span3">
 
-
-
+    <div class="span2">
   <% if current_user.admin? || @like > 2 %>
       <%= link_to 'Nuova Categoria', new_category_path, role: 'button', class: 'btn btn-info' %>
   <% end %>
     </div>
+
+    <div class="span1">
+      <div class="panel">
+        <a href="#join_form" id="join_pop">?</a>
+      </div>
+    </div>
+
+    <!-- popup form #2 -->
+    <a href="#x" class="overlay" id="join_form"></a>
+    <div class="popup">
+      <h2>Creazione nuova categoria</h2>
+      <p>Puoi creare una nuova categoria solo se hai</p>
+      <p>più di 2 "mi piace" in almeno una domanda!</p>
+
+      <a class="close" href="#close"></a>
+    </div>
+
+    <div class="span2">
+      <%# blocco per sapere quanti mi piace gli altri utenti hanno dato alle domande che ha scritto l'utente loggato %>
+      <%= image_tag("mi_piace.png") %><p>Mi piace: <%=  @like %></p>
+       </div>
 </div>
-</div>
+    </div>

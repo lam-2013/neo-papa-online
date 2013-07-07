@@ -1,5 +1,5 @@
-<li>
-  <p><%= category.user.name %> ha inserito la categoria: </p>
+<li class="posts">
+  <p class="nome"><%= category.user.name %> ha inserito la categoria: </p>
   <p><%= category.title %></p>
 
   <%= link_to 'Accetta', edit_category_path(category), role: 'button' %>

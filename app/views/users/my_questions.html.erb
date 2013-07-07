@@ -14,11 +14,7 @@
       </div>
 
 
-      <%# blocco per sapere quanti mi piace gli altri utenti hanno dato alle domande che ha scritto l'utente loggato %>
-      <p>Numero di "Mi piace": <%=  @like %></p>
-      <p>(Quando supererai i 2 "Mi piace" da parte degli altri utenti avrai la possibilità di aggiungere nuove catogorie)</p>
-
-      <div class="span8">
+        <div class="span8">
 
         <% if @user.questions.any? %>
             <h1 class="offset3">Mie domande: <%= @user.questions.count %></h1>
