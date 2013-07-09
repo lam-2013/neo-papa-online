@@ -29,6 +29,9 @@ class User < ActiveRecord::Base
   has_many :like_questions, foreign_key: 'user_id', dependent: :destroy
   has_many :like_q, through: :like_questions, source: :question
 
+  #ad un utente piace una domanda tramite la tabella like_questions
+  has_many :like_answers, foreign_key: 'user_id', dependent: :destroy
+  has_many :like_a, through: :like_answers, source: :answer
 
   #campi obbligatori --> validazioni
   validates :name, presence:true, length: {maximum: 50}
@@ -67,6 +70,20 @@ class User < ActiveRecord::Base
 
   def dont_like_questions!(question)
     like_questions.find_by_question_id(question.id).destroy
+  end
+
+  #metodi per i "Mi piace/Non mi piace più" per le risposte
+  def like_answers?(answer)
+    like_answers.find_by_answer_id(answer.id)
+  end
+
+  def like_answers!(answer)
+    like_answers.create!(answer_id: answer.id)
+  end
+
+
+  def dont_like_answers!(answer)
+    like_answers.fin_by_answer_id(answer.id).destroy
   end
 
 

@@ -11,6 +11,19 @@
       <%= link_to 'delete', answer, method: :delete, data: {confirm: 'Sei sicuro?'}, title: answer.content %>
     <% else %>
       <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>
+
+      <%#= render 'answers/like_answer_form' %>
+
+      <% unless current_user?(@user) %>
+          <div id="like_answer_form">
+            <% if current_user.like_answers?(answer) %>
+                <%= render 'dont_like_question' %>
+            <% else %>
+                <%= render 'like_question' %>
+            <% end %>
+          </div>
+      <% end %>
+
   <% end %>
 
 </li>

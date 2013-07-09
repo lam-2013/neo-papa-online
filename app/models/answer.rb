@@ -9,7 +9,7 @@ class Answer < ActiveRecord::Base
 
   #una risposta può piacere a molti utenti
   has_many :like_answers, foreign_key: 'answer_id'
-  has_many :user_like, through: :reverse_like_answers
+  has_many :user_like, through: :like_answers, source: :user
 
   #validazioni campi
   validates :user_id, presence: true

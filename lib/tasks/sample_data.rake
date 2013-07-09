@@ -88,8 +88,6 @@ def make_children
    end
 end
 
-
-
 def make_tags
   Tag.create!(title: 'allergie')
   Tag.create!(title: 'cartoni animati')
