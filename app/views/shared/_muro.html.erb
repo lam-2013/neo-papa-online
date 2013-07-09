@@ -18,17 +18,20 @@
   </svg>
 </div>       -->
 
+
+<!--
+
 <table class="tabella">
 
 
   <tr>
     <td  class="cella_postit" id="holder" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
 
-      <div id="postit_1" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
+      <!--  <div class="postit" id="postit_1" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
       <div id="postit_2" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
       <div id="postit_3" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
       <div id="postit_4" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
-
+      -->
       <!--   <div ondragstart="dragIt(this, event)" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)">
          <svg viewBox="0 0 100 100">
            <rect fill="red" width="40" height="40" x="2" y="2" />
@@ -36,18 +39,29 @@
                  font-family="Verdana"
                  font-size="5">prova</text>
          </svg>
-         </div>  -->
+         </div>
 
     </td>
 
-    <td width="60%" id="postitv" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+    <td class="cella_postit_drag" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
     </td>
-    <td width="20" id="bucket3" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)"><%= image_tag('trash.png') %>   </td>
+    <br/>
+    <td class="cella_postit_drag" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+    </td>
+    <br/>
+    <td class="cella_postit_drag" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+    </td>
+    <br/>
+    <td class="cella_postit_drag" id="bucket3" ondragenter="return false" ondragover="return false" ondrop="trashIt(this, event)"><%= image_tag('trash.png') %>   </td>
 
 
   </tr>
 
-</table>
+</table>-->
 
-</body>
-</html>
+
+    <div id="boxA" ondragover="dragOver(event)" ondrop="dragDrop(event)">
+      <%=  render 'shared/sfogo' %>
+      </div>
+    <div id="boxB" ondragover="return dragOver(event)" ondrop="dragDrop(event)"></div>
+    <div id="boxC" ondragover="return dragOver(event)" ondrop="dragDrop(event)"></div>
