@@ -38,8 +38,7 @@
       <div class="span10">
 
         <div class="container">
-          <div class="row">
-            <div class="span4" >
+            <div class="span4 offset1" >
               <%= form_for(:session, url: sessions_path) do |f| %>
 
                   <%= f.label :email %>
@@ -50,13 +49,6 @@
                     <%= f.label :password %>
                     <%= f.password_field :password %>
                   </div>
-
-                  <div class="span2">
-                    <br/>
-                    <label class="checkbox">
-                      <input type="checkbox"> Remember me </input>
-                    </label> </div>
-
                   <div class="span2" >
                     <br/>
                     <%= f.submit 'Login', class: 'btn btn-info' %>
@@ -71,7 +63,7 @@
                     <div class="center">Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-info' %></div>
                   </div>
 
-                  </div>
+
 
               <% end %>
 

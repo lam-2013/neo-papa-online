@@ -5,6 +5,18 @@
 
 <%= form_for @question do |f| %>
 
+    <% if params[:preview_button]%>
+        <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
+
+        <%= render 'shared/error_messages', object:f.object %>
+       <div class="center"> <div id="preview" class="anteprimadomanda">
+          <p>Titolo: <%= @question.title %></p>
+          <p>Categoria: <%= category_name(@question) %></p>
+          <p>Fascia d'età: <%= age_groups_name(@question) %></p>
+          <p>Descrizione: <%= @question.content %></p>
+        </div>
+       </div>
+    <% end %>
 
     <div class="row">
       <div class="span6 offset3">
@@ -22,39 +34,12 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="span4 offset3">
-        <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info' %>
-        <%= f.submit 'Crea nuova domanda',class: 'btn btn-info' %>
-      </div>
-
-      <div class="span1 offset1">
-
-        <div class="panel">
-          <a href="#join_form" id="join_pop" class="preview_button">Anteprima</a>
-
-        </div>
-      </div>
-
-      <a href="#x" class="overlay" id="join_form"></a>
-      <div class="popup">
-        <% if params[:preview_button]%>
-            <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
-
-            <%= render 'shared/error_messages', object:f.object %>
-            <div>
-              <p>Titolo: <%= @question.title %></p>
-              <p>Categoria: <%= category_name(@question) %></p>
-              <p>Fascia d'età: <%= age_groups_name(@question) %></p>
-              <p>Descrizione: <%= @question.content %></p>
-            </div>
-        <% end %>
-
-        <a class="close" href="#close"></a>
-      </div>
+    <div class="center">
+      <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info' %>
+      <%= f.submit 'Crea nuova domanda',class: 'btn btn-info' %>
+      <%= f.submit 'Anteprima', :name => 'preview_button',class: 'btn btn-info' %>
     </div>
-    </div>
-    </div>
-
 <% end %>
+
+
 
