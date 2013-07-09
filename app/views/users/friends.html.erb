@@ -9,16 +9,17 @@
 
     <%=  render 'users/menu_profilo' %>
   </div>
+  <h1><%= @title %></h1>
 
-  <div class="span8">
-    <h1><%= @title %></h1>
+  <div class="span4">
     <% if @users.any? %>
         <ul class="users">
           <h3>Followers</h3>
           <%= render @users %>
         </ul>
         <% end %>
-
+    </div>
+  <div class="span4">
         <% if @users2.any? %>
         <ul class="users">
           <h3>Following</h3>

@@ -1,30 +1,4 @@
 <% provide :title %>
-<html>
-<head>
-  <script src="http://wcetdesigns.com/assets/javascript/jquery.js"></script>
-  <script src="http://wcetdesigns.com/assets/javascript/jquery/cookie-plugin.js"></script>
-
-<script>
-    function remember_me(){
-        var c = $("#check"); //INPUT CHECKBOX
-
-//IF CHECKBOX IS SET, COOKIE WILL BE SET
-        if(c.is(":checked")){
-            var u = $("#email").val(); //VALUE OF USERNAME
-            var p = $("#password").val(); //VALUE OF PASSWORD
-            $.cookie("email", u, { expires: 3650 }); //SETS IN DAYS (10 YEARS)
-            $.cookie("password", p, { expires: 3650 }); //SETS IN DAYS (10 YEARS)
-        }
-    }
-    //NEXT PAGE LOAD, THE USERNAME & PASSWORD WILL BE SHOWN IN THEIR FIELDS
-    function load_em(){
-        var u = $.cookie("email"); //"USERNAME" COOKIE
-        var p = $.cookie("password"); //"PASSWORD" COOKIE
-
-        $("#email").val(u); //FILLS WITH "USERNAME" COOKIE
-        $("#password").val(p); //FILLS WITH "PASSWORD" COOKIE
-    }
-</script>
 
 <% if signed_in? %>
     <div class="row">
@@ -38,12 +12,22 @@
           <%= render 'shared/stats' %>
         </section>
 
+        <% if current_user.admin? && !@category.empty? %>
+            <%= render 'shared/list_category_to_accept' %>
+            <% end %>
       </aside>
-
+      <aside>
       <div class="span6">
-        <h3>Wall</h3>
+        <h3>Sfoghi</h3>
         <%=  render 'shared/feed' %>
+        <br/>
+        <h3>Domande</h3>
+        <%=  render 'shared/query' %>
+        <br/>
+        <h3>Risposte</h3>
+        <%=  render 'shared/answer' %>
       </div>
+      </aside>
     </div>
 
 <%else%>

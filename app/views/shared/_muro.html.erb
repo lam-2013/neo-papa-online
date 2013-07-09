@@ -1,4 +1,4 @@
-
+<!--
 <head>
   <meta charset="utf-8" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -16,13 +16,13 @@
     <rect width="200" height="200" fill="red"/>
     <text font-size="40"y="80">prova</text>
   </svg>
-</div>
+</div>       -->
 
-<table width="110%" height="100%">
+<table class="tabella">
 
 
   <tr>
-    <td width="30%" id="holder" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
+    <td  class="cella_postit" id="holder" ondrop="dropIt(this, event)" ondragenter="return false" ondragover="return false">
 
       <div id="postit_1" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
       <div id="postit_2" ondragstart="dragIt(this, event)" ondragenter="return false"><%= image_tag("postit_2.png")%></div>
