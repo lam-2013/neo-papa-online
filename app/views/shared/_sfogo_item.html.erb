@@ -1,11 +1,12 @@
 
-<li>
-  <%= link_to gravatar_for(sfogo_item.user), sfogo_item.user %>
-  <span class="user">
+<div id="<%= sfogo_item.id %>" class="word" draggable="true" ondragstart="return dragDefine(event)" ondragend="dragEnd(event)">
+  <br/><p class="user">
     <%= link_to sfogo_item.user.name, sfogo_item.user %>
-  </span>
-  <span class="content"><%= sfogo_item.content %></span>
-  <span class="timestamp">
-    Post creato <%= time_ago_in_words(sfogo_item.created_at) %> fa
-  </span>
-</li>
+  </p>
+  <p>
+  <%= sfogo_item.content %>
+  </p>
+  <% if sfogo_item.user_id== current_user.id %>
+      <%= link_to 'delete', sfogo_item, method: :delete, data: {confirm: 'Sei sicuro?'} %>
+  <% end %>
+</div>

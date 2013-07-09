@@ -1,33 +1,44 @@
-/**
- * Created with JetBrains RubyMine.
- * User: mariateresa
- * Date: 05/07/13
- * Time: 21:10
- * To change this template use File | Settings | File Templates.
- */
 
-function dragIt(target, e) {
-    e.dataTransfer.setData('image/png', target.id);
-}
+// dragDefine - called when an item starts to be dragged
+function dragDefine(ev) {
+    ev.dataTransfer.effectAllowed = 'move';
+    ev.dataTransfer.setData("text/plain", ev.target.getAttribute('id'));
+    ev.dataTransfer.setDragImage(ev.target, 0, 0);
+    return true;
+    }
 
-function dragOver(e) {
-    var postitv = e.dataTransfer.getData('image/png');
-    var id = e.target.getAttribute('id');
-    if (id =='postitv')
-        return false;
-    else
-        return true;
-}
+// dragOver - called when the item being dragged is over another item
+function dragOver(ev) {
+    // Get the id of the item being dragged
+    //var idDrag = ev.dataTransfer.getData("Text");
+    // Get the id of the item the dragged object is currently over
+    //var idBox = ev.target.getAttribute('id');
+    // You may want to perform some checks here, e.g. is the dragged item allowed to be dropped here for example
 
-function dropIt(target, e) {
-    var id = e.dataTransfer.getData('image/png');
-    target.appendChild(document.getElementById(id));
-    e.preventDefault();
-}
-function trashIt(target, e) {
+    // Turn off the default behaviour i.e. allow the drop
+    ev.preventDefault();
+    }
+
+// dragEnd - called when the drag is complete
+function dragEnd(ev) {
+    return true;
+    }
+
+// dragDrop - called when the item being dragged is dropped
+function dragDrop(ev) {
+    // Get the id of the item being dragged
+    var idDrag = ev.dataTransfer.getData("Text");
+    // Append the dragged item to the item it is currently over
+    ev.target.appendChild(document.getElementById(idDrag));
+    // Turn off the default behaviour
+    ev.preventDefault();
+    }
+
+
+function trashIt(ev) {
     var id = e.dataTransfer.getData('image/png');
     removeElement(id);
-    e.preventDefault();
+    ev.preventDefault();
 }
 function removeElement(id)	{
     var d_node = document.getElementById(id);

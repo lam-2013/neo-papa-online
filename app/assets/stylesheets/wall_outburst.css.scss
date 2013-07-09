@@ -1,3 +1,46 @@
 // Place all the styles related to the wall_outburst controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#boxA{
+  float:left;
+  width:33%;
+  height:80%;
+  background-color: red;
+  border-left: 1px solid;
+
+
+}
+
+#boxB{
+  float:left;
+  width:33%;
+  height:200px;
+  background-color: #ff0000;
+  border-left: 1px solid;
+
+}
+
+#boxC{
+  float:left;
+  width:33%;
+  height:200px;
+  background-color: red;
+  border-left: 1px solid;
+
+  background-image: url("trash.png");
+  background-repeat: no-repeat;
+}
+
+.word {
+  width: 100px; height: 100px; padding:3px; margin:5px; text-align:center; font-weight:bold;
+
+  display:inline-block;
+  background-image: url("postit_2.png");
+  background-repeat: no-repeat;
+}
+*[draggable=true] {
+  -moz-user-select:none;
+  -khtml-user-drag: element;
+  cursor: move;
+}

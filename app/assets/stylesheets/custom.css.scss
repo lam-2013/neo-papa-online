@@ -555,11 +555,23 @@ a#login_pop:hover, a#join_pop:hover {
   margin-bottom: 10px;
 }
 
+/*MURO DELLO SFOGO*/
 .tabella{
   width: 100% ;
   height: 100% ;
 }
 .cella_postit{
   width: 20%;
+  height: 20%;
+  background-color:red;
+}
+
+.cella_postit_drag{
+  width: 20%;
   height: 100%;
+
+}
+
+.postit{
+  width: 100%;
 }
