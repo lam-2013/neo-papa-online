@@ -36,13 +36,12 @@
             <%= will_paginate @query_items %>
         <% end %>
 
-        <% if current_user.answers.any? %>
-            <h3>Mie risposte (<%= @user.answers.count %>)</h3>
-            <ol class="posts">
-              <%= render @answers %>
-            </ol>
-            <%= will_paginate @answers %>
+        <% if @answer_items.any? %>
+            <h3>Mie risposte (<%= @answer_items.count %>) </h3>
+            <%=  render 'shared/answer' %>
         <% end %>
+
+
       </div>
     </div>
 
