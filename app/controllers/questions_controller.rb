@@ -28,8 +28,14 @@ class QuestionsController < ApplicationController
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                              @like = @like+1
 
-                                                          end}}
-    @like_question = @question.like_questions.count
+                                                           end}}
+    @answer2 = current_user.answers.all
+    @a_like = LikeAnswer.all
+    @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
+                                                @like = @like+1
+                                                end} }
+
+
   end
 
   def create
@@ -89,7 +95,14 @@ class QuestionsController < ApplicationController
 
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                                   @like = @like+1
-                                                                  end}}
+                                                           end}}
+
+    @answer2 = current_user.answers.all
+    @a_like = LikeAnswer.all
+    @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
+                                                      @like = @like+1
+                                                    end} }
+
   end
 
 
@@ -105,6 +118,13 @@ class QuestionsController < ApplicationController
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                              @like = @like+1
                                                            end}}
+
+
+    @answer2 = current_user.answers.all
+    @a_like = LikeAnswer.all
+    @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
+                                                      @like = @like+1
+                                                    end} }
 
   end
 
@@ -122,6 +142,12 @@ class QuestionsController < ApplicationController
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                              @like = @like+1
                                                            end}}
+
+    @answer2 = current_user.answers.all
+    @a_like = LikeAnswer.all
+    @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
+                                                      @like = @like+1
+                                                    end} }
 
   end
 
