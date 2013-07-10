@@ -1,5 +1,5 @@
 <section>
- <%= gravatar_for current_user %>
+ <%= gravatar_for current_user, size: 100 %>
   <h1 class="nome"><%= current_user.name %></h1>
   <span class="modifica"><%= link_to 'Modifica Profilo', edit_user_path(current_user) %></span>
 

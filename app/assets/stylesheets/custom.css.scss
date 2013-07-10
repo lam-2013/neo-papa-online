@@ -12,8 +12,6 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
-/* general */
-
 html {
   overflow-y: scroll;
 }
@@ -23,15 +21,13 @@ body {
   font-family: Monaco, Verdana, sans-serif;
   font-size: 13px;
 
-
+/*Colore sfondo*/
   background: -moz-radial-gradient(center, ellipse cover,   #bababa 0%, #2e2e2e 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #bababa), color-stop(100%, #2e2e2e));
   background: -webkit-radial-gradient(center, ellipse cover,   #bababa 40%, #2e2e2e 100%);
   background: -o-radial-gradient(center, ellipse cover,  #bababa 0%, #2e2e2e 100%);
   background: -ms-radial-gradient(center, ellipse cover, #bababa 0%, #2e2e2e 100%);
   background: radial-gradient(center, ellipse cover,  #bababa 0%, #2e2e2e 100%);
-
-
 }
 
 section {
@@ -49,7 +45,52 @@ textarea {
   }
 }
 
-/* typography */
+
+/*FONT*/
+@font-face {
+  font-family: 'Monaco';
+  src: url('Monaco.dfont') format('truetype');
+}
+
+/*Pagina iniziale "Benvenuti"*/
+.titolo{
+  color: #53b8d6;
+  font-size: 80px;
+  text-shadow: 6px 6px 6px black;
+}
+
+/*Pagina iniziale "NewDad"*/
+.titolo2{
+  color: #53b8d6;
+  font-size: 100px;
+  text-shadow: 6px 6px 6px black;
+}
+
+/* Nome dell'utente*/
+.nome{
+  text-transform: uppercase;
+  font-weight: bold;
+  a {
+    color: #f0f0f0;
+    &:hover {
+      color: #53b8d6 ;
+    }
+  }
+}
+
+/*Link modifica profilo*/
+.modifica{
+  a:visited {
+    color: #53b8d6;
+  }
+  a:hover {
+    color: #f0f0f0;
+  }
+}
+
+.mi_piace{
+  color:  #f0f0f0;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -76,8 +117,8 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
 
+/* HEADER */
 #logo {
   float: left;
   margin-right: 10px;
@@ -88,13 +129,25 @@ p {
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: #abd0ff;
+    color: #53b8d6;
     text-decoration: none;
   }
 }
 
-/* footer */
+/*Link nome utente in header*/
+.link {
+  text-transform: uppercase;
+  a:visited {
+    color: #f0f0f0;
+  }
+  a:hover {
+    color: #53b8d6;
+  }
+}
 
+
+
+/* FOOTER */
 footer {
   margin-top: 45px;
   padding-top: 5px;
@@ -103,7 +156,7 @@ footer {
   a {
     color: #f0f0f0;
     &:hover {
-      color: #abd0ff;
+      color: #53b8d6;
     }
   }
   small {
@@ -119,8 +172,8 @@ footer {
   }
 }
 
-/* sidebar */
 
+/* SIDEBAR */
 aside {
   section {
     padding: 10px 0;
@@ -148,6 +201,9 @@ aside {
   float: left;
   margin-right: 10px;
   margin-top: 10px;
+  -moz-box-shadow:5px 5px 2px #333333;
+  -webkit-box-shadow:5px 5px 2px #333333;
+  box-shadow:5px 5px 2px #333333;
 }
 
 .stats {
@@ -163,7 +219,7 @@ aside {
     }
     &:hover {
       text-decoration: none;
-      color: #98bbeb;
+      color: #53b8d6;
     }
   }
   strong {
@@ -179,8 +235,8 @@ aside {
   }
 }
 
-/* forms */
 
+/* FORM */
 input, textarea, select, .uneditable-input {
   width: 100%;
   height: auto;
@@ -206,7 +262,7 @@ input {
   @extend .error;
 }
 
-/* users index */
+
 
 .users {
   list-style: none;
@@ -220,9 +276,7 @@ input {
     }
   }
 }
-
-/* posts */
-
+/* POST */
 .posts {
   list-style: none;
   margin: 10px 0 0 0;
@@ -236,9 +290,11 @@ input {
 .content {
   display: block;
 }
+
 .timestamp {
   color: #f0f0f0;
 }
+
 .gravatar {
   float: left;
   margin-right: 10px;
@@ -252,7 +308,6 @@ input {
 }
 
 /* miscellaneous */
-
 .debug_dump {
   clear: both;
   float: left;
@@ -261,40 +316,8 @@ input {
   @include box_sizing;
 }
 
-/*Font del sito*/
-@font-face {
-  font-family: 'Monaco';
-  src: url('Monaco.dfont') format('truetype');
-}
 
-/*Pagina iniziale "Benvenuti"*/
-.titolo{
-
-  color: #53b8d6;
-  font-size: 80px;
-  text-shadow: 6px 6px 6px black;
-}
-
-/*Pagina iniziale "NewDad"*/
-.titolo2{
-  color: #53b8d6;
-  font-size: 100px;
-  text-shadow: 6px 6px 6px black;
-}
-
-/*Link nome utente in header*/
-.link {
-  a:visited {
-    color: #f0f0f0;
-  }
-  a:hover {
-    color: #98bbeb;
-  }
-}
-
-
-/*MENU (Home, Profilo, Messaggi, Muro sfogo, Domande, Eventi*/
-
+/*MENU (Home, Profilo, Messaggi, Muro sfogo, Domande, Eventi)*/
 .fancyNav{
   overflow: hidden;
   display: inline-block;
@@ -326,8 +349,8 @@ input {
   float: left;
   list-style: none;
 }
-/* Definisce gradiente CSS3 e le ombre col la pseudo classe :after */
 
+/* Definisce gradiente e le ombre col la pseudo classe :after */
 .fancyNav li:after{
 
   content:'.';
@@ -342,7 +365,6 @@ input {
   opacity:0;
 
   /* Gradiente */
-
   background-image:-webkit-gradient(linear, left top, right top, from(rgba(168,168,168,0.5)),color-stop(0.5,rgba(168,168,168,0)), to(rgba(168,168,168,0.5)));
   background-image:-moz-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
   background-image:-o-linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
@@ -350,7 +372,6 @@ input {
   background-image:linear-gradient(left, rgba(168,168,168,0.5), rgba(168,168,168,0) 50%, rgba(168,168,168,0.5));
 
   /* Creazione del bordo */
-
   box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
   -moz-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
   -webkit-box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff,1px 0 0 #a3a3a3,2px 0 0 #fff;
@@ -362,8 +383,8 @@ input {
   -o-transition:0.25s all;
   transition:0.25s all;
 }
-/* Uso le pseudo classi :first-child e last-child per definire l’aspetto della prima e dell’ultima voce del menu’ */
 
+/* Uso le pseudo classi :first-child e last-child per definire l’aspetto della prima e dell’ultima voce del menu’ */
 .fancyNav li:first-child{
   border-radius: 4px 0 0 4px;
 }
@@ -381,7 +402,6 @@ input {
   border-radius: 0 4px 4px 0;
 }
 
-
 .fancyNav li:last-child:after,
 .fancyNav li.selected:last-child:after{
   box-shadow:-1px 0 0 #a3a3a3,-2px 0 0 #fff;
@@ -396,11 +416,10 @@ input {
 .fancyNav li:target:after{
   opacity:1;
 }
-/* Definisco l’azione al passaggio del mouse     */
 
+/* Definisco l’azione al passaggio del mouse     */
 .fancyNav:hover li.selected:after,
 .fancyNav:hover li:target:after{
-  /* Hides the targeted li when we are hovering on the UL */
   opacity:0;
 }
 
@@ -408,8 +427,8 @@ input {
 .fancyNav li:target:hover:after{
   opacity:1 !important;
 }
-/* Stile del menù */
 
+/* Stile del menù */
 .fancyNav li a{
   color: #5d5d5d;
   display: inline-block;
@@ -422,22 +441,8 @@ input {
   white-space:nowrap;
 }
 
-/* nome dell'utente*/
-.nome{
-  text-transform: uppercase;
-  font-weight: bold;
-  a {
-    color: #f0f0f0;
-    &:hover {
-      color: #abd0ff ;
-    }
-  }
 
-}
-
-
-/*POPUP CREAZIONE NUOVA CATEGORIA (? - ANTEPRIMA DOMANDA)*/
-/*punto interrogativo/anteprima*/
+/*POPUP CREAZIONE NUOVA CATEGORIA (?)*/
 .panel a#login_pop, .panel a#join_pop {
   border: 2px solid #53b8d6;
   font-weight: bold;
@@ -454,9 +459,11 @@ input {
   -o-border-radius: 10px;
   border-radius: 10px;
 }
+
 a#login_pop:hover, a#join_pop:hover {
   border-color: #eee;
 }
+
 /*popup aperto*/
 .overlay {
   background-color: rgba(0, 0, 0, 0.6);
@@ -476,10 +483,12 @@ a#login_pop:hover, a#join_pop:hover {
   -o-transition: opacity .5s;
   transition: opacity .5s;
 }
+
 .overlay:target {
   visibility: visible;
   opacity: 1;
 }
+
 .popup {
   background-color: #f0f0f0;
   border: 3px solid #f0f0f0;
@@ -517,13 +526,15 @@ a#login_pop:hover, a#join_pop:hover {
   -o-transition: opacity .5s, top .5s;
   transition: opacity .5s, top .5s;
 }
+
 .overlay:target+.popup {
   top: 50%;
   opacity: 1;
   visibility: visible;
 }
 
-/*X chiusura popup*/
+
+/* X chiusura popup*/
 .close {
   background-color: rgba(7, 61, 235, 0.80);
   height: 30px;
@@ -541,47 +552,19 @@ a#login_pop:hover, a#join_pop:hover {
   -o-border-radius: 15px;
   border-radius: 15px;
 }
+
 .close:before {
   color: rgba(255, 255, 255, 0.9);
   content: "X";
   font-size: 24px;
+  background-color: rgba(7, 53, 191, 0.80);
+
+}
+
+.close:hover {
   text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
 }
-.close:hover {
-  background-color: rgba(7, 53, 191, 0.80);
-}
+
 .popup p, .popup div {
   margin-bottom: 10px;
-}
-
-.anteprimadomanda{
-  border: 2px solid #53b8d6;
-  font-weight: bold;
-  width: 100%;
-  height: auto;
-  color:#5d5d5d;
-  overflow: auto;
-  display: block;
-  word-wrap: break-word;
-  padding: 5px 10px;
-  text-decoration: none;
-  text-shadow: 1px 1px #000;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
-}
-
-/*Link modifica profilo*/
-.modifica{
-    a:visited {
-      color: #98bbeb;
-    }
-    a:hover {
-      color: #f0f0f0;
-    }
-}
-.mi_piace{
-  color:  #f0f0f0;
 }
