@@ -2,16 +2,21 @@
 
 <%= form_for(@post) do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
-
-    <div class="row">
-      <%= render 'shared/muro', object: f.object %>
-    </div>  <br/>
+      <div class="muro">
+      <div class="row">
     <div class="field span6">
       <%= f.text_area :content, placeholder: 'Cosa stai facendo?' %>
     </div>
     <div class="span2">
       <%= f.submit 'Post', class: 'btn btn-info' %>
     </div>
-
+        <div class="span4">
+        <h3><%= Date.current.strftime('%d / %m / %Y') %></h3>
+        </div>
+      </div>
+    <div class="row">
+      <%= render 'shared/muro', object: f.object %>
+    </div>
+      </div>
 <% end %>
 

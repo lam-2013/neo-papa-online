@@ -33,14 +33,3 @@ function dragDrop(ev) {
     // Turn off the default behaviour
     ev.preventDefault();
     }
-
-
-function trashIt(ev) {
-    var id = e.dataTransfer.getData('image/png');
-    removeElement(id);
-    ev.preventDefault();
-}
-function removeElement(id)	{
-    var d_node = document.getElementById(id);
-    d_node.parentNode.removeChild(d_node);
-}

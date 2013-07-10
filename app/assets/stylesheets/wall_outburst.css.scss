@@ -2,42 +2,40 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.muro{
+  background-image: url("muro.jpeg");
+}
+
 #boxA{
   float:left;
   width:33%;
   height:80%;
-  background-color: red;
-  border-left: 1px solid;
-
-
 }
 
 #boxB{
   float:left;
-  width:33%;
-  height:200px;
-  background-color: #ff0000;
-  border-left: 1px solid;
+  width:75%;
+  height:500px;
 
 }
 
-#boxC{
-  float:left;
-  width:33%;
-  height:200px;
-  background-color: red;
-  border-left: 1px solid;
-
-  background-image: url("trash.png");
-  background-repeat: no-repeat;
-}
-
+/*POSTIT*/
 .word {
-  width: 100px; height: 100px; padding:3px; margin:5px; text-align:center; font-weight:bold;
+  width: 170px; height: 170px; padding:3px; margin:5px; text-align:center;
 
-  display:inline-block;
-  background-image: url("postit_2.png");
-  background-repeat: no-repeat;
+  /*Colore di sfondo dei postit*/
+  background: -moz-radial-gradient(center, ellipse cover,   #f3ff8e 0%, #ffb907 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #f3ff8e), color-stop(100%, #ffb907));
+  background: -webkit-radial-gradient(center, ellipse cover,   #f3ff8e 40%, #ffb907 100%);
+  background: -o-radial-gradient(center, ellipse cover,  #f3ff8e 0%, #ffb907 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #f3ff8e 0%, #ffb907 100%);
+  background: radial-gradient(center, ellipse cover,  #f3ff8e 0%, #ffb907 100%);
+
+   /*Ombra dei postit*/
+  -moz-box-shadow:5px 5px 2px #333333;
+  -webkit-box-shadow:5px 5px 2px #333333;
+  box-shadow:5px 5px 2px #333333;
+
 }
 *[draggable=true] {
   -moz-user-select:none;
