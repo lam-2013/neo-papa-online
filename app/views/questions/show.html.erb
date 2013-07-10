@@ -24,8 +24,8 @@
       <%# visualizzazione della domanda %>
       <span class="content">
         <p><%= @question.title %></p>
-        <p><%= category_name(@question) %>, <%= @question.category_id %> </p>
-        <p><%= age_groups_name(@question) %>, <%= @question.age_group_id %></p>
+        <p><%= category_name(@question) %> </p>
+        <p><%= age_groups_name(@question) %></p>
         <p><%= @question.content %></p>
         <span class="timestamp">
          <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>

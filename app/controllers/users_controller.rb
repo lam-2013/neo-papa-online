@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @posts= @user.posts.paginate(page: params[:page])
     @query_items = @user.questions.paginate(page: params[:page])
     @answers = @user.answers.paginate(page: params[:page])
-
+    @answer_items = current_user.answers.paginate(page: params[:page]) if signed_in?
   end
 
   def new
