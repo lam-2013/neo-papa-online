@@ -9,13 +9,13 @@
         <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
 
         <%= render 'shared/error_messages', object:f.object %>
-       <div class="center"> <div id="preview" class="anteprimadomanda">
+       <div class="anteprimadomanda center">
           <p>Titolo: <%= @question.title %></p>
           <p>Categoria: <%= category_name(@question) %></p>
           <p>Fascia d'età: <%= age_groups_name(@question) %></p>
           <p>Descrizione: <%= @question.content %></p>
         </div>
-       </div>
+
     <% end %>
 
     <div class="row">
