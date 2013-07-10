@@ -1,5 +1,6 @@
-
+<% if @response_items.any? %>
 <ol id="answers">
   <%= render partial: 'answers/response_item', collection: @response_items %>
 </ol>
 <%= will_paginate @response_items %>
+<% end %>

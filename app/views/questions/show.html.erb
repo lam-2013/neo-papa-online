@@ -44,7 +44,7 @@
 
         <% else %>
           <%# se l'utente che sta visualizzando la domanda non è colui che l'ha postata ha la possibilità di mettere un "Mi piace" o toglierlo %>
-          <%= render 'questions/like_question_form' if signed_in? %>
+          <%= render 'questions/like_question_form'%>
 
         <% end %>
 

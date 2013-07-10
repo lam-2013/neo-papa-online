@@ -1,3 +1,4 @@
-$("#bu").html("<%= escape_javascript(render('answers/respose')) %>")
-$("#answers").html('<%= @response_items = @question.answers.paginate(page: params[:page]) %>')
+$("#answers").html("<%= @response_items = @question.answers.paginate(page: params[:page]) %>")
+$("#answers").html("<%= escape_javascript(render('answers/respose')) %>")
+
 
