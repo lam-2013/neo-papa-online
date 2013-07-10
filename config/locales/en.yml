@@ -92,3 +92,16 @@ en:
         one: 1 secondo
         other: ! '%{count} secondi'
 
+  will_paginate:
+      page_entries_info:
+        single_page:
+          zero:  "Nessun risultato trovato"
+          one:   "Trovata 1 corrispondenza"
+          other: "Visualizzati %{count} risultati"
+        single_page_html:
+          zero:  "Nessun risultato trovato"
+          one:   "Trovata 1 corrispondenza"
+          other: "Visualizzati all&nbsp;%{count} risultati"
+
+        multi_page: "Risultati %{from} - %{to} di %{count} in totale"
+        multi_page_html: "Risultati <b>%{from}&nbsp;-&nbsp;%{to}</b> di <b>%{count}</b> in totale"
