@@ -1,8 +1,6 @@
-/* Stylesheet inspired and partially taken from the Rails Tutorial book (http://railstutorial.org) */
 
 @import "bootstrap";
 
-/* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
 
@@ -146,7 +144,6 @@ p {
 }
 
 
-
 /* FOOTER */
 footer {
   margin-top: 45px;
@@ -204,6 +201,7 @@ aside {
   -moz-box-shadow:5px 5px 2px #333333;
   -webkit-box-shadow:5px 5px 2px #333333;
   box-shadow:5px 5px 2px #333333;
+  border-radius: 10px ;
 }
 
 .stats {
@@ -262,8 +260,6 @@ input {
   @extend .error;
 }
 
-
-
 .users {
   list-style: none;
   margin: 0;
@@ -307,7 +303,6 @@ input {
   }
 }
 
-/* miscellaneous */
 .debug_dump {
   clear: both;
   float: left;
@@ -568,6 +563,7 @@ a#login_pop:hover, a#join_pop:hover {
 .popup p, .popup div {
   margin-bottom: 10px;
 }
+
 
  /*ANTEPRIMA NUOVA DOMANDA*/
 .anteprimadomanda{
