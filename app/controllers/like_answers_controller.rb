@@ -15,6 +15,4 @@ class LikeAnswersController < ApplicationController
     current_user.dont_like_answers!(@answer)
     respond_with @answer
   end
-
-
 end

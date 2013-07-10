@@ -27,6 +27,14 @@ def  make_users
 
   admin.toggle!(:admin)
 
+  admin2 = User.create!(name: "mari",
+                       email: "mari@email.it",
+                       password: "mari1234",
+                       password_confirmation: "mari1234",
+                       n_children: "0")
+
+  admin.toggle!(:admin)
+
   20.times do |n|
 
     name  = Faker::Name.name
