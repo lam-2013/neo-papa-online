@@ -82,13 +82,13 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #abd0ff;
+  color: #f0f0f0;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: #53b8d6;
+    color: #abd0ff;
     text-decoration: none;
   }
 }
@@ -99,11 +99,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;
-  color: $grayLight;
+  color: #f0f0f0;
   a {
-    color: $gray;
+    color: #f0f0f0;
     &:hover {
-      color: #53b8d6;
+      color: #abd0ff;
     }
   }
   small {
@@ -156,7 +156,7 @@ aside {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $grayLighter;
-    color: gray;
+    color: #f0f0f0;
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -182,7 +182,6 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
   width: 100%;
   height: auto;
   padding: 10px;
@@ -238,7 +237,7 @@ input {
   display: block;
 }
 .timestamp {
-  color: #98bbeb;
+  color: #f0f0f0;
 }
 .gravatar {
   float: left;
@@ -285,17 +284,11 @@ input {
 
 /*Link nome utente in header*/
 .link {
-  a:link {
-    color: lightgrey;
-  }
   a:visited {
-    color: lightgrey;
+    color: #f0f0f0;
   }
   a:hover {
-    color: #6590ff;
-  }
-  a:active {
-    color: #53b8d6;
+    color: #98bbeb;
   }
 }
 
@@ -432,8 +425,14 @@ input {
 /* nome dell'utente*/
 .nome{
   text-transform: uppercase;
-  color:#5d5d5d;
   font-weight: bold;
+  a {
+    color: #f0f0f0;
+    &:hover {
+      color: #abd0ff ;
+    }
+  }
+
 }
 
 
@@ -442,7 +441,7 @@ input {
 .panel a#login_pop, .panel a#join_pop {
   border: 2px solid #53b8d6;
   font-weight: bold;
-  color:#5d5d5d;
+  color: #f0f0f0;
   display: block;
   float: right;
   padding: 5px 10px;
@@ -482,8 +481,8 @@ a#login_pop:hover, a#join_pop:hover {
   opacity: 1;
 }
 .popup {
-  background-color: #fff;
-  border: 3px solid #fff;
+  background-color: #f0f0f0;
+  border: 3px solid #f0f0f0;
   display: inline-block;
   left: 50%;
   opacity: 0;
@@ -574,3 +573,15 @@ a#login_pop:hover, a#join_pop:hover {
   border-radius: 10px;
 }
 
+/*Link modifica profilo*/
+.modifica{
+    a:visited {
+      color: #98bbeb;
+    }
+    a:hover {
+      color: #f0f0f0;
+    }
+}
+.mi_piace{
+  color:  #f0f0f0;
+}
