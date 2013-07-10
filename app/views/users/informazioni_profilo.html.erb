@@ -10,8 +10,8 @@
     <%=  render 'users/menu_profilo' %>
   </div>
 
-  <div class="span8">
-    <h1>Informazioni di <%= current_user.name %></h1>
+  <div class="span7 anteprimainformazioni">
+    <h3 class="nome center">Informazioni di <%= current_user.name %></h3>
 
     <div>
       <p>Nickname: <%= current_user.name %></p>
@@ -26,11 +26,6 @@
       <% end %>
 
 
-      <% if !current_user.description.to_s.empty? %>
-          <p>Descrizione: <%= current_user.description %></p>
-      <% end %>
-
-
       <% if !current_user.em_situation.to_s.empty? %>
           <p>Situazione sentimentale: <%= current_user.em_situation %></p>
       <% end %>
@@ -40,8 +35,11 @@
           <p>Lavoro: <%= current_user.employment %></p>
       <% end %>
 
-
       <p>Numero di figli: <%= current_user.n_children %></p>
+
+      <% if !current_user.description.to_s.empty? %>
+          <p>Descrizione: <%= current_user.description %></p>
+      <% end %>
 
         <%= render 'children/children' %>
 

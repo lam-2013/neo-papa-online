@@ -42,14 +42,14 @@
         <%= f.label :city, 'Dove abiti'%>
         <%= f.text_field :city %>
 
-        <%= f.label :description, 'Breve descrizione personale'%>
-        <%= f.text_field :description %>
-
         <%= f.label :em_situation,'Situazione sentimentale'%>
         <%= f.select :em_situation, ['Single', 'Sposato', 'Separato', 'Divorziato', 'Convivente'], :include_blank => true %>
 
         <%= f.label :employment, 'Lavoro'%>
         <%= f.text_field :employment %>
+
+        <%= f.label :description, 'Breve descrizione personale'%>
+        <%= f.text_area :description %>
 
         <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-info'  %>
         <%= f.submit 'Salva le modifiche', class: 'btn btn-info' %>
