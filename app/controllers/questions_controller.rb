@@ -18,6 +18,7 @@ class QuestionsController < ApplicationController
     @age_group = AgeGroup.all
 
     @answer = current_user.answers.build if signed_in?
+    @like_answer = current_user.like_answers.build if signed_in?
     @response_items = @question.answers.paginate(page: params[:page])
 
     @like = 0
