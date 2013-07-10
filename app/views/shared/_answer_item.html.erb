@@ -2,7 +2,7 @@
 <li id="<%= answer_item.id %>">
   <%= link_to gravatar_for(answer_item.user), answer_item.user %>
   <span class="user">
-    <%= link_to answer_item.user.name, answer_item.user %>
+   <p class="nome">  <%= link_to answer_item.user.name, answer_item.user %> </p>
   </span>
   <span class="content"><%= answer_item.content %></span>
   <span class="timestamp">

@@ -3,7 +3,7 @@
 <li id="<%= query_item.id %>">
   <%= link_to gravatar_for(query_item.user), query_item.user %>
   <span class="user">
-    <%= link_to query_item.user.name, query_item.user %>
+   <p class="nome"><%= link_to query_item.user.name, query_item.user %>  </p>
   </span>
   <span class="content"><%= query_item.title %></span>
   <span class="timestamp">

@@ -3,7 +3,7 @@
     <span class="content"><%= post.content %></span>
     <span class="timestamp"> Post creato <%= time_ago_in_words(post.created_at)%> fa</span>
     <% if current_user?(post.user) %>
-      <%= link_to 'delete', post, method: :delete, data: {confirm: 'Sei sicuro?'}, title: post.content %>
+      <%= link_to 'Cancella', post, method: :delete, data: {confirm: 'Sei sicuro?'}, title: post.content %>
     <% end %>
   </div>
 </li>

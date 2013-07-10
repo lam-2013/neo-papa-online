@@ -4,19 +4,27 @@
 
 .muro{
   background-image: url("muro.jpeg");
+  height: 100%;
+  width: 100%;
 }
 
 #boxA{
   float:left;
   width:33%;
   height:80%;
+
 }
 
-#boxB{
+#boxB, #boxC, #boxD, #boxE, #boxF, #boxG, #boxH,  #boxI,#boxL, #boxM,#boxN,#boxO,#boxP, #boxQ,#boxR, #boxS, {
   float:left;
-  width:75%;
-  height:500px;
+  width:190px;
+  height:190px;
 
+}
+.tabella {
+  margin-left: 4%;
+  margin-top: 1%;
+  border-left: 2px solid black;
 }
 
 /*POSTIT*/

@@ -3,6 +3,6 @@
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.name, user %>
   <h5 class="nome"><% if current_user.admin? && !current_user?(user) %>  </h5>
-      <%= link_to 'delete', user, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+      <%= link_to 'Cancella', user, method: :delete, data: { confirm: 'Sei sicuro?' } %>
   <% end %>
 </li>
