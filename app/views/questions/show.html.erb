@@ -16,7 +16,7 @@
     <br/>
 
     <h3 class="center">Domanda</h3>
-
+     <div class="row">
     <div class="span9">
 
       <%= link_to gravatar_for (@question.user), @question.user %>
@@ -30,10 +30,11 @@
         <p><%= @question.content %></p>
         <span class="timestamp">
          <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
-          <p>Mi piace: <%= @like_question %> </p>
         </span>
+            </span>
+    </div>
 
-        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è coui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
+        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è colui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
 
           <%# ho la possibilità di modificare la domanda solo se nessuna ha messo un like o ha risposto a tale domanda %>
           <% if @response_items.count == 0 && @like_question == 0 %>
@@ -47,8 +48,14 @@
           <%= render 'questions/like_question_form'%>
 
         <% end %>
+    <div>
+      <p>Mi piace: <%= @like_question %> </p>
+    </div>
+       </div>
 
-        <div id="bu">
+
+
+        <div id="row">
         <% if @response_items.any? %>
             <h3 class="center">Risposte: <%= @response_items.count %></h3>
             <%= render 'answers/respose' %>
@@ -61,7 +68,6 @@
 
         <%= render 'questions/answer_form' %>
 
-      </span>
-    </div>
+
   </div>
 <% end %>

@@ -54,7 +54,8 @@
       <aside class="span4">
 
         <section>
-          <%= gravatar_for @user %>
+        <%= gravatar_for @user, size: 100 %>
+          <br/>
           <h1><%= @user.name %></h1>
           <span><%= link_to 'Profilo', @user %></span>
           <span><b>Posts:</b> <%= @user.posts.count %></span>

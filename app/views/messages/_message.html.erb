@@ -1,6 +1,7 @@
 
 <li class="posts">
-  <%= gravatar_for message.sender, size: 52 %>
+  <%= gravatar_for message.sender, size: 100 %>
+  <br/>
   <strong>Da: </strong><%= link_to message.sender.name, message.sender %>
   <span class="content">
     <strong><%= message.subject %></strong>
