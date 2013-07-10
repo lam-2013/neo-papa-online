@@ -33,7 +33,7 @@ def  make_users
                        password_confirmation: "mari1234",
                        n_children: "0")
 
-  admin.toggle!(:admin)
+  admin2.toggle!(:admin)
 
   20.times do |n|
 

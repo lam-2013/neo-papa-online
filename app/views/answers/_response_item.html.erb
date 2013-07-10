@@ -15,14 +15,17 @@
       <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>
       <%# @a = current_answer(response_item) %>
       <%#= render 'answers/like_answer_form', value: @a%>
-    <% if current_user.like_answers?(response_item) %>
-          <%= link_to (image_tag("bottone_non_mi_piace.png")), current_user.like_answers?(response_item),  method: :delete%>
-          <% else %>
-      <%= form_for(@like_answer) do |f| %>
-          <%= f.hidden_field :answer_id, value: response_item.id %>
-              <%= image_submit_tag("bottone_mi_piace.png")  %>
-      <% end %>
 
+    <p>
+      <p>Mi piace: <%= response_item.like_answers.count %></p>
+      <% if current_user.like_answers?(response_item) %>
+        <%= link_to (image_tag("bottone_non_mi_piace.png")), current_user.like_answers?(response_item),  method: :delete%>
+      <% else %>
+        <%= form_for(@like_answer) do |f| %>
+          <%= f.hidden_field :answer_id, value: response_item.id %>
+          <%= image_submit_tag("bottone_mi_piace.png")  %>
+      <% end %>
+    </p>
          <% end %>
 
 <% end %>

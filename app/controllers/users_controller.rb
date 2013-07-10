@@ -100,6 +100,12 @@ class UsersController < ApplicationController
                                                              @like = @like+1
                                                            end}}
 
+    @answer2 = current_user.answers.all
+    @a_like = LikeAnswer.all
+    @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
+                                                      @like = @like+1
+                                                    end} }
+
   end
 
   def informazioni_profilo
