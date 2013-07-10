@@ -95,13 +95,13 @@ en:
   will_paginate:
       page_entries_info:
         single_page:
-          zero:  "No %{model} found"
-          one:   "Displaying 1 %{model}"
-          other: "Displaying all %{count} %{model}"
+          zero:  "Nessun risultato trovato"
+          one:   "Trovata 1 corrispondenza"
+          other: "Visualizzati %{count} risultati"
         single_page_html:
-          zero:  "No %{model} found"
-          one:   "Displaying <b>1</b> %{model}"
-          other: "Visualizzati <b>all&nbsp;%{count}</b> %{model}"
+          zero:  "Nessun risultato trovato"
+          one:   "Trovata 1 corrispondenza"
+          other: "Visualizzati all&nbsp;%{count} risultati"
 
-        multi_page: "Visualizzati %{model} %{from} - %{to} of %{count} in total"
+        multi_page: "Risultati %{from} - %{to} di %{count} in totale"
         multi_page_html: "Risultati <b>%{from}&nbsp;-&nbsp;%{to}</b> di <b>%{count}</b> in totale"
