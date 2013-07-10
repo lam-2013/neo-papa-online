@@ -1,1 +1,2 @@
 $("#like_question_form").html("<%= escape_javascript(render('questions/like_question')) %>")
+$("#like").html('Mi piace:<%= @question.like_questions.count %>')
