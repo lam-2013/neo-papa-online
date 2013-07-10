@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
 
 
   def dont_like_answers!(answer)
-    like_answers.fin_by_answer_id(answer.id).destroy
+    like_answers.find_by_answer_id(answer.id).destroy
   end
 
 

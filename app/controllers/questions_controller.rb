@@ -18,7 +18,7 @@ class QuestionsController < ApplicationController
     @age_group = AgeGroup.all
 
     @answer = current_user.answers.build if signed_in?
-    @answers = @question.answers.paginate(page: params[:page])
+    @response_items = @question.answers.paginate(page: params[:page])
 
     @like = 0
     @questions2 = current_user.questions.all
@@ -26,7 +26,9 @@ class QuestionsController < ApplicationController
 
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                              @like = @like+1
-                                                           end}}
+
+                                                          end}}
+    @like_question = @question.like_questions.count
   end
 
   def create

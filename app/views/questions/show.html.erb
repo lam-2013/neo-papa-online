@@ -29,12 +29,16 @@
         <p><%= age_groups_name(@question) %>, <%= @question.age_group_id %></p>
         <p><%= @question.content %></p>
         <span class="timestamp">
-          Domanda creata <%= time_ago_in_words(@question.created_at) %> fa
+         <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
+          <p>Mi piace: <%= @like_question %> </p>
         </span>
 
         <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è coui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
 
-          <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
+          <%# ho la possibilità di modificare la domanda solo se nessuna ha messo un like o ha risposto a tale domanda %>
+          <% if @response_items.count == 0 && @like_question == 0 %>
+            <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
+          <% end %>
 
           <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
 
@@ -44,17 +48,18 @@
 
         <% end %>
 
-        <% if @question.answers.any? %>
-            <h3 class="center">Risposte: <%= @question.answers.count %></h3>
-            <ol class="posts">
-              <%= render @answers %>
-            </ol>
-            <%= will_paginate @answers %>
+        <div id="bu">
+        <% if @response_items.any? %>
+            <h3 class="center">Risposte: <%= @response_items.count %></h3>
+            <%= render 'answers/respose' %>
+           <!-- <ol class="posts">
+              <%#= render @answers %>
+            </ol>    -->
+            <%#= will_paginate @answers %>
         <% end %>
-
-        <div id="answer_form">
-          <%= render 'questions/answer_form'%>
         </div>
+
+        <%= render 'questions/answer_form' %>
 
       </span>
     </div>
