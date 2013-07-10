@@ -30,7 +30,7 @@
         <p><%= @question.content %></p>
         <span class="timestamp">
          <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
-          <p>Mi piace: <%= @like_question %> </p>
+          <p id="like">Mi piace: <%= @question.like_questions.count %> </p>
         </span>
 
         <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è coui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
