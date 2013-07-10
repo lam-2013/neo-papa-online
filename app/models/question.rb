@@ -46,7 +46,9 @@ class Question < ActiveRecord::Base
   #metodo per la ricerca tramite la categora e/o la fascia d'età
   def self.search(category_id, age_group_id)
     if category_id && age_group_id
-      if category_id.blank?
+      if category_id.blank? && age_group_id.blank?
+       self
+      elsif category_id.blank?
         where('age_group_id = ?', "#{age_group_id}")
       elsif age_group_id.blank?
         where('category_id = ?', "#{category_id}")

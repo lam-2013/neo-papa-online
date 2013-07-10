@@ -5,24 +5,46 @@
   </span>
 
   <span class="content"><%= answer.content %></span>
-  <span class="timestamp"> Posted <%= time_ago_in_words(answer.created_at)%> ago</span>
+  <span class="timestamp"> Risposta aggiunta <%= time_ago_in_words(answer.created_at)%> fa</span>
   <% if current_user?(answer.user) %>
       <%#l'utente è colui che ha postato la risposta %>
       <%= link_to 'Cancella', answer, method: :delete, data: {confirm: 'Sei sicuro?'}, title: answer.content %>
+
     <% else %>
       <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>
 
       <%#= render 'answers/like_answer_form' %>
 
       <% unless current_user?(@user) %>
-          <div id="like_answer_form">
-            <% if current_user.like_answers?(answer) %>
-                <%= render 'dont_like_question' %>
-            <% else %>
-                <%= render 'like_question' %>
+
+          <div id="like_answer_form_<%= answer.id %>">
+
+        <% if current_user.like_answers?(answer) %>
+            <%#= render 'answers/dont_like_answer' %>
+            <%= answer.id %>
+            <%= form_for(current_user.like_answers.find_by_answer_id(answer.id), html: {method: :delete}, remote: true) do |f|%>
+                <div><%= f.hidden_field :answer_id, value: answer.id %></div>
+                <%= image_submit_tag("bottone_non_mi_piace.png")%>
             <% end %>
-          </div>
+
+        <% else %>
+            <%= answer.id %>
+            <%#= render 'answers/like_answer' %>
+
+            <%= form_for(current_user.like_answers.build(answer_id: answer.id), remote: true) do |f| %>
+                <div><%= f.hidden_field :answer_id, value: answer.id %></div>
+
+                <%= image_submit_tag("bottone_mi_piace.png")%>
+
+            <% end %>
+
+            </div>
       <% end %>
+
+
+  <% end %>
+
+
 
   <% end %>
 
