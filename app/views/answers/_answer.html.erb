@@ -8,7 +8,7 @@
   <span class="timestamp"> Risposta aggiunta <%= time_ago_in_words(answer.created_at)%> fa</span>
   <% if current_user?(answer.user) %>
       <%#l'utente è colui che ha postato la risposta %>
-      <%= link_to 'Cancella', answer, method: :delete, data: {confirm: 'Sei sicuro?'}, title: answer.content %>
+      <%= link_to 'Cancella', answer, method: :delete, data: {confirm: 'Sei sicuro?'}, title: answer.content, class: 'btn btn-info btn-mini' %>
 
     <% else %>
       <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>

@@ -1,8 +1,8 @@
 
 <li class="posts">
-  <%= gravatar_for message.sender, size: 100 %>
-  <br/>
-  <strong>Da: </strong><%= link_to message.sender.name, message.sender %>
+  <%= gravatar_for message.sender, size: 60 %>
+
+  <strong>Da: </strong><p class="nome"><%= link_to message.sender.name, message.sender %> </p>
   <span class="content">
     <strong><%= message.subject %></strong>
   </span>
@@ -11,8 +11,8 @@
     Inviato <%= time_ago_in_words(message.created_at) %> fa
   </span>
   <% if current_user?(message.recipient) %>
-      | <%= link_to 'Cancella', message, method: :delete, data: { confirm: 'Sei sicuro?' }, title: message.subject %>
-      | <%= link_to 'Rispondi', new_message_path(user: message.sender.id, message: message), remote:true %>
+       <%= link_to 'Cancella', message, method: :delete, data: { confirm: 'Sei sicuro?' }, title: message.subject, class:'btn btn-info btn-small' %>
+       <%= link_to 'Rispondi', new_message_path(user: message.sender.id, message: message), remote:true, class:'btn btn-info btn-small' %>
       <div class="message"></div>
   <% end %>
 </li>

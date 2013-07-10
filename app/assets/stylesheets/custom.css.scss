@@ -568,3 +568,23 @@ a#login_pop:hover, a#join_pop:hover {
 .popup p, .popup div {
   margin-bottom: 10px;
 }
+
+ /*ANTEPRIMA NUOVA DOMANDA*/
+.anteprimadomanda{
+  border: 3px solid #53b8d6;
+  font-weight: bold;
+  width: 100%;
+  height: auto;
+  color: #454545;
+  overflow: auto;
+  display: block;
+  word-wrap: break-word;
+  padding: 5px 10px;
+  text-decoration: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+

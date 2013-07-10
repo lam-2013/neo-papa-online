@@ -31,9 +31,9 @@
         <% if current_user.questions.any? %>
             <h3>Mie domande (<%= @user.questions.count %>)</h3>
             <ol class="posts">
-              <%= render @questions %>
+              <%= render "shared/query" %>
             </ol>
-            <%= will_paginate @questions %>
+            <%= will_paginate @query_items %>
         <% end %>
 
         <% if current_user.answers.any? %>

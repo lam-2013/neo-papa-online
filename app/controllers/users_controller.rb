@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @category = Category.where("waiting = 't' and accepted = 'f'")
     @posts= @user.posts.paginate(page: params[:page])
-    @questions = @user.questions.paginate(page: params[:page])
+    @query_items = @user.questions.paginate(page: params[:page])
     @answers = @user.answers.paginate(page: params[:page])
 
   end

@@ -7,6 +7,6 @@
   <%= sfogo_item.content %>
   </p>
   <% if sfogo_item.user_id== current_user.id %>
-      <%= link_to 'Cancella', sfogo_item, method: :delete, data: {confirm: 'Sei sicuro?'} %>
+      <%= link_to 'Cancella', sfogo_item, method: :delete, class:'btn btn-info btn-mini', data: {confirm: 'Sei sicuro?'} %>
   <% end %>
 </div>

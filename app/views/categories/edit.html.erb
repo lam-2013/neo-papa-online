@@ -14,7 +14,7 @@
 
         <div class="offset1"> <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info'  %>
           <%= f.submit 'Accetta', class: 'btn btn-info' %>
-          <%= link_to 'Cancella', @category, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
+          <%= link_to 'Cancella', @category, class:'btn btn-info', method: :delete, data: {confirm: 'Sei sicuro?'}%>
         </div>
     <% end %>
   </div>

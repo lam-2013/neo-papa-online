@@ -1,5 +1,5 @@
 
-<li>
+<li class="posts">
   <%= link_to gravatar_for(response_item.user), response_item.user %>
   <span class="user">
    <h5 class="nome"> <%= link_to response_item.user.name, response_item.user %> </h5>
@@ -9,7 +9,7 @@
   <span class="timestamp"> Risposta aggiunta <%= time_ago_in_words(response_item.created_at)%> fa</span>
   <% if current_user?(response_item.user) %>
       <%#l'utente è colui che ha postato la risposta %>
-      <%= link_to 'Cancella', response_item, method: :delete, data: {confirm: 'Sei sicuro?'}, title: response_item.content %>
+      <%= link_to 'Cancella', response_item, method: :delete, data: {confirm: 'Sei sicuro?'}, title: response_item.content, class:'btn btn-info btn-mini'%>
 
   <% else %>
       <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>

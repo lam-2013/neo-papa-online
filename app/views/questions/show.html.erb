@@ -16,11 +16,11 @@
     <br/>
 
     <h3 class="center">Domanda</h3>
-
+    <div class="row">
     <div class="span9">
 
       <%= link_to gravatar_for (@question.user), @question.user %>
-      <%= link_to @question.user.name, @question.user %>  <br>
+     <p class="nome"><%= link_to @question.user.name, @question.user %></p>   <br>
 
       <%# visualizzazione della domanda %>
       <span class="content">
@@ -30,23 +30,29 @@
         <p><%= @question.content %></p>
         <span class="timestamp">
          <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
-          <p id="like">Mi piace: <%= @question.like_questions.count %> </p>
+           </span>
         </span>
+      </div>
 
-        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è coui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
+        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è colui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
 
           <%# ho la possibilità di modificare la domanda solo se nessuna ha messo un like o ha risposto a tale domanda %>
           <% if @response_items.count == 0 && @like_question == 0 %>
-            <%= link_to 'Modifica', edit_question_path(@question), role: 'button' %>
+            <%= link_to 'Modifica', edit_question_path(@question), class:'btn btn-info btn-small' %>
           <% end %>
 
-          <%= link_to 'Cancella', @question, role: 'button', method: :delete, data: {confirm: 'Sei sicuro?'}%>
+          <%= link_to 'Cancella', @question, class:'btn btn-info btn-small', method: :delete, data: {confirm: 'Sei sicuro?'}%>
 
         <% else %>
           <%# se l'utente che sta visualizzando la domanda non è colui che l'ha postata ha la possibilità di mettere un "Mi piace" o toglierlo %>
           <%= render 'questions/like_question_form'%>
 
         <% end %>
+
+        <div>
+        <p id="like">Mi piace: <%= @question.like_questions.count %> </p>
+        </div>
+    </div>
 
         <div id="bu">
         <% if @response_items.any? %>
@@ -61,7 +67,5 @@
 
         <%= render 'questions/answer_form' %>
 
-      </span>
-    </div>
-  </div>
+
 <% end %>
