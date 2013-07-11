@@ -26,11 +26,13 @@
         <% end %>
 
         <% if @query_items.any? %>
+            <br/>
           <h3>Domande</h3>
           <%=  render 'shared/query' %>
         <% end %>
 
         <% if @answer_items.any? %>
+            <br/>
           <h3>Risposte</h3>
           <%= render 'shared/answer' %>
         <% end %>

@@ -82,6 +82,7 @@
       <% end %>
 
       <% if @user.questions.any? %>
+          <br/>
           <h3>Mie domande (<%= @user.questions.count %>)</h3>
           <ol class="posts">
             <%= render "shared/query" %>
@@ -90,6 +91,7 @@
       <% end %>
 
       <% if @user.answers.any? %>
+          <br/>
           <h3>Mie risposte (<%= @user.answers.count %>) </h3>
           <%=  render 'shared/answer' %>
           <%= will_paginate @answer_items%>
