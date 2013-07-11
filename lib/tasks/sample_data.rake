@@ -8,12 +8,10 @@ namespace :db do
     make_relationships
     make_private_messages
     make_children
-    make_tags
     make_categories
     make_age_groups
     make_questions
     make_answers
-    #make_question_tag_relationship
   end
 end
 
@@ -98,21 +96,6 @@ def make_children
    end
 end
 
-def make_tags
-  Tag.create!(title: 'allergie')
-  Tag.create!(title: 'cartoni animati')
-  Tag.create!(title: 'denti')
-  Tag.create!(title: 'film')
-  Tag.create!(title: 'libri')
-  Tag.create!(title: 'mare')
-  Tag.create!(title: 'montagna')
-  Tag.create!(title: 'pappe')
-  Tag.create!(title: 'pannolini')
-  Tag.create!(title: 'raffreddore')
-  Tag.create!(title: 'scuola')
-  Tag.create!(title: 'tosse')
-end
-
 def make_categories
 
   consigli = Category.create!(user_id: 1, title: "Consigli")
@@ -184,13 +167,5 @@ def make_answers
 
   end
 
-end
-
-def make_question_tag_relationship
-
-  questions = Question.all
-  tags = Tag.all
-
-  questions.each{ |question| question.tag!(tags.first)}
 end
 
