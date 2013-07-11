@@ -1,26 +1,37 @@
 <% provide :title, 'Modifica domanda' %>
 
-<h1 >Modifica domanda</h1>
+<% if signed_in? %>
+  <div class="row">
+    <div class="span6 offset2">
 
-<aside class="span6 offset3">
-<%= form_for @question do |f| %>
+      <h1 >Modifica domanda</h1>
 
-    <%= render 'shared/error_messages', object:f.object %>
-    Titolo: <%=  f.text_field :title %>
+      <%= form_for @question do |f| %>
 
-    <p>Categoria:</p>
-    <%= f.collection_select(:category_id, Category.all, :id, :title) %>
+        <%= render 'shared/error_messages', object:f.object %>
+        <p>Titolo:</p>
+        <%= f.text_field :title %>
 
-    <p>Fascia d'età</p>
-    <%= f.collection_select(:age_group_id, AgeGroup.all, :id, :name) %>
+        <p>Categoria:</p>
+        <%= f.collection_select(:category_id, Category.all, :id, :title) %>
 
-    Descrizione: <%=  f.text_area :content %>
-    <div class="center">
-    <%= link_to 'Annulla', :back, role: 'button', class: 'btn-large btn-info' %>
-    <%= f.submit'Modifica domanda', class:'btn-info btn-large' %>
+        <p>Fascia d'età:</p>
+        <%= f.collection_select(:age_group_id, AgeGroup.all, :id, :name) %>
+
+        <p>Descrizione:</p>
+        <%= f.text_area :content %>
+
+        <div class="center">
+          <%= link_to 'Annulla', :back, class: 'btn btn-info' %>
+          <%= f.submit'Modifica domanda', class:'btn btn-info' %>
+        </div>
+
+      <% end %>
+
     </div>
+  </div>
 
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
 <% end %>
-
-</aside>
 

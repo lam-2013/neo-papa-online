@@ -12,7 +12,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
     @question = Question.find_by_id(params[:id])
     @category = Category.where("waiting = 'f' and accepted = 't'")
     @age_group = AgeGroup.all
@@ -27,19 +26,15 @@ class QuestionsController < ApplicationController
 
     @q_like.each { |q_like| @questions2.each{ |questions2| if questions2.id == q_like.question_id
                                                              @like = @like+1
-
                                                            end}}
     @answer2 = current_user.answers.all
     @a_like = LikeAnswer.all
     @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
                                                 @like = @like+1
                                                 end} }
-
-
   end
 
   def create
-
     @question = current_user.questions.build(params[:question])
 
     if params[:preview_button] || !@question.save
@@ -55,7 +50,6 @@ class QuestionsController < ApplicationController
  #seleziono la domanda corrente e le risposte di quella domanda
   #cancello prima tutte le risposte e poi la domanda
   def destroy
-
     @question = Question.find(params[:id])
     @answers = @question.answers.all
 
@@ -65,7 +59,6 @@ class QuestionsController < ApplicationController
     flash[:success] = 'Domanda e relative risposte cancellate!'
 
     redirect_to questions_url
-
   end
 
 
@@ -102,7 +95,6 @@ class QuestionsController < ApplicationController
     @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
                                                       @like = @like+1
                                                     end} }
-
   end
 
 
@@ -119,13 +111,11 @@ class QuestionsController < ApplicationController
                                                              @like = @like+1
                                                            end}}
 
-
     @answer2 = current_user.answers.all
     @a_like = LikeAnswer.all
     @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
                                                       @like = @like+1
                                                     end} }
-
   end
 
 
@@ -148,7 +138,6 @@ class QuestionsController < ApplicationController
     @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
                                                       @like = @like+1
                                                     end} }
-
   end
 
 

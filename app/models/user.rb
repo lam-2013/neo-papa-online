@@ -81,12 +81,9 @@ class User < ActiveRecord::Base
     like_answers.create!(answer_id: answer.id)
   end
 
-
   def dont_like_answers!(answer)
     like_answers.find_by_answer_id(answer.id).destroy
   end
-
-
 
   #metodo: prende i post con user_id uguale a quelli trovati dal metodo from_users_followed_by (mio e miei followed)
   def feed

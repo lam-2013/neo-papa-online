@@ -1,22 +1,30 @@
 <% provide :title, 'Nuova categoria' %>
 
+<% if signed_in? %>
+
 <h1>Crea la nuova categoria</h1>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@category) do |f| %>
+  <div class="row">
+    <div class="span6 offset3">
+      <%= form_for(@category) do |f| %>
 
-        <%= render 'shared/error_messages', object:f.object %>
+          <%= render 'shared/error_messages', object:f.object %>
 
-        <%= f.label :title, 'Categoria: ' %>
-        <%= f.text_field :title %>
+          <%= f.label :title, 'Categoria: ' %>
+          <%= f.text_field :title %>
 
-        <div class="offset1"> <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info'  %>
-          <%= f.submit 'Crea', class: 'btn btn-info' %>
-        </div>
-    <% end %>
+          <div class="offset1"> <%= link_to 'Annulla', :back, role: 'button', class: 'btn btn-info'  %>
+            <%= f.submit 'Crea', class: 'btn btn-info' %>
+          </div>
+      <% end %>
+    </div>
   </div>
-</div>
+
+<% else %>
+
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+
+<% end %>
 
 
 

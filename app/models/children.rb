@@ -5,6 +5,7 @@ class Children < ActiveRecord::Base
   belongs_to :user
 
   validates :user_id, presence: true
+
   #campi per la data di nascita
   validates :birthday,presence: true
 

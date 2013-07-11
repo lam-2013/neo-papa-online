@@ -1,87 +1,103 @@
 <% provide :title, @user.name %>
 
-<% #Controllo se l'utente è quello di cui è aperta la sessione o no %>
-<% if @user.id == current_user.id %>
+<% if signed_in? %>
+
+  <% #Controllo se l'utente è quello di cui è aperta la sessione o no %>
+  <% if @user.id == current_user.id %>
 
     <%#l'utente di cui sto guardando il profilo è quello che ha effettuato il login %>
-
-    <div class="row">
+    <div class="row" xmlns="http://www.w3.org/1999/html">
       <div class="span4">
 
         <aside>
           <%= render 'shared/user_info_small' %>
         </aside>
 
-        <br />
         <%=  render 'users/menu_profilo' %>
 
-
-
       </div>
+
       <div class="span8">
 
         <% if current_user.posts.any? %>
-            <h3>Miei sfoghi (<%= @user.posts.count %>)</h3>
-            <ol class="posts">
-              <%= render @posts %>
-            </ol>
-            <%= will_paginate @posts %>
+          <h3>Miei sfoghi (<%= @user.posts.count %>)</h3>
+          <ol class="posts">
+            <%= render @posts %>
+          </ol>
+          <%= will_paginate @posts %>
         <% end %>
 
+
         <% if current_user.questions.any? %>
-            <h3>Mie domande (<%= @user.questions.count %>)</h3>
-            <ol class="posts">
-              <%= render "shared/query" %>
-            </ol>
-            <%= will_paginate @query_items %>
+          <h3>Mie domande (<%= @user.questions.count %>)</h3>
+          <ol class="posts">
+            <%= render "shared/query" %>
+          </ol>
+          <%= will_paginate @query_items%>
         <% end %>
 
         <% if @answer_items.any? %>
-            <h3>Mie risposte (<%= @answer_items.count %>) </h3>
-            <%=  render 'shared/answer' %>
+          <h3>Mie risposte (<%= @answer_items.count %>) </h3>
+          <%=  render 'shared/answer' %>
+          <%= will_paginate @answer_items%>
         <% end %>
-
 
       </div>
     </div>
 
 <% else %>
 
-    <% #L'utente NON è la persona loggata, può essere un utente del sito, un suo follower o following --> possibilità di cambiare formattazione %>
-    <% #No possibilità di: modificare il profilo, vedere il menù friends-informazioni-azioni %>
-    <div class="row">
-      <aside class="span4">
+  <% #L'utente NON è la persona loggata, può essere un utente del sito, un suo follower o following --> possibilità di cambiare formattazione %>
+  <% #No possibilità di: modificare il profilo, vedere il menù friends-informazioni-azioni %>
+  <div class="row">
+    <aside class="span4">
 
-        <section>
+      <section>
         <%= gravatar_for @user, size: 100 %>
-          <br/>
-          <h1><%= @user.name %></h1>
-          <span><%= link_to 'Profilo', @user %></span>
-          <span><b>Posts:</b> <%= @user.posts.count %></span>
-        </section>
+        <h1><%= @user.name %></h1>
+        <span><%= link_to 'Profilo', @user %></span>
+        <span><b>Posts:</b> <%= @user.posts.count %></span>
+      </section>
 
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+
+      <% if current_user.following?(@user) %>
         <section>
-
-          <%= render 'shared/stats' %>
+          <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
         </section>
-        <% if current_user.following?(@user) %>
-            <section>
-              <%= link_to 'Nuovo messaggio', new_message_path(user: @user.id), role: 'button', class: 'btn btn-info', remote: true %>
-              <div class="message"></div>
-            </section>
-        <% end %>
-      </aside>
+      <% end %>
+    </aside>
 
-      <div class="span8">
-        <%=  render 'follow_form' if signed_in? %>
+    <div class="span8">
+      <%=  render 'follow_form' if signed_in? %>
 
-        <% if @user.posts.any? %>
-            <h3>Post (<%= @user.posts.count %>)</h3>
-            <ol class="posts">
-              <%= render @posts %>
-            </ol>
-            <%= will_paginate @posts %>
-        <% end %>
-      </div>
+      <% if @user.posts.any? %>
+        <h3>Sfoghi (<%= @user.posts.count %>)</h3>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
+      <% end %>
+
+      <% if @user.questions.any? %>
+          <h3>Mie domande (<%= @user.questions.count %>)</h3>
+          <ol class="posts">
+            <%= render "shared/query" %>
+          </ol>
+          <%= will_paginate @query_items%>
+      <% end %>
+
+      <% if @user.answers.any? %>
+          <h3>Mie risposte (<%= @user.answers.count %>) </h3>
+          <%=  render 'shared/answer' %>
+          <%= will_paginate @answer_items%>
+      <% end %>
     </div>
+  </div>
+<% end %>
+
+<% else %>
+    <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
 <% end %>

@@ -1,17 +1,19 @@
 
 <%= form_for(@answer) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="row">
-      <div class="field span7">
-        <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
-        <%= f.hidden_field :question_id, value: @question.id %>
+  <div class="row">
 
-      </div>
-      <div class="span2">
-        <%= f.submit 'Rispondi', class: 'btn btn-info' %>
-      </div>
+    <div class="field span7">
+      <%= f.text_area :content, placeholder: 'Cosa ne pensi?' %>
+      <%= f.hidden_field :question_id, value: @question.id %>
     </div>
+
+    <div class="span2">
+      <%= f.submit 'Rispondi', class: 'btn btn-info' %>
+    </div>
+
+  </div>
 <% end %>
 
 

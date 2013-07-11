@@ -1,14 +1,17 @@
 <% provide :title, 'Domande' %>
 
+<% if signed_in? %>
+  <%= render 'questions/list_category' %>
+  <%= render 'questions/list_age_groups' %>
 
+  <h1>Tutte le domande dell'ambito: <%= @cat_current.title %></h1>
+  <div class="span9">
+    <h3>Wall</h3>
+    <%= will_paginate @questions%>
+    <%= render @questions %>
+    <%= will_paginate @questions%>
+  </div>
 
-<%= render 'questions/list_category' %>
-<%= render 'questions/list_age_groups' %>
-
-<h1>Tutte le domande dell'ambito: <%= @cat_current.title %></h1>
-<div class="span9">
-  <h3>Wall</h3>
-  <%= will_paginate @questions%>
-  <%= render @questions %>
-  <%= will_paginate @questions%>
-</div>
+<% else %>
+    <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

@@ -1,6 +1,5 @@
 <% if @query_items.any? %>
-    <ol class="posts">
-      <%= render partial: 'shared/query_item', collection: @query_items %>
-    </ol>
-    <%= will_paginate @query_items %>
+  <ol class="posts">
+    <%= render partial: 'shared/query_item', collection: @query_items %>
+  </ol>
 <% end %>

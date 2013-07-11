@@ -1,20 +1,21 @@
 <% provide :title, 'Nuova domanda' %>
 
-<h1 >Nuova domanda</h1>
+<% if signed_in?%>
 
+  <h1 >Nuova domanda</h1>
 
-<%= form_for @question do |f| %>
+  <%= form_for @question do |f| %>
 
     <% if params[:preview_button]%>
-        <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
+    <%# se si schiaccia il bottone anteprima si fa vedere come si presenta la domanda una volta salvata %>
 
-        <%= render 'shared/error_messages', object:f.object %>
-       <div class="anteprimadomanda center">
-          <p>Titolo: <%= @question.title %></p>
-          <p>Categoria: <%= category_name(@question) %></p>
-          <p>Fascia d'età: <%= age_groups_name(@question) %></p>
-          <p>Descrizione: <%= @question.content %></p>
-        </div>
+      <%= render 'shared/error_messages', object:f.object %>
+      <div class="anteprimadomanda center">
+        <p>Titolo: <%= @question.title %></p>
+        <p>Categoria: <%= category_name(@question) %></p>
+        <p>Fascia d'età: <%= age_groups_name(@question) %></p>
+        <p>Descrizione: <%= @question.content %></p>
+      </div>
 
     <% end %>
 
@@ -22,7 +23,8 @@
       <div class="span6 offset3">
         <%= render 'shared/error_messages', object:f.object %>
 
-        Titolo: <%=  f.text_field :title %>
+        <p>Titolo:</p>
+        <%=  f.text_field :title %>
 
         <p>Categoria:</p>
         <%= f.collection_select(:category_id, Category.all, :id, :title) %>
@@ -30,7 +32,8 @@
         <p>Fascia d'età</p>
         <%= f.collection_select(:age_group_id, AgeGroup.all, :id, :name) %>
 
-        Descrizione: <%=  f.text_area :content %>
+        <p>Descrizione:</p>
+        <%=  f.text_area :content %>
       </div>
     </div>
 
@@ -39,7 +42,10 @@
       <%= f.submit 'Crea nuova domanda',class: 'btn btn-info' %>
       <%= f.submit 'Anteprima', :name => 'preview_button',class: 'btn btn-info' %>
     </div>
-<% end %>
+  <% end %>
 
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>
 
 

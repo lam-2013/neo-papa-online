@@ -1,9 +1,13 @@
 <% provide :title, 'Eventi' %>
 
+<% if signed_in? %>
+
 <div class="row" xmlns="http://www.w3.org/1999/html">
+
   <div class="span3">
     <button type="submit" disabled=”disabled” class="btn-info btn-large">Nuovo evento</button>
   </div>
+
   <div class=span3>
     <p>Tipo di evento</p>
     <select>
@@ -14,6 +18,7 @@
       <option>Festa</option>
     </select>
   </div>
+
   <div class=span3>
     <p>Fascia età</p>
     <select>
@@ -83,3 +88,7 @@
     <p class="timestamp"> Evento creato 6 giorni fa</p>
   </div>
 </div>
+
+<% else %>
+<p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

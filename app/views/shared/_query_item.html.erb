@@ -1,10 +1,14 @@
 <li id="<%= query_item.id %>">
+
   <%= link_to gravatar_for(query_item.user), query_item.user %>
+
   <span class="user">
    <p class="nome"><%= link_to query_item.user.name, query_item.user %>  </p>
   </span>
+
   <span class="content"><%= link_to query_item.title, query_item %></span>
   <span class="timestamp">
     Domanda creata <%= time_ago_in_words(query_item.created_at) %> fa
   </span>
+
 </li>

@@ -4,7 +4,6 @@ class PostsController < ApplicationController
   before_filter :correct_user, only: :destroy
 
   def create
-
     @post = current_user.posts.build(params[:post])
 
     if @post.save
@@ -14,7 +13,6 @@ class PostsController < ApplicationController
       @feed_item = []
       render 'pages/wall_outburst'
     end
-
   end
 
   def destroy

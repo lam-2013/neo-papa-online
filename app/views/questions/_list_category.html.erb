@@ -1,13 +1,11 @@
 
 <div class="navbar-inner-fixed-top navbar-inverse">
-
   <div class="navbar-inner">
     <div class="container">
 
-          <% if @category.any? %>
-            <li><%= render partial: 'questions/category', collection: @category %></li>
-          <% end %>
-        </ul>
+      <% if @category.any? %>
+        <li><%= render partial: 'questions/category', collection: @category %></li>
+      <% end %>
 
     </div>
   </div>

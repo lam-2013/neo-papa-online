@@ -1,0 +1,46 @@
+
+Funzionalità implementate
+ Login
+ Registrazione
+ Ricerca degli utenti
+
+HOME
+ Modificare profilo e completare le informazioni aggiuntive
+ Visualizzare follower, following e i messaggi privati
+ Home degli ultimi sfoghi, domande e risposte degli utenti seguiti
+Possibilità andare alla domanda completa
+
+PROFILO
+ Modificare profilo e completare le informazioni aggiuntive
+ Visualizzare follower, following e i messaggi privati
+ Home degli ultimi sfoghi, domande e risposte degli utenti seguiti
+Possibilità andare alla domanda completa, cancellare le proprie risposte, i propri sfoghi
+ Vedere le informazioni del proprio profilo
+Vedere l’elenco completo dei following e follower
+
+MESSAGGI PRIVATI
+ Se inizio a seguire un utente compare un bottone “Nuovo messaggio” che permette di inviare un messaggio privato
+Possibilità di cancellare e rispondere ad un messaggio
+
+MURO DELLO SFOGO
+ Possibilità di aggiungere un post e di spostarlo all’interno del muro
+ Il muro viene “ripulito” dai post-it giornalmente
+
+DOMANDE
+ Possibilità di vedere l’elenco di tutte le domande
+ Possibilità di vedere l’elenco di tutte le mie domande
+ NUOVA DOMANDA - Possibilità di crearla, annullarla e vedere l’anteprima
+ RICERCA – è possibile effettuare la ricerca all’interno delle domande attraverso due filtri (categoria – fascia d’età) che possono essere utilizzati sia insieme che separatamente
+ NUOVA CATEGORIA – un utente può creare una nuova categoria solo se ha ricevuto almeno 2 “Mi piace” dagli altri utenti. L’utente per fare ciò deve andare inserire una nuova categoria e attendere che l’amministratore la approvi. Una volta approvata, la categoria aggiunta verrà inserita nel menù dell’elenco delle categorie.
+L’amministratore, una volta entrato nel social tramite il suo account, vedrà, nella home, la notifica della nuova categoria. Starà poi a lui decidere se accettarla o cancellarla.
+
+EVENTI
+ Funzionalità non implementata (solo codice html)
+
+-Logica “Mi piace/Non mi piace”
+Un utente può decidere se gli piace o meno una domanda e una risposta, ovviamente se non è stato lui il creatore di una e dell’altra. Inoltre, l’utente che ha creato una domanda, non può eliminarla se essa ha ricevuto almeno una risposta o un “Mi piace”.
+
+Sono presenti due contatori, uno per il numero di “Mi piace” della domanda e uno per il numero di “Mi piace” per la risposte.
+
+- Nella Home e nel profilo è possibile visualizzare l’elenco delle risposte che ho dato ed è possibile andare direttamente alla domanda completa e al profilo dell’utente che ha effettuato la domanda.
+

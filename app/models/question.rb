@@ -15,14 +15,9 @@ class Question < ActiveRecord::Base
   #una domanda ha molte risposte
   has_many :answers, dependent: :destroy
 
-  #una domanda ha molte tuple nella tabella question_tags, una domanda ha molti tag attraverso la tabella question_tag
-  has_many :question_tags, dependent: :destroy, foreign_key: 'question_id'
-  has_many :tags, through: :question_tags #, source: :tag
-
   #una domanda può avere molti utenti a cui piace
   has_many :like_questions, foreign_key: 'question_id'
   has_many :users_like, through: :like_questions,  source: :user
-
 
   #validazioni dei campi: tutti sono obbligatori
   validates :user_id, presence: true
@@ -30,12 +25,6 @@ class Question < ActiveRecord::Base
   validates :category_id, presence: true, :numericality => true
   validates :age_group_id, presence: true, :numericality => true
   validates :content, presence:true, length: {maximum: 800}
-
-
-  #metodo per inserire i tag nella tabella question_tag
-  def tag!(tags )
-    question_tags.create!(tag_id: tags.id)
-  end
 
   #cerca gli id del mio utente e dei miei followed
   def self.from_users_followed_by(user)

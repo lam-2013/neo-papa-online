@@ -23,17 +23,17 @@ def  make_users
                        email: "giulia@email.it",
                        password: "giulia89",
                        password_confirmation: "giulia89",
-                       n_children: "2")
+                       n_children: "0")
 
   admin.toggle!(:admin)
 
-  admin2 = User.create!(name: "mari",
+  admin = User.create!(name: "mari",
                        email: "mari@email.it",
                        password: "mari1234",
                        password_confirmation: "mari1234",
                        n_children: "0")
 
-  admin2.toggle!(:admin)
+  admin.toggle!(:admin)
 
   20.times do |n|
 
@@ -88,11 +88,13 @@ def make_private_messages
 end
 
 def make_children
-  users = User.all
 
+  users = User.all[3..22]
+  name  = Faker::Name.name
  2.times do
 
-  users.each { |user| user.childrens.create!(birthday: rand(20.years).ago)}
+  users.each { |user| user.childrens.create!(name: name,
+                                             birthday: rand(20.years).ago)}
    end
 end
 

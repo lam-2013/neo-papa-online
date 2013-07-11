@@ -38,9 +38,7 @@ class CategoriesController < ApplicationController
       else
         render 'new'
       end
-
     end
-
   end
 
   def edit
@@ -68,6 +66,5 @@ class CategoriesController < ApplicationController
     flash[:success] = 'Categoria cancellata!'
     redirect_to root_path
   end
-
 
 end

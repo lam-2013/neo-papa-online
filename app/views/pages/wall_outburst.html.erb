@@ -1,8 +1,14 @@
 <% provide :title, 'Muro dello sfogo' %>
 
-<div class="row">
-  <%= render 'shared/post_form' %>
-</div>
+<% if signed_in? %>
+
+  <div class="row">
+    <%= render 'shared/post_form' %>
+  </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>
 
 
 

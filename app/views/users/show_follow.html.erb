@@ -1,28 +1,32 @@
 <% provide(:title, @title) %>
 
-<div class="row">
-  <aside class="span4">
-    <section>
-      <%= gravatar_for @user %>
-      <h1 class="nome"><%= @user.name %></h1>
+<% if signed_in? %>
+
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= gravatar_for @user %>
+        <h1 class="nome"><%= @user.name %></h1>
 
         <span><%= link_to 'Profilo', @user %></span>
         <span><b>Posts:</b> <%= @user.posts.count %></span>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-        <div class="user_avatars">
-        </div>
-    </section>
-  </aside>
+      </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
+    </aside>
 
-      <div class="span8">
-        <h3><%= @title %></h3>
-        <% if @users.any? %>
-          <ul class="users">
-            <%= render @users %>
-          </ul>
-          <%= will_paginate %>
-        <% end %>
-      </div>
-</div>
+    <div class="span8">
+      <h3><%= @title %></h3>
+      <% if @users.any? %>
+        <ul class="users">
+          <%= render @users %>
+        </ul>
+        <%= will_paginate %>
+      <% end %>
+    </div>
+  </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

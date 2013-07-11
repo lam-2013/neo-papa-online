@@ -1,11 +1,10 @@
+
 <li>
 
  <%= link_to gravatar_for (question.user), question.user %>
-  <h5 class="nome"><%= link_to question.user.name, question.user %> </h5>
-
- <span><%= link_to question.title, question %></span>    <br>
-
- <span class="timestamp"> Domanda creata <%= time_ago_in_words(question.created_at)%> fa</span> <br>  <br>
+ <h5 class="nome"><%= link_to question.user.name, question.user %></h5>
+ <span><%= link_to question.title, question %></span>
+ <span class="timestamp"> Domanda creata <%= time_ago_in_words(question.created_at)%> fa</span>
 
 </li>
 

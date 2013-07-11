@@ -1,10 +1,13 @@
 
 <li id="<%= answer_item.id %>">
   <%= link_to gravatar_for(answer_item.user), answer_item.user %>
+
   <span class="user">
    <p class="nome">  <%= link_to answer_item.user.name, answer_item.user %> </p>
   </span>
+
   <span class="content">Ha risposto: <%= answer_item.content %></span>
+
   <p>Alla domanda <%= link_to question(answer_item).title, question(answer_item) %> di <%= link_to user(answer_item).name, user(answer_item) %></p>
 
   <span class="timestamp">

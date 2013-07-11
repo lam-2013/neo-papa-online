@@ -2,7 +2,9 @@
 <li>
   <%= gravatar_for user, size: 52 %>
   <%= link_to user.name, user %>
-  <h5 class="nome"><% if current_user.admin? && !current_user?(user) %>  </h5>
-      <%= link_to 'Cancella', user, method: :delete, data: { confirm: 'Sei sicuro?' } %>
+
+  <% if current_user.admin? && !current_user?(user) %>
+    <%= link_to 'Cancella', user, class:'btn btn-info btn-small', method: :delete, data: { confirm: 'Sei sicuro?' } %>
   <% end %>
+
 </li>

@@ -2,19 +2,17 @@
 <li class="posts">
   <%= link_to gravatar_for(response_item.user), response_item.user %>
   <span class="user">
-   <h5 class="nome"> <%= link_to response_item.user.name, response_item.user %> </h5>
+    <h5 class="nome"> <%= link_to response_item.user.name, response_item.user %> </h5>
   </span>
 
   <span class="content"><%= response_item.content %></span>
   <span class="timestamp"> Risposta aggiunta <%= time_ago_in_words(response_item.created_at)%> fa</span>
   <% if current_user?(response_item.user) %>
-      <%#l'utente è colui che ha postato la risposta %>
-      <%= link_to 'Cancella', response_item, method: :delete, data: {confirm: 'Sei sicuro?'}, title: response_item.content, class:'btn btn-info btn-mini'%>
+
+    <%#l'utente è colui che ha postato la risposta %>
+    <%= link_to 'Cancella', response_item, method: :delete, data: {confirm: 'Sei sicuro?'}, title: response_item.content, class:'btn btn-info btn-mini'%>
 
   <% else %>
-      <%# l'utente NON è colui che ha postato la risposta, può mettere mi piace o non mi piace più%>
-      <%# @a = current_answer(response_item) %>
-      <%#= render 'answers/like_answer_form', value: @a%>
 
     <p>
       <h5>Mi piace: <%= response_item.like_answers.count %></h5>
@@ -24,9 +22,9 @@
         <%= form_for(@like_answer) do |f| %>
           <%= f.hidden_field :answer_id, value: response_item.id %>
           <%= image_submit_tag("bottone_mi_piace.png")  %>
+        <% end %>
       <% end %>
     </p>
-         <% end %>
 
-<% end %>
+  <% end %>
 </li>

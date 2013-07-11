@@ -1,48 +1,52 @@
 <% provide :title, 'Informazioni profilo' %>
 
-<div class="row">
-  <div class="span4">
-    <aside>
-      <%= render 'shared/user_info_small' %>
-    </aside>
-    <br />
+<% if signed_in? %>
 
-    <%=  render 'users/menu_profilo' %>
-  </div>
+  <div class="row">
 
-  <div class="span7 anteprimainformazioni">
-    <h3 class="nome center">Informazioni di <%= current_user.name %></h3>
+    <div class="span4">
+      <aside>
+        <%= render 'shared/user_info_small' %>
+      </aside>
+      <%=  render 'users/menu_profilo' %>
+    </div>
 
-    <div>
-      <p>Nickname: <%= current_user.name %></p>
-      <p>Email: <%= current_user.email %></p>
+    <div class="span7 anteprimainformazioni">
+      <h3 class="nome center">Informazioni di <%= current_user.name %></h3>
 
-      <% if !current_user.birthday.nil? %>
+      <div>
+
+        <p>Nickname: <%= current_user.name %></p>
+        <p>Email: <%= current_user.email %></p>
+
+        <% if !current_user.birthday.nil? %>
           <p>Compleanno: <%= current_user.birthday.strftime('%d - %m - %Y') %></p>
-      <% end %>
+        <% end %>
 
-      <% if !current_user.city.to_s.empty? %>
+        <% if !current_user.city.to_s.empty? %>
           <p>Abiti a: <%= current_user.city %></p>
-      <% end %>
+        <% end %>
 
-
-      <% if !current_user.em_situation.to_s.empty? %>
+        <% if !current_user.em_situation.to_s.empty? %>
           <p>Situazione sentimentale: <%= current_user.em_situation %></p>
-      <% end %>
+        <% end %>
 
-
-      <% if !current_user.employment.to_s.empty? %>
+        <% if !current_user.employment.to_s.empty? %>
           <p>Lavoro: <%= current_user.employment %></p>
-      <% end %>
+        <% end %>
 
-      <p>Numero di figli: <%= current_user.n_children %></p>
+        <p>Numero di figli: <%= current_user.n_children %></p>
 
-      <% if !current_user.description.to_s.empty? %>
+        <% if !current_user.description.to_s.empty? %>
           <p>Descrizione: <%= current_user.description %></p>
-      <% end %>
+        <% end %>
 
         <%= render 'children/children' %>
 
+      </div>
     </div>
-       </div>
   </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

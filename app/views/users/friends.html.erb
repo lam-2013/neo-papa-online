@@ -1,31 +1,40 @@
 <% provide(:title, @title) %>
 
-<div class="row">
-  <div class="span4">
-    <aside>
-      <%= render 'shared/user_info_small' %>
-    </aside>
-    <br />
+<% if signed_in? %>
 
-    <%=  render 'users/menu_profilo' %>
-  </div>
-  <h1><%= @title %></h1>
+  <div class="row">
 
-  <div class="span4">
-    <% if @users.any? %>
+    <div class="span4">
+      <aside>
+        <%= render 'shared/user_info_small' %>
+      </aside>
+
+      <%=  render 'users/menu_profilo' %>
+    </div>
+
+    <h1><%= @title %></h1>
+
+    <div class="span4">
+      <% if @users.any? %>
         <ul class="users">
           <h3>Followers</h3>
           <%= render @users %>
         </ul>
-        <% end %>
+      <% end %>
     </div>
-  <div class="span4">
-        <% if @users2.any? %>
+
+    <div class="span4">
+      <% if @users2.any? %>
         <ul class="users">
           <h3>Following</h3>
           <h5 class="nome"><%= render @users2 %> </h5>
         </ul>
         <%= will_paginate @users2%>
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
-</div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

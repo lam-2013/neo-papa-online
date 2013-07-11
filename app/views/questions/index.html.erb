@@ -1,21 +1,23 @@
 <% provide :title, 'Domande' %>
 
-<%#= render 'list_category' %>
-<%#=  render 'list_age_groups' %>
+<% if signed_in?%>
 
-<div class="row">
-  <%= render 'questions/menu' %>
-</div>
-<div class="row">
-  <br/>
-  <%= render 'questions/search_form' %>
-</div>
+  <div class="row">
+    <%= render 'questions/menu' %>
+  </div>
 
+  <div class="row">
+    <%= render 'questions/search_form' %>
+  </div>
 
-<h1>Tutte le domande</h1>
+  <h1>Tutte le domande</h1>
 
-<ul class="posts">
-  <%= render @questions %>
-</ul>
+  <ul class="users">
+    <%= render @questions %>
+  </ul>
 
-<%= will_paginate%>
+  <%= will_paginate%>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

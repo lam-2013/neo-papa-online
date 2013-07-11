@@ -10,6 +10,7 @@
   <span class="timestamp">
     Inviato <%= time_ago_in_words(message.created_at) %> fa
   </span>
+
   <% if current_user?(message.recipient) %>
        <%= link_to 'Cancella', message, method: :delete, data: { confirm: 'Sei sicuro?' }, title: message.subject, class:'btn btn-info btn-small' %>
        <%= link_to 'Rispondi', new_message_path(user: message.sender.id, message: message), remote:true, class:'btn btn-info btn-small' %>

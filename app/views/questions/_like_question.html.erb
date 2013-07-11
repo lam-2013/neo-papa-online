@@ -1,6 +1,6 @@
 <%= form_for(current_user.like_questions.build(question_id: @question.id), remote: true) do |f| %>
-    <div><%= f.hidden_field :question_id %></div>
 
+    <div><%= f.hidden_field :question_id %></div>
     <%= image_submit_tag("bottone_mi_piace.png")%>
 
 <% end %>

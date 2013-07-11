@@ -1,28 +1,29 @@
 <% provide :title %>
 
+<% if signed_in? %>
+
+  <div class="row">
+
     <div class="row">
-
-      <%#= render 'questions/list_category' %>
-      <%#=  render 'questions/list_age_groups' %>
-
-      <div class="row">
-        <%= render 'questions/menu' %>
-      </div>
-      <div class="row">
-        <br/>
-        <%= render 'questions/search_form' %>
-      </div>
-
-
-        <div class="span8">
-
-        <% if @user.questions.any? %>
-            <h1 class="offset3">Mie domande: <%= @user.questions.count %></h1>
-            <ol class="questions posts">
-              <%= render @questions %>
-            </ol>
-            <%= will_paginate @questions %>
-        <% end %>
-      </div>
-
+      <%= render 'questions/menu' %>
     </div>
+
+    <div class="row">
+      <%= render 'questions/search_form' %>
+    </div>
+
+    <div class="span8">
+      <% if @user.questions.any? %>
+        <h1 class="offset3">Mie domande: <%= @user.questions.count %></h1>
+        <ol class="users">
+          <%= render @questions %>
+        </ol>
+        <%= will_paginate @questions %>
+      <% end %>
+    </div>
+
+  </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

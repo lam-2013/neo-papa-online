@@ -1,17 +1,22 @@
 <% provide :title, 'Risultati ricerca' %>
 
-<div class="row">
-  <%= render 'questions/menu' %>
-</div>
-<div class="row">
-  <br/>
-  <%= render 'questions/search_form' %>
-</div>
+<% if signed_in? %>
 
+  <div class="row">
+    <%= render 'questions/menu' %>
+  </div>
 
-<h1><%= page_entries_info @questions %></h1>
-<ul class="posts">
-  <%= render @questions %>
-</ul>
+  <div class="row">
+    <%= render 'questions/search_form' %>
+  </div>
 
-<%= will_paginate %>
+  <h1><%= page_entries_info @questions %></h1>
+  <ul class="users">
+    <%= render @questions %>
+  </ul>
+
+  <%= will_paginate %>
+
+<% else %>
+    <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

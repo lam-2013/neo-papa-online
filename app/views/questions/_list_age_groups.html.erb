@@ -3,9 +3,10 @@
 
   <div class="navbar-inner">
     <div class="container">
+
       <ul class="nav pull">
         <% if @age_group.any? %>
-            <li><%= render partial: 'questions/age_group', collection: @age_group %></li>
+          <li><%= render partial: 'questions/age_group', collection: @age_group %></li>
         <% end %>
       </ul>
 

@@ -1,9 +1,15 @@
 <% provide :title, 'Risultati ricerca' %>
 
-<h1><%= page_entries_info @users %></h1>
+<% if signed_in? %>
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+  <h1><%= page_entries_info @users %></h1>
 
-<%= will_paginate %>
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+
+  <%= will_paginate %>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

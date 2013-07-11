@@ -1,81 +1,75 @@
 <% provide :title %>
 
 <% if signed_in? %>
-    <div class="row">
-      <aside class="span4">
+  <div class="row">
+    <aside class="span4">
 
-        <section>
-          <%= render 'shared/user_info' %>
-        </section>
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
 
-        <section>
-          <%= render 'shared/stats' %>
-        </section>
+      <section>
+        <%= render 'shared/stats' %>
+      </section>
 
-        <% if current_user.admin? && !@category.empty? %>
-            <%= render 'shared/list_category_to_accept' %>
-            <% end %>
-      </aside>
-      <aside>
+      <% if current_user.admin? && !@category.empty? %>
+        <%= render 'shared/list_category_to_accept' %>
+      <% end %>
+    </aside>
+
+    <aside>
 
       <div class="span6">
         <% if @feed_items.any? %>
           <h3>Sfoghi</h3>
-          <%=  render 'shared/feed' %>
-          <br/>
+          <%= render 'shared/feed' %>
         <% end %>
 
         <% if @query_items.any? %>
           <h3>Domande</h3>
           <%=  render 'shared/query' %>
-          <br/>
         <% end %>
 
         <% if @answer_items.any? %>
           <h3>Risposte</h3>
-          <%=  render 'shared/answer' %>
+          <%= render 'shared/answer' %>
         <% end %>
 
       </div>
-      </aside>
-    </div>
+    </aside>
+  </div>
 
 <%else%>
-    <div class="row">
-      <div class="span2">
 
+  <div class="row">
+    <div class="span10">
+      <div class="container">
+
+        <%= form_for(:session, url: sessions_path) do |f| %>
+
+          <div class="span4 offset1" >
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+          </div>
+
+          <div class="span4" >
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
+
+          <div class="span2" >
+            <br/>
+            <%= f.submit 'Login', class: 'btn btn-info' %>
+          </div>
+        <% end %>
       </div>
-      <div class="span10">
+    </div>
+  </div>
 
-        <div class="container">
-            <div class="span4 offset1" >
-              <%= form_for(:session, url: sessions_path) do |f| %>
-
-                  <%= f.label :email %>
-                  <%= f.text_field :email %>
-                  </div>
-                  <div class="span4" >
-
-                    <%= f.label :password %>
-                    <%= f.password_field :password %>
-                  </div>
-                  <div class="span2" >
-                    <br/>
-                    <%= f.submit 'Login', class: 'btn btn-info' %>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-
-                  <div class="center">
-                    <h1 class="titolo">Benvenuti in</h1>
-                    <h1 class="titolo2">NEWDAD</h1>
-                    <div class="center">Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-info' %></div>
-                  </div>
-
-
-
-              <% end %>
+  <div class="center">
+    <h1 class="titolo">Benvenuti in</h1>
+    <h1 class="titolo2">NEWDAD</h1>
+    <div class="center">Sei un nuovo utente? <%= link_to 'Registrati ora!', signup_path, class: 'btn btn-info' %></div>
+  </div>
 
 <% end %>
-  </html>

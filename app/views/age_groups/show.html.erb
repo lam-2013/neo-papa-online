@@ -1,5 +1,6 @@
 <% provide :title, 'Domande' %>
 
+<% if signed_in? %>
 <%= render 'questions/list_category' %>
 <%= render 'questions/list_age_groups' %>
 
@@ -10,3 +11,7 @@
   <%= render @questions %>
   <%= will_paginate @questions%>
 </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

@@ -1,10 +1,15 @@
 <% provide :title, 'Messaggi privati' %>
 
+<% if signed_in? %>
+
 <h1>Messaggi ricevuti</h1>
 
+  <ul class="messages">
+    <%= render @messages %>
+  </ul>
 
-<ul class="messages">
-  <%= render @messages %>
-</ul>
+  <%= will_paginate @messages %>
 
-<%= will_paginate @messages %>
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

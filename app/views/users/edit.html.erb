@@ -1,70 +1,65 @@
 <% provide :title, 'Modifica profilo' %>
-<div class="row">
-  <div class="span10">
+<% if signed_in? %>
+  <div class="row">
+    <div class="span10">
+      <div class="row">
 
-<div class="row">
-  <div class="span4">
-    <aside>
-      <%= render 'shared/user_info_small' %>
-    </aside>
-    <br />
+        <div class="span4">
+          <aside>
+            <%= render 'shared/user_info_small' %>
+          </aside>
+          <%=  render 'users/menu_profilo' %>
+        </div>
 
-    <%=  render 'users/menu_profilo' %>
+        <div class="span6">
+          <h1>Modifica il tuo profilo</h1>
+
+          <%= form_for(@user) do |f| %>
+
+            <%= render 'shared/error_messages', object:f.object %>
+
+            <%= f.label :name, 'Nome' %>
+            <%= f.text_field :name %>
+
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+
+            <%= f.label :password_confirmation, 'Conferma password' %>
+            <%= f.password_field :password_confirmation %>
+
+            <%= f.label :n_children, 'Numero di figli'%>
+            <%= f.text_field :n_children %>
+
+            <%= f.label :birthday, 'Compleanno' %>
+            <%= f.date_select :birthday, :include_blank => true %>
+
+            <%= f.label :city, 'Dove abiti'%>
+            <%= f.text_field :city %>
+
+            <%= f.label :em_situation,'Situazione sentimentale'%>
+            <%= f.select :em_situation, ['Single', 'Sposato', 'Separato', 'Divorziato', 'Convivente'], :include_blank => true %>
+
+            <%= f.label :employment, 'Lavoro'%>
+            <%= f.text_field :employment %>
+
+            <%= f.label :description, 'Breve descrizione personale'%>
+            <%= f.text_area :description %>
+
+            <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-info'  %>
+            <%= f.submit 'Salva le modifiche', class: 'btn btn-info' %>
+
+          <% end %>
+
+          <%= gravatar_for @user %>
+          <a href="http://gravatar.com/emails"><br/>Cambia la tua immagine</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-
-  <div class="span6">
-    <h1>Modifica il tuo profilo</h1>
-
-
-    <%= form_for(@user) do |f| %>
-
-        <%= render 'shared/error_messages', object:f.object %>
-
-        <%= f.label :name, 'Nome' %>
-        <%= f.text_field :name %>
-
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.label :password_confirmation, 'Conferma password' %>
-        <%= f.password_field :password_confirmation %>
-
-        <%= f.label :n_children, 'Numero di figli'%>
-        <%= f.text_field :n_children %>
-
-        <%= f.label :birthday, 'Compleanno' %>
-        <%= f.date_select :birthday, :include_blank => true %>
-
-        <%= f.label :city, 'Dove abiti'%>
-        <%= f.text_field :city %>
-
-        <%= f.label :em_situation,'Situazione sentimentale'%>
-        <%= f.select :em_situation, ['Single', 'Sposato', 'Separato', 'Divorziato', 'Convivente'], :include_blank => true %>
-
-        <%= f.label :employment, 'Lavoro'%>
-        <%= f.text_field :employment %>
-
-        <%= f.label :description, 'Breve descrizione personale'%>
-        <%= f.text_area :description %>
-
-        <%= link_to 'Annulla', current_user, role: 'button', class: 'btn btn-info'  %>
-        <%= f.submit 'Salva le modifiche', class: 'btn btn-info' %>
-
-    <% end %>
-
-
-
-
-
-
-
-    <%= gravatar_for @user %>
-    <a href="http://gravatar.com/emails"><br/>Cambia la tua immagine</a>
-  </div>
-</div>
-  </div>
-</div>
+<% else %>
+    <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>

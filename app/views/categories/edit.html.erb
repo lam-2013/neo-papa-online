@@ -1,5 +1,7 @@
 <% provide :title, 'Modifica categoria' %>
 
+<% if signed_in? %>
+
 <h1>Modifica categoria</h1>
 
 <div class="row">
@@ -8,7 +10,6 @@
 
         <%= render 'shared/error_messages', object:f.object %>
 
-        <%#= f.hidden_field :user_id, :value => @category.user_id    %>
         <%= f.label :title, 'Categoria: ' %>
         <%= f.text_field :title %>
 
@@ -16,9 +17,14 @@
           <%= f.submit 'Accetta', class: 'btn btn-info' %>
           <%= link_to 'Cancella', @category, class:'btn btn-info', method: :delete, data: {confirm: 'Sei sicuro?'}%>
         </div>
+
     <% end %>
   </div>
 </div>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
+<% end %>
 
 
 

@@ -2,24 +2,19 @@
 
 <% if signed_in? %>
 
-    <%#= render 'list_category' %>
-    <%#= render 'list_age_groups' %>
-    <div class="row">
-      <%= render 'questions/menu' %>
-    </div>
-    <div class="row">
-      <br/>
-      <%= render 'questions/search_form' %>
-    </div>
+  <div class="row">
+    <%= render 'questions/menu' %>
+  </div>
+  <div class="row">
+    <%= render 'questions/search_form' %>
+  </div>
 
-    <br/>
-
-    <h3 class="center">Domanda</h3>
-    <div class="row">
+  <h3 class="center">Domanda</h3>
+  <div class="row">
     <div class="span9">
 
       <%= link_to gravatar_for (@question.user), @question.user %>
-     <p class="nome"><%= link_to @question.user.name, @question.user %></p>   <br>
+      <p class="nome"><%= link_to @question.user.name, @question.user %></p>   <br>
 
       <%# visualizzazione della domanda %>
       <span class="content">
@@ -27,44 +22,45 @@
         <p><%= category_name(@question) %> </p>
         <p><%= age_groups_name(@question) %></p>
         <p><%= @question.content %></p>
+
         <span class="timestamp">
-         <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
-           </span>
+          <p> Domanda creata <%= time_ago_in_words(@question.created_at) %> fa</p>
         </span>
-      </div>
+      </span>
 
-        <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è colui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
-
-          <%# ho la possibilità di modificare la domanda solo se nessuna ha messo un like o ha risposto a tale domanda %>
-          <% if @response_items.count == 0 && @like_question == 0 %>
-            <%= link_to 'Modifica', edit_question_path(@question), class:'btn btn-info btn-small' %>
-          <% end %>
-
-          <%= link_to 'Cancella', @question, class:'btn btn-info btn-small', method: :delete, data: {confirm: 'Sei sicuro?'}%>
-
-        <% else %>
-          <%# se l'utente che sta visualizzando la domanda non è colui che l'ha postata ha la possibilità di mettere un "Mi piace" o toglierlo %>
-          <%= render 'questions/like_question_form'%>
-
-        <% end %>
-
-        <div>
-        <p id="like">Mi piace: <%= @question.like_questions.count %></p>
-        </div>
     </div>
 
-        <div id="bu">
-        <% if @response_items.any? %>
-            <h3 class="center">Risposte: <%= @response_items.count %></h3>
-            <%= render 'answers/respose' %>
-           <!-- <ol class="posts">
-              <%#= render @answers %>
-            </ol>    -->
-            <%#= will_paginate @answers %>
-        <% end %>
-        </div>
+    <% if @question.user == current_user %> <%# solo se l'utente che sta guardando la domanda è colui che l'ha inserita ha la possibilità di modificarla o cancellarla %>
 
-        <%= render 'questions/answer_form' %>
+    <%# ho la possibilità di modificare la domanda solo se nessuna ha messo un like o ha risposto a tale domanda %>
+      <% if @response_items.count == 0 && @question.like_questions.count == 0 %>
+        <%= link_to 'Modifica', edit_question_path(@question), class:'btn btn-info btn-small' %>
+      <% end %>
 
+      <%= link_to 'Cancella', @question, class:'btn btn-info btn-small', method: :delete, data: {confirm: 'Sei sicuro?'}%>
 
+    <% else %>
+    <%# se l'utente che sta visualizzando la domanda non è colui che l'ha postata ha la possibilità di mettere un "Mi piace" o toglierlo %>
+      <%= render 'questions/like_question_form'%>
+
+    <% end %>
+
+    <div>
+      <p id="like">Mi piace: <%= @question.like_questions.count %></p>
+    </div>
+
+  </div>
+
+  <div>
+    <% if @response_items.any? %>
+      <h3 class="center">Risposte: <%= @response_items.count %></h3>
+      <%= render 'answers/respose' %>
+      <%= will_paginate @response_items %>
+    <% end %>
+  </div>
+
+  <%= render 'questions/answer_form' %>
+
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
 <% end %>

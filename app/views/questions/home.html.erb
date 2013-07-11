@@ -2,23 +2,20 @@
 
 <% if signed_in?%>
 
-  <%#= render 'list_category' %>
-  <%#= render 'list_age_groups' %>
+  <div class="row">
+    <%= render 'questions/menu' %>
+  </div>
 
-      <div class="row">
-        <%= render 'questions/menu' %>
-      </div>
-      <div class="row">
-        <br/>
-        <%= render 'questions/search_form' %>
-      </div>
+  <div class="row">
+    <%= render 'questions/search_form' %>
+  </div>
 
-    <br/>
+  <h1>Le ultime dieci domande</h1>
 
-    <h1>Le ultime dieci domande</h1>
-
-  <ul class="posts">
+  <ul class="users">
     <%= render @questions %>
   </ul>
 
+<% else %>
+  <p>Login non effettuato. <%= link_to 'Home', root_path %> </p>
 <% end %>

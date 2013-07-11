@@ -3,7 +3,6 @@ class LikeAnswersController < ApplicationController
   before_filter :signed_in_user
 
   def create
-
     @like_answer = current_user.like_answers.build(params[:like_answer])
 
     if @like_answer.save
@@ -11,7 +10,6 @@ class LikeAnswersController < ApplicationController
     else
       render 'questions/show'
     end
-
   end
 
   def destroy

@@ -4,7 +4,6 @@ class AnswersController < ApplicationController
   before_filter :correct_user, only: :destroy
 
  def create
-
    @answer = current_user.answers.build(params[:answer])
 
     if @answer.save

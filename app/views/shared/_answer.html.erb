@@ -1,7 +1,7 @@
 
 <% if @answer_items.any? %>
-    <ol class="posts">
-      <%= render partial: 'shared/answer_item', collection: @answer_items %>
-    </ol>
-    <%= will_paginate @answer_items %>
+  <ol class="posts">
+    <%= render partial: 'shared/answer_item', collection: @answer_items %>
+  </ol>
+  <%= will_paginate @answer_items %>
 <% end %>

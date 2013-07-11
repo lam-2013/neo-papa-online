@@ -7,10 +7,10 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @category = Category.where("waiting = 't' and accepted = 'f'")
-    @posts= @user.posts.paginate(page: params[:page])
+    @posts = @user.posts.paginate(page: params[:page])
     @query_items = @user.questions.paginate(page: params[:page])
     @answers = @user.answers.paginate(page: params[:page])
-    @answer_items = current_user.answers.paginate(page: params[:page]) if signed_in?
+    @answer_items = @user.answers.paginate(page: params[:page]) if signed_in?
   end
 
   def new
@@ -105,13 +105,11 @@ class UsersController < ApplicationController
     @a_like.each{ |a_like| @answer2.each{ |answer2| if answer2.id == a_like.answer_id
                                                       @like = @like+1
                                                     end} }
-
   end
 
   def informazioni_profilo
     @user = User.find(params[:id])
     @children = @user.childrens.all
-
   end
 
 
